@@ -1,0 +1,123 @@
+# Version variables to use for the libraries.
+[versions]
+kotlin-version = "1.9.20"
+agp-version = "8.1.3"
+hilt = "2.46.1"
+kotlin-compiler-extension-version = "1.5.4"
+
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.6.1"
+activity-compose = "1.8.0"
+compose-bom = "2023.10.01"
+accompanist-pager-version = "0.32.0"
+
+coroutine-version = '1.7.3'
+serialization-version = "1.6.0"
+ktor-version = '2.3.6'
+
+compose-constraint-version = '1.0.1'
+compose-navigation-version = '2.7.5'
+
+appcompat-version = '1.6.1'
+material-version = '1.10.0'
+lifecycle-version = '2.6.2'
+room-version = '2.6.0'
+hilt-version = '2.48'
+hilt-jetpack-version = "1.1.0"
+compose-hilt-version = "1.1.0"
+datastore-version = "1.0.0"
+play-service-location-version = '21.0.1'
+work-manager-version = "2.8.1"
+coil-version = '2.4.0'
+mockk-version = '1.13.5'
+compose-junit-test-version = "1.5.4"
+
+# Here we add all the libraries/dependencies that we need for our app.
+# A library is identified by group-id-name:library_id_name:version, e.g.
+# androidx.lifecycle:lifecycle-viewmodel:2.6.2   https://androidx.tech/artifacts/lifecycle/lifecycle-viewmodel/
+# io.ktor:ktor-client-core                       https://mvnrepository.com/artifact/io.ktor/ktor-client-core
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+
+# Here we use compose bom. Each bom-version uses the best version of each compose library.
+# Therefore we only have to specifiy a version for the bom library and no other compose library.
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose-junit-test-version" }
+material = { group = "androidx.compose.material", name = "material", version = "1.5.4" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-version" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle-version" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-version" }
+lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle-version" }
+
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "compose-navigation-version" }
+
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-version" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-version" }
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-version" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-version" }
+hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hilt-jetpack-version" }
+hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-jetpack-version" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "compose-hilt-version" }
+
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore-version" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore-version" }
+
+work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-manager-version" }
+
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor-version" }
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor-version" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor-version" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor-version" }
+ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor-version" }
+
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization-version" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine-version" }
+
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat-version" }
+material-old = { group = "com.google.android.material", name = "material", version.ref = "material-version" }
+
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-version" }
+
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist-pager-version" }
+accompanist-pager-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist-pager-version" }
+code-editor = { group = "com.github.Qawaz.compose-code-editor", name = "codeeditor", version = "3.1.1" }
+
+compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "compose-constraint-version" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-service-location-version" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk-version" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin-version" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutine-version" }
+
+[bundles]
+# We can also bundle multiple libraries together.
+# This is useful, if we need the same bundle in multiple modules.
+# Then we only have to import the bundle as a single dependency.
+ktor = [
+    "ktor-client-core",
+    "ktor-client-cio",
+    "ktor-client-logging",
+    "ktor-client-content-negotiation",
+    "ktor-serialization"
+]
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp-version" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin-version" }
