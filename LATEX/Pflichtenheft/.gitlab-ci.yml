@@ -1,0 +1,11 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+techreport:       # This job runs in the build stage, which runs first.
+  stage: build
+  tags: ["latex"]
+  script:
+    - latexmk -pdf techreport.tex
+  artifacts:
+    paths:
+        - techreport.pdf
