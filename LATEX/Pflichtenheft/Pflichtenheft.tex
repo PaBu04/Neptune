@@ -89,13 +89,42 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 
 \section{Musskriterien}
 \label{sec:Zielbestimmungen:Musskriterien}
+\begin{itemize}
+    \item In der App stehen verschiedene Abstimmungsmodi mit unterschiedlichen Eigenschaften bereit
+    \begin{itemize}
+        \item Modus A
+        \item Modus B
+        \item ...
+    \end{itemize}
+    \item Nutzer der App können genau zwei verschiedene Rollen bekleiden. Diese verfügen über voneinander unterschiedliche Eigenschaften, welche je nach gewähltem Abstimmungsmodus variieren können.
+    \begin{itemize}
+        \item Host: Der Host erstellt das Event und fungiert als Administrator. Nur er kann Einladungen für weitere Teilnehmer generieren. Darüber hinaus kann nur er den Abstimmungsmodus auswählen.
+        \item Teilnehmer: Teilnehmer können einem Event beitreten und basierend auf dem von dessen Host gewähltem Abstimmungsmodus über abzuspielende Musik abstimmen.
+    \end{itemize}
+    \item In der App steht ein durchsuchbarer Musikkatalog zur Verfügung.
+    \item Die durch Abstimmung festgelegte Musik wird über externe Musikstreaming-Dienste abgespielt.
+    \item Ein aktiver Internetzugang ist Teilnahmevoraussetzung für jeden Teilnehmer eines in der App erstellten Events.
+    \item Wurde ein Song abgespielt, so soll er innerhalb eines bei Einrichtung der Session festgelegten Intervalls kein zweites Mal abgespielt werden können.
+
+\end{itemize}
 
 \section{Wunschkriterien}
 \label{sec:Zielbestimmungen:Wunschkriterien}
+\begin{itemize}
+    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen.
+    \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
+    \item Nutzer der App sollen sich mit einem Login-System authentifizieren können.
+
+\end{itemize}
 
 \section{Abgrenzungskriterien}
 \label{sec:Zielbestimmungen:Abgrenzungskriterien}
+\begin{itemize}
+    \item Musik soll nicht innerhalb der App selbst abgespielt werden.
+    \item Im Rahmen des Projekts soll keine öffentlich zugängliche API und insgesamt keine Schnittstelle für weitere externe Anwendungen bereitgestellt werden
+    \item Die App soll, abgesehen von einer Internetverbindung, keine weiteren alternativen Netzwerktechnologien wie Bluetooth o.ä. nutzen.
 
+\end{itemize}
 
 
 \chapter{Produkteinsatz}
@@ -103,15 +132,17 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 
 \section{Anwendungsbereich}
 \label{sec:Produkteinsatz:Anwendungsbereich}
-\textbf{}Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen wie studentischen WG- und Wohnheimpartys einfacher und gerechter zu gestalten.
-Die Android-App Neptune bietet Gruppen die Möglichkeit . Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen.
-\textbf{ }
-Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Warteschleife hinzufügen und 
+\textbf{}Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
+Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
+
+Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Abstimmungsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Spotifywarteschlange, sowie die Abstimmungsliste in Neptune. 
+
+Eine vollständige Beschreibung der Anwendungsfälle sind in den Use-Case-Diagrammen zu entnehmen   LINK 
 
 \section{Zielgruppe}
 \label{sec:Produkteinsatz:Zielgruppe}
 \textbf{}
-Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-100 Besucher haben. 
+Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-100 Besucher haben.  
 
 
 \section{Betriebsbedingungen}
@@ -156,13 +187,24 @@ Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von 
 \section{Systemdaten}
 \label{sec:Produktdaten:Systemdaten}
 
-\section{Benutzerdaten}
-\label{sec:Produktdaten:Benutzerdaten}
+Als Systemdaten werden sämtliche Daten zur Generierung der Benutzeroberfläche gespeichert, sowie Sitzungs-IDs oder Geräte-Tokens und Daten zum Auffinden des Servers. (Evt. kommen noch weiter hinzu wie Benutzereinstellungen, Historiendaten (einfachere Suche vllt.),  App-Zustandsdaten, ...)
+
+\section{Nutzerdaten}
+\label{sec:Produktdaten:Nutzerdaten}
+
+Falls das Account-System nicht umgesetzt wird, werden keine sensiblen Nutzerdaten verarbeitet und gespeichert. Ausschließlich die zum Aufruf der Musik-App API benötigten Daten (WELCHE SIND DAS ???) sowie Sitzungs-IDs oder Geräte-Tokens werden verarbeitet und gespeichert.
+Im Fall eines Account-Systems kommen Anmeldedaten, sowie weitere (optionale ???) persönliche Nutzerdaten hinzu.
 
 
 
 \chapter{Systemmodell}
 \label{chap:Systemmodell}
+
+Es erfolgt eine Teilung in Client und Server, wobei auf dem Server der größte Teil der Logik geschieht.
+
+Für den Client könnte eine Model-View-Controller-Architektur verwendet werden. Besonders relevant ist dabei, dass Anfragen an die Musik-API sinnvoll eingegliedert werden, da diese einen großen Teil des App-Umfangs ausmachen. Vermutlich würde man sowohl Musik-API als auch Kommunkation mit dem Server in den Bereich des Controllers einordnen.
+
+Hier evt. noch Grafiken einfügen...
 
 
 
@@ -212,30 +254,40 @@ Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von 
 
 \begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=6cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
       \caption{hostModusSelectPage}
    \end{minipage}
    \hspace{2cm}% Abstand zwischen Bilder
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=6cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
       \caption{hostModusSettingsPage}
    \end{minipage}
    
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=6cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
       \caption{hostControlPage}
    \end{minipage}
    \hspace{2cm}% Abstand zwischen Bilder
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=6cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
       \caption{hostSearchPage}
    \end{minipage}
 \end{figure}
 
 \begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=6cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
       \caption{shareLinkPopUpPage}
+   \end{minipage}
+   \hspace{2cm}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userLeaveGroupPopupPage.png}
+      \caption{userLeaveGroupPopupPage}
+   \end{minipage}
+   
+   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostDeleteGroupPopupPage.png}
+      \caption{hostDeleteGroupPopupPage}
    \end{minipage}
 \end{figure}
 
@@ -277,7 +329,7 @@ In diesem Kapitel werden alle Testfälle und -szenarien definiert, die einen ode
 \section{Testfälle}
 \label{sec:Tests:Testfälle}
 
-Testfälle sind Tests zu aus Benutzersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Benutzereingabe. Eine solche Benutzereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird. (Jede Grundfunktionalität der App wird durch mindestens einen Testfall überprüft.)
+Testfälle sind Tests zu aus Benutzersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Benutzereingabe. Eine solche Benutzereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird.
 
 \begin{itemize}
     \item Starten und Laden der App
@@ -312,11 +364,24 @@ Testszenarien sind eine Folge von atomaren Testfällen, die beispielhaft eine Be
 
 \subsection{Testszenario 1: Eine simple Benutzung}
 \label{subsec:Tests:Testszenarien:1}
-Zwei Nutzer, ein Host und ein normaler Benutzer (???), erstellen eine Gruppe, bzw. treten einer Gruppe bei, schlagen einen Song vor und spielen diesen ab.
+Zwei Nutzer, ein Host (H) und ein normaler Benutzer (N) (???), erstellen eine Gruppe, bzw. treten einer Gruppe bei, schlagen einen Song vor und spielen diesen ab.
 
 \begin{itemize}
-    \item Starten und Laden der App
-    \item ......
+    \item Starten und Laden der App (H, N)
+    \item Gruppenerstellung beginnen (H)
+    \item Auswählen des Modus (H)
+    \item Bestätigung des Modus (H)
+    \item Auswählen der Details des Modus (H)
+    \item Bestätigung der Details des Modus (H)
+    \item Gruppenbeitritt beginnen (N)
+    \item Eingabe des Zugangscodes zum Gruppenbeitritt (N)
+    \item Veranlassen des tatsächlichen Gruppeneitritts (N)
+    \item Öffnene der Songsuche (N)
+    \item Suchen eines Songs (N)
+    \item Hinzufügen eines Songs (N)
+    \item Abstimmen für einen Song (N)
+    \item Lied abspielen (H)
+    \item Verlassen der App (H, N)
 \end{itemize}
 
 
