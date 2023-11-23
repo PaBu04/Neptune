@@ -71,17 +71,35 @@ Simon Schütz und Nils Seibert}
 %% -------------------
 
 \chapter{Einleitung}
-\textbf{}Musik spielt im Leben vieler Menschen eine enorm wichtige Rolle. Insbesondere bei Partys und Zusammenkünften mit Freunden sorgt eine gute Musikauswahl für eine gute Stimmung unter den Anwesenden. Aber auch der umgekehrte Fall ist vielen sicherlich gut bekannt – gefällt die abgespielte Musik den Anwesenden nicht, so kann dies die Stimmung erheblich trüben.
+\label{chap:Einleitung}
+
+\section{Einführung}
+\label{sec:Einleitung:Einführung}
+Musik spielt im Leben vieler Menschen eine enorm wichtige Rolle. Insbesondere bei Partys und Zusammenkünften mit Freunden sorgt eine gute Musikauswahl für eine gute Stimmung unter den Anwesenden. Aber auch der umgekehrte Fall ist vielen sicherlich gut bekannt – gefällt die abgespielte Musik den Anwesenden nicht, so kann dies die Stimmung erheblich trüben.
 
 Nahezu alle der heute gängigen Musikstreaming-Anbieter versuchen bereits mit proprietären Lösungen, dem entgegenzuwirken. In der Praxis jedoch sind die eigens von den Anbietern angebotenen Lösungen häufig nicht praktikabel. Die Ursachen hierfür sind divers, so setzen die von den Anbietern selbst entwickelten Tools häufig voraus, dass alle Teilnehmer über ein bestehendes Abonnement beim entsprechenden Anbieter verfügen. 
 
 Das Ziel des Projekts „Neptune“ ist es, eine praktikable Lösung für die eingangs beschriebene Problematik anzugeben. Hierzu soll im Rahmen des Moduls „Praxis der Softwareentwicklung“ eine Android-App entwickelt werden, mithilfe derer über die bei einer Party oder einem vergleichbaren Event abgespielte Musik entschieden werden kann.
 
 Hierzu sollen die Anwesenden in verschiedenen verfügbaren Abstimmungs-Modi Musikvorschläge einbringen und über diese abstimmen können. Die Musik soll dann über das Endgerät einer weiteren anwesenden Person, des sogenannten „Hosts“, abgespielt werden. 
-Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in die Lage versetzt werden, einen breiten Musikkatalog bereitzustellen.  
+Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in die Lage versetzt werden, einen breiten Musikkatalog bereitzustellen.
 
-\label{chap:Einleitung}
 
+\section{Anwendungsbereich}
+\label{sec:Einleitung:Anwendungsbereich}
+
+Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
+Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
+
+Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Abstimmungsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Spotifywarteschlange, sowie die Abstimmungsliste in Neptune. 
+
+Eine vollständige Beschreibung der Anwendungsfälle sind in den Use-Case-Diagrammen zu entnehmen   LINK
+
+
+\section{Zielgruppe}
+\label{sec:Einleitung:Zielgruppe}
+
+Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben.  
 
 
 \chapter{Zielbestimmungen}
@@ -131,30 +149,8 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 \end{itemize}
 
 
-\chapter{Produkteinsatz}
-\label{chap:Produkteinsatz}
 
-\section{Anwendungsbereich}
-\label{sec:Produkteinsatz:Anwendungsbereich}
-\textbf{}Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
-Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
-
-Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Abstimmungsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Spotifywarteschlange, sowie die Abstimmungsliste in Neptune. 
-
-Eine vollständige Beschreibung der Anwendungsfälle sind in den Use-Case-Diagrammen zu entnehmen   LINK 
-
-\section{Zielgruppe}
-\label{sec:Produkteinsatz:Zielgruppe}
-\textbf{}
-Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben.  
-
-
-\section{Betriebsbedingungen}
-\label{sec:Produkteinsatz:Betriebsbedingungen}
-
-
-
-\chapter{Produktumgebung}
+\chapter{Anforderungen an die Produktumgebung}
 \label{chap:Produktumgebung}
 
 \section{Software}
@@ -212,11 +208,6 @@ Hier evt. noch Grafiken einfügen...
 
 
 
-\chapter{Produktleistungen}
-\label{chap:Produktleistungen}
-
-
-
 \chapter{Benutzeroberfläche}
 \label{chap:Benutzeroberfläche}
 
@@ -226,10 +217,15 @@ Hier evt. noch Grafiken einfügen...
 
 \section{Startmenü}
 \label{sec:Benutzeroberfläche:Startmenü}
-\textbf{}Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
+Der Nutzer landet beim Start der App immer im Startmenü.
 
-\section{Erklärungen}
-\label{sec:Benutzeroberfläche:Erklärungen}
+\section{Participant Ansicht}
+\label{sec:Benutzeroberfläche:participantAnsicht}
+In der Participant Ansicht kann der Nutzer einer Gruppe beitreten und je nach Modus neue Lieder vorschlagen und liken.
+
+\section{Host Ansicht}
+\label{sec:Benutzeroberfläche:hostAnsicht}
+In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für die Session definieren. Des weiteren kann er wie ein Participant Lieder hinzufügen und liken. Zusätzlich kann der Host Lieder aus der Queue löschen und Lieder aus der Vorschlagsliste zur Queue hinzufügen
 
 \section{Grafikentwürfe}
 \label{sec:Benutzeroberfläche:Grafikentwürfe}
@@ -324,6 +320,11 @@ Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitgl
 \textbf{Grundsätzliches zur Qualität}: Diese Qualitätszielbestimmungen werden während allen Projektphasen beachtet und in der Qualitätssicherungsphase intern abgenommen. Die Qualität der App besitzt während allen Projektphasen einen sehr hohen Stellenwert: Sie wird stets als Priorität betrachtet und in der Qualitätssicherungsphase abschließend und eingehend geprüft.
 
 GERICHTSFEST machen
+
+
+
+\chapter{Anwendungsfälle}
+\label{chap:Anwendungsfälle}
 
 
 
@@ -448,6 +449,9 @@ Participant: Teilnehmer einer Session (nicht der Host)
 
 User: Participant oder Host
 
+Queue: In der Queue befinden sich die Lieder, welche als nächstes gespielt werden
+
+Vorschlagsliste: Die Vorschlagsliste enthält alle Lieder welche von einem User vorgeschlagen wurden
 
 
 TODO: Produktleistungen weg, Anwendungsfälle vor Tests, Kapitel 3 mit 1 mergen und Betriebsbedingungen streichen, Produktumgebung evt. überarbeiten zu Betriebsbedingugen/Anforderungen, Produktfunktionen mit den Tests mergen.
