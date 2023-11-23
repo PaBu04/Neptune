@@ -7,7 +7,7 @@
 %% Dr.-Ing. Erik Burger
 %% burger@kit.edu
 %%
-%% See https://sdq.kastel.kit.edu/wiki/Dokumentvorlagen
+%% S ee https://sdq.kastel.kit.edu/wiki/Dokumentvorlagen
 %%
 %% Version 1.0, 2023-11-20
 
@@ -90,30 +90,34 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 \section{Musskriterien}
 \label{sec:Zielbestimmungen:Musskriterien}
 \begin{itemize}
-    \item In der App stehen verschiedene Abstimmungsmodi mit unterschiedlichen Eigenschaften bereit
-    \begin{itemize}
-        \item Modus A
-        \item Modus B
-        \item ...
-    \end{itemize}
-    \item Nutzer der App können genau zwei verschiedene Rollen bekleiden. Diese verfügen über voneinander unterschiedliche Eigenschaften, welche je nach gewähltem Abstimmungsmodus variieren können.
+    \item ALLGEMEINES
+    \item Nutzer der App können genau zwei verschiedene Rollen bekleiden. Diese verfügen über voneinander unterschiedliche Eigenschaften, welche je nach gewähltem Abstimmungsmodus variieren können (GENAUER BEGRIFFLICH DEFINIEREN)
     \begin{itemize}
         \item Host: Der Host erstellt das Event und fungiert als Administrator. Nur er kann Einladungen für weitere Teilnehmer generieren. Darüber hinaus kann nur er den Abstimmungsmodus auswählen.
         \item Teilnehmer: Teilnehmer können einem Event beitreten und basierend auf dem von dessen Host gewähltem Abstimmungsmodus über abzuspielende Musik abstimmen.
     \end{itemize}
-    \item In der App steht ein durchsuchbarer Musikkatalog zur Verfügung.
+    \item In der App stehen verschiedene Abstimmungsmodi mit unterschiedlichen Eigenschaften bereit (AUSARBEITEN)
+    \begin{itemize}
+        \item General Mode
+        \item Playlist Mode
+        \item Genre Mode
+        \item Artist Mode
+        \item ALLE SAUBERER AUSDEFINIEREN, oder darauf verweisen, oder halt nicht, von Stepahns Hochgeladenem nehmen
+        \item Soll rein: Nicht-Spotify-Nutzer können nur abstimmen und nicht selbst vorschlagen.
+    \end{itemize}
+    \item In der App steht ein durchsuchbarer Musikkatalog zur Verfügung. (ÜBERABEITEN, der Katalog kommt per API...)
+    \item 25 NUTZER THEMEATIK sauber definieren: Erstmal nur für 25 Nutzer zugelassen, bis Spotify das approved
     \item Die durch Abstimmung festgelegte Musik wird über externe Musikstreaming-Dienste abgespielt.
-    \item Ein aktiver Internetzugang ist Teilnahmevoraussetzung für jeden Teilnehmer eines in der App erstellten Events.
-    \item Wurde ein Song abgespielt, so soll er innerhalb eines bei Einrichtung der Session festgelegten Intervalls kein zweites Mal abgespielt werden können.
+    \item Wurde ein Song abgespielt, so soll er innerhalb eines bei Einrichtung der Session festgelegten Intervalls kein zweites Mal abgespielt werden können (ÜBERARBEITEN, evt. mit Modus-Definition zusammenfügen)
+    \item Sprachen: Englisch und deutsch (AUSFORMULIEREN)
 
 \end{itemize}
 
 \section{Wunschkriterien}
 \label{sec:Zielbestimmungen:Wunschkriterien}
 \begin{itemize}
-    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen.
+    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen. (LASSEN, oder SAUBER AUSDEFINIEREN) (MARTIN)
     \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
-    \item Nutzer der App sollen sich mit einem Login-System authentifizieren können.
 
 \end{itemize}
 
@@ -142,7 +146,7 @@ Eine vollständige Beschreibung der Anwendungsfälle sind in den Use-Case-Diagra
 \section{Zielgruppe}
 \label{sec:Produkteinsatz:Zielgruppe}
 \textbf{}
-Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-100 Besucher haben.  
+Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben.  
 
 
 \section{Betriebsbedingungen}
@@ -319,6 +323,8 @@ Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitgl
 
 \textbf{Grundsätzliches zur Qualität}: Diese Qualitätszielbestimmungen werden während allen Projektphasen beachtet und in der Qualitätssicherungsphase intern abgenommen. Die Qualität der App besitzt während allen Projektphasen einen sehr hohen Stellenwert: Sie wird stets als Priorität betrachtet und in der Qualitätssicherungsphase abschließend und eingehend geprüft.
 
+GERICHTSFEST machen
+
 
 
 \chapter{Testfälle und -szenarien}
@@ -428,6 +434,22 @@ Zwei Nutzer, ein Host (H) und ein normaler Benutzer (N) (???), erstellen eine Gr
 \chapter{Begriffserklärungen}
 \label{chap:Begriffserklärungen}
 
+System: Gesamtes System, das entwickelt wird (App und Server)
 
+App: Nur das, was auf dem Handy läuft
+
+Server: Alles, was extern auf dem Server abgewickelt wird / entwickelt wird
+
+Session: Eine Gruppe, von einem Host erstellt, mit der Musik vorgeschlagen und abgespielt wird
+
+Host: Ersteller der Session, verwaltet Session, spielt die Musik ab
+
+Participant: Teilnehmer einer Session (nicht der Host)
+
+User: Participant oder Host
+
+
+
+TODO: Produktleistungen weg, Anwendungsfälle vor Tests, Kapitel 3 mit 1 mergen und Betriebsbedingungen streichen, Produktumgebung evt. überarbeiten zu Betriebsbedingugen/Anforderungen, Produktfunktionen mit den Tests mergen.
 \section{}
 \end{document}
