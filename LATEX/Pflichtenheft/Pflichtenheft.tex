@@ -89,18 +89,21 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 \label{sec:Einleitung:Anwendungsbereich}
 
 Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
-Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
+Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen aktiven "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
 
-Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Abstimmungsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Spotifywarteschlange, sowie die Abstimmungsliste in Neptune. 
+Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Vorschlagsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Queue, sowie die Vorschlagsliste in Neptune. Er kann in dieser Ansicht Songs in die Queue hinzufügen und entfernen, sowie Lieder aus der Vorschlagsliste entfernen, dadurch hat der Host weiterhin die volle Kontrolle über die Musikauswahl. Zusätzlich kann er durch die Einstellung
+eines Cooldowns verhindern das diesselben Songs mehrmals mit geringen Abstand gespielt werden.
 
-Eine vollständige Beschreibung der Anwendungsfälle sind in den Use-Case-Diagrammen zu entnehmen   LINK
+Eine vollständige Beschreibung der Anwendungsfälle sind  den Use-Case-Diagrammen zu entnehmen   LINK
 
 
 \section{Zielgruppe}
 \label{sec:Einleitung:Zielgruppe}
 
-Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben.  
+Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben. Das Alter der Zielgruppe liegt dabei bei 18-35 Jahren, in dieser Altersgruppe ist von Vertrautheit bei der Bedingung von Smartphoneapps auszugehen. Darüber hinaus haben eine Mehrheit in dieser Altersgruppe einen Zugang zu Spotify, sowie ein aktuelles Smartphone. Dadurch sind die Zugangsbarrieren für die Benutzung von Neptune sehr niedrig.
 
+Auch für Menschen außerhalb dieser primären Zielgruppe kann Neptune durch sein flexibles und einfaches Design interessant sein. Zum Beispiel ist mit der App auch möglich über die perfekte Entspannungsmusik beim Yoga abzustimmen oder das beliebteste Weihnachtslied in der Großfamilie zu ermitteln. 
+Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschränkt.
 
 \chapter{Zielbestimmungen}
 \label{chap:Zielbestimmungen}
@@ -108,33 +111,62 @@ Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von 
 \section{Musskriterien}
 \label{sec:Zielbestimmungen:Musskriterien}
 \begin{itemize}
-    \item ALLGEMEINES
-    \item Nutzer der App können genau zwei verschiedene Rollen bekleiden. Diese verfügen über voneinander unterschiedliche Eigenschaften, welche je nach gewähltem Abstimmungsmodus variieren können (GENAUER BEGRIFFLICH DEFINIEREN)
+    \item Mithilfe des Systems sollen User gemeinsam auf Veranstaltungen live über die während der Veranstaltung abgespielte Musik entscheiden können
+    \item Hauptbestandteil des Systems ist zum einen ein Entscheidungssystem, welches Usern das Vorschlagen neuer Songs ermöglicht. Zum anderen ermöglicht das System den Usern, in verschiedenen Modi über die abzuspielenden Songs abzustimmen.
+    \item Das System ist in der Lage, Usern einen durchsuchbaren Musikkatalog zur Verfügung zu stellen. Diese werden über entsprechende, auf dem Markt verfügbare Schnittstellen externer Anbieter bereitgestellt. Konkret wird dies im System durch die Einbindung mindestens einer externen API-Schnittstelle eines Musikstreaming-Anbieters realisiert.
     \begin{itemize}
-        \item Host: Der Host erstellt das Event und fungiert als Administrator. Nur er kann Einladungen für weitere Teilnehmer generieren. Darüber hinaus kann nur er den Abstimmungsmodus auswählen.
-        \item Teilnehmer: Teilnehmer können einem Event beitreten und basierend auf dem von dessen Host gewähltem Abstimmungsmodus über abzuspielende Musik abstimmen.
-    \end{itemize}
-    \item In der App stehen verschiedene Abstimmungsmodi mit unterschiedlichen Eigenschaften bereit (AUSARBEITEN)
-    \begin{itemize}
-        \item General Mode
-        \item Playlist Mode
-        \item Genre Mode
-        \item Artist Mode
-        \item ALLE SAUBERER AUSDEFINIEREN, oder darauf verweisen, oder halt nicht, von Stepahns Hochgeladenem nehmen
-        \item Soll rein: Nicht-Spotify-Nutzer können nur abstimmen und nicht selbst vorschlagen.
-    \end{itemize}
-    \item In der App steht ein durchsuchbarer Musikkatalog zur Verfügung. (ÜBERABEITEN, der Katalog kommt per API...)
-    \item 25 NUTZER THEMEATIK sauber definieren: Erstmal nur für 25 Nutzer zugelassen, bis Spotify das approved
-    \item Die durch Abstimmung festgelegte Musik wird über externe Musikstreaming-Dienste abgespielt.
-    \item Wurde ein Song abgespielt, so soll er innerhalb eines bei Einrichtung der Session festgelegten Intervalls kein zweites Mal abgespielt werden können (ÜBERARBEITEN, evt. mit Modus-Definition zusammenfügen)
-    \item Sprachen: Englisch und deutsch (AUSFORMULIEREN)
+        \item Das im Rahmen des Moduls "Praxis der Softwareentwicklung" zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur wenig komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter soll gegeben sein.
+        \begin{itemize}
+            \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt
+            \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Songs in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
+        \end{itemize}
 
-\end{itemize}
+        \end{itemize}
+    \item     Für eine Veranstaltung kann eine sogenannte Session erstellt werden. Participants können dieser beitreten. Darüber hinaus finden alle Entscheidungen über abzuspielende Musik innerhalb der Session statt.
+    \item Das System verwendet zur Entscheidung über abzuspielende Songs ein nach diversen Kriterien konfigurierbares Abstimmungssystem.
+    \begin{itemize}
+        \item Zum einen sind verschiedene Abstimmungsmodi vorgesehen:
+        \begin{itemize}
+            \item (HINWEIS: Explizite Modi füge ich noch hinzu)
+        \end{itemize}
+        \item  (platzhalter zwecks Format)
+    \end{itemize}
+    \item Die User können genau eine der untenstehend aufgeführten Rollen bekleiden. Je nach der individuellen Ausgestaltung der Abstimmungsmodi ist die Rolle eines Users entscheidend in Hinblick auf die Entscheidungsfindung zur abzuspielenden Musik.
+    \begin{itemize}
+        \item Host: Der Host ist der Ersteller einer Session. Auf der einen Seite verwaltet er sie und kann sie auflösen, auf der anderen Seite wird die abzuspielende Musik über sein Endgerät abgespielt.
+        \item Participant: Alle Teilnehmer einer Session, welche nicht der Host sind, bekleiden automatisch die Rolle Participant. Participants können basierend auf den gewählten Abstimmungsparametern neue Songs vorschlagen und/oder über vorgeschlagene Songs abstimmen. 
+    \end{itemize}
+    \item Die abzuspielende Musik wird über externe Anbieter abgespielt. Hierbei wird analog zur Einbindung von Musikstreaming-Anbietern bereitgestellter externer Schnittstellen vorgegangen.
+    \item  Den Usern stehen für die Bedienung und das User-Interface der App folgende Sprachen zur Verfügung, zwischen welchen sie frei wechseln können:
+    \begin{itemize}
+        \item Englisch: Durch die weite Verbreitung der englischen Sprache sorgt ihre Unterstützung innerhalb der App dafür, dass die erreichbare Zielgruppe stark wächst, ohne direkt nativ eine Vielzahl von Sprachen unterstützen zu müssen.
+        \item Deutsch: \textit{(\rightarrow muss hier eine Begruendung hin?)}
+    \end{itemize}
+    
+    \end{itemize}
+
 
 \section{Wunschkriterien}
 \label{sec:Zielbestimmungen:Wunschkriterien}
 \begin{itemize}
-    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen. (LASSEN, oder SAUBER AUSDEFINIEREN) (MARTIN)
+    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen. (LASSEN, oder SAUBER)
+    
+    Statistik Ideen:
+    Statistik wird beim Verlassen angezeigt und /oder durch einen button in der oberen Leiste
+    Statistik als Bild ausgebbar und teilbar über Standartandroid Schnittstelle
+    Statistik für alle Participant und Host einsehbar
+    Mögliche Elemente der Statistik
+    \begin{itemize}
+        \item Song mit meisten Votes der Session
+        \item Genre mit den meisten Votes der Session
+        \item Artist mit den meisten Votes der Session
+        \item Anzahl abgespielte Songs in der Session
+        \item Dauer der Session
+        \item Anzahl Teilnehmer in der Session (über GeräteId) ?
+        \item Verteilte Herzen in Session
+        \item meistgespielter Künstler / Genre
+    \end{itemize}
+  
     \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
 
 \end{itemize}
@@ -153,19 +185,20 @@ Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von 
 \chapter{Anforderungen an die Produktumgebung}
 \label{chap:Produktumgebung}
 
-\section{Software}
-\label{sec:Produktumgebung:Software}
+\section{Softwareanforderungen}
+\label{sec:Produktumgebung:Softwareanforderungen}
 
 \begin{itemize}
     \item Spotify API
     \item ...
 \end{itemize}
 
-\section{Hardware}
-\label{sec:Produktumgebung:Hardware}
+\section{Hardwareanforderungen}
+\label{sec:Produktumgebung:Hardwareanforderungen}
 
 \begin{itemize}
     \item Smartphone mit mindestens Android 7.0
+    \item Server
 \end{itemize}
 
 
@@ -326,6 +359,60 @@ GERICHTSFEST machen
 \chapter{Anwendungsfälle}
 \label{chap:Anwendungsfälle}
 
+In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case Diagrammen anschaulich gemacht.
+
+\section{App Start}
+\label{sec:Anwendungsfälle:App Start}
+
+\begin{figure}[h]
+    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case App Start.png}
+    \caption{App Start}
+    \label{fig:Use Case App Start}
+\end{figure}
+
+\newpage
+
+\section{General Mode}
+\label{sec:Anwendungsfälle:General Mode}
+
+\begin{figure}[h]
+    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case General Mode.png}
+    \caption{General Mode}
+    \label{fig:Use Case General Mode}
+\end{figure}
+
+\newpage
+
+\section{Artist Mode}
+\label{sec:Anwendungsfälle:Artist Mode}
+
+\begin{figure}[h]
+    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Artist Mode.png}
+    \caption{Artist Mode}
+    \label{fig:Use Case Artist Mode}
+\end{figure}
+
+\newpage
+
+\section{Genre Mode}
+\label{sec:Anwendungsfälle:Genre Mode}
+
+\begin{figure}[h]
+    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Genre Mode.png}
+    \caption{Genre Mode}
+    \label{fig:Use Case Genre Mode}
+\end{figure}
+
+\newpage
+
+\section{Playlist Mode}
+\label{sec:Anwendungsfälle:Playlist Mode}
+
+\begin{figure}[h]
+    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Playlist Mode.png}
+    \caption{Playlist Mode}
+    \label{fig:Use Case Playlist Mode}
+\end{figure}
 
 
 \chapter{Testfälle und -szenarien}
@@ -435,25 +522,38 @@ Zwei Nutzer, ein Host (H) und ein normaler Benutzer (N) (???), erstellen eine Gr
 \chapter{Begriffserklärungen}
 \label{chap:Begriffserklärungen}
 
-System: Gesamtes System, das entwickelt wird (App und Server)
+\textbf{System}
+ - Das gesamte zu entwickelnde Softwaresystem, Überbegriff von App und Server
 
-App: Nur das, was auf dem Handy läuft
+\textbf{App}
+ - Der Teil des Softwaresystems, der auf dem Android-Gerät des Nutzers läuft
 
-Server: Alles, was extern auf dem Server abgewickelt wird / entwickelt wird
+\textbf{Server}
+ - Der Teil des Softwaresystems, der nicht auf dem Android-Gerät des Nutzers, sondern auf einem zentralen und externen Server läuft
 
-Session: Eine Gruppe, von einem Host erstellt, mit der Musik vorgeschlagen und abgespielt wird
+\textbf{Produkt}
+ - Der Zustand, in dem das System nach Fertigstellung sein wird
 
-Host: Ersteller der Session, verwaltet Session, spielt die Musik ab
+\textbf{Session}
+ - Eine Gruppe aus Participants und einem Gruppenersteller, dem Host. In ihr kann Musik vorgeschlagen und vom Host abegspielt werden
 
-Participant: Teilnehmer einer Session (nicht der Host)
+\textbf{Host}
+ - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant)
 
-User: Participant oder Host
+\textbf{Participant}
+ - Teilnehmer einer Session, der Musik vorschlagen und darüber abstimmen kann (nicht der Host)
 
-Queue: In der Queue befinden sich die Lieder, welche als nächstes gespielt werden
+\textbf{User}
+ - Jeder Benutzer der App, Participant und Host sind User
+ 
+\textbf{Queue}
+ - Liste von Liedern, welche als nächstes durch den Musikdienst (Spotify) abgespielt werden
 
-Vorschlagsliste: Die Vorschlagsliste enthält alle Lieder welche von einem User vorgeschlagen wurden
+\textbf{Vorschlagsliste}
+ - Liste von Liedern, die von einem User vorgeschlagen wurden
 
 
-TODO: Produktleistungen weg, Anwendungsfälle vor Tests, Kapitel 3 mit 1 mergen und Betriebsbedingungen streichen, Produktumgebung evt. überarbeiten zu Betriebsbedingugen/Anforderungen, Produktfunktionen mit den Tests mergen.
+TODO: Produktumgebung evt. überarbeiten zu Betriebsbedingugen/Anforderungen, Produktfunktionen mit den Tests mergen.
+
 \section{}
 \end{document}
