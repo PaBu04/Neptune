@@ -115,14 +115,14 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \item Hauptbestandteil des Systems ist zum einen ein Entscheidungssystem, welches Usern das Vorschlagen neuer Songs ermöglicht. Zum anderen ermöglicht das System den Usern, in verschiedenen Modi über die abzuspielenden Songs abzustimmen.
     \item Das System ist in der Lage, Usern einen durchsuchbaren Musikkatalog zur Verfügung zu stellen. Diese werden über entsprechende, auf dem Markt verfügbare Schnittstellen externer Anbieter bereitgestellt. Konkret wird dies im System durch die Einbindung mindestens einer externen API-Schnittstelle eines Musikstreaming-Anbieters realisiert.
     \begin{itemize}
-        \item Das im Rahmen des Moduls "Praxis der Softwareentwicklung" zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur wenig komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter soll gegeben sein.
+        \item Das im Rahmen des Moduls "Praxis der Softwareentwicklung" zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
         \begin{itemize}
-            \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt
+            \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt.
             \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Songs in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
         \end{itemize}
 
         \end{itemize}
-    \item     Für eine Veranstaltung kann eine sogenannte Session erstellt werden. Participants können dieser beitreten. Darüber hinaus finden alle Entscheidungen über abzuspielende Musik innerhalb der Session statt.
+    \item Für eine Veranstaltung kann eine sogenannte Session durch den Host erstellt werden. Participants können dieser beitreten. Alle Entscheidungen über abzuspielende Musik finden innerhalb der Session statt.
     \item Das System verwendet zur Entscheidung über abzuspielende Songs ein nach diversen Kriterien konfigurierbares Abstimmungssystem.
     \begin{itemize}
         \item Zum einen sind verschiedene Abstimmungsmodi vorgesehen:
@@ -140,7 +140,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \item  Den Usern stehen für die Bedienung und das User-Interface der App folgende Sprachen zur Verfügung, zwischen welchen sie frei wechseln können:
     \begin{itemize}
         \item Englisch: Durch die weite Verbreitung der englischen Sprache sorgt ihre Unterstützung innerhalb der App dafür, dass die erreichbare Zielgruppe stark wächst, ohne direkt nativ eine Vielzahl von Sprachen unterstützen zu müssen.
-        \item Deutsch: \textit{(\rightarrow muss hier eine Begruendung hin?)}
+        \item Deutsch: \textit{(--> muss hier eine Begruendung hin?)}
     \end{itemize}
     
     \end{itemize}
@@ -167,7 +167,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
         \item meistgespielter Künstler / Genre
     \end{itemize}
   
-    \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
+    \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen. (soll das Kann-Kriterium bleiben ???)
 
 \end{itemize}
 
@@ -203,17 +203,6 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 
 
 
-\chapter{Produktfunktionen}
-\label{chap:Produktfunktionen}
-
-\section{Grundfunktionen}
-\label{sec:Produktfunktionen:Software}
-
-\section{Erweiterte Funktionen}
-\label{sec:Produktfunktionen:Hardware}
-
-
-
 \chapter{Produktdaten}
 \label{chap:Produktdaten}
 
@@ -226,7 +215,6 @@ Als Systemdaten werden sämtliche Daten zur Generierung der Benutzeroberfläche 
 \label{sec:Produktdaten:Nutzerdaten}
 
 Falls das Account-System nicht umgesetzt wird, werden keine sensiblen Nutzerdaten verarbeitet und gespeichert. Ausschließlich die zum Aufruf der Musik-App API benötigten Daten (WELCHE SIND DAS ???) sowie Sitzungs-IDs oder Geräte-Tokens werden verarbeitet und gespeichert.
-Im Fall eines Account-Systems kommen Anmeldedaten, sowie weitere (optionale ???) persönliche Nutzerdaten hinzu.
 
 
 
@@ -338,21 +326,19 @@ Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitgl
 \chapter{Qualitätszielbestimmungen}
 \label{chap:Qualitätszielbestimmungen}
 
-\textbf{Korrekte Funktionalität}: Die korrekte Funktionalität der App muss gewährleistet sein. Maßgeblich zur Definition dieser korrekten Funktionalität ist dieses Pflichtenheft und insbesondere die Musskriterien aus dem Kapitel der Zielbestimmungen (\ref{sec:Zielbestimmungen:Musskriterien}).
+\textbf{Korrekte Funktionalität}: Die korrekte Funktionalität der App muss gewährleistet sein. Maßgeblich zur Definition dieser korrekten Funktionalität ist dieses Pflichtenheft und insbesondere die Musskriterien aus dem Kapitel der Zielbestimmungen (Kapitel \ref{sec:Zielbestimmungen:Musskriterien}).
 
-\textbf{Benutzerfreundlichkeit}: Die App soll eine einfache und intuitive Benutzererfahrung bieten. Die Navigation innerhalb der App soll für alle Benutzer leicht verständlich sein, ohne dass diese eine Einführung in die App-Bedienung benötigen.
+\textbf{Benutzerfreundlichkeit}: Die App soll eine einfache und intuitive Benutzererfahrung bieten. Die Navigation innerhalb der App soll für alle Benutzer leicht verständlich sein, ohne dass diese eine Einführung in die App-Bedienung benötigen. Das maßgebliche Kriterium dafür ist, dass Benutzer der Zielgruppe (Kapitel \ref{sec:Einleitung:Zielgruppe}) die App bei der ersten Benutzung innerhalb von zwei Minuten problemlos navigieren können laut eigener Einschätzung. (ist so ok ???)
 
-\textbf{Schnelligkeit}: Die App soll durch Reaktionsschnelligkeit ein flüssiges und ansprechendes Nutzungserlebnis ermöglichen. Jede Schaltflächenbedienung soll eine unmittelbares Feedback für den Benutzer auslösen, ohne dass dieser eine Wartezeit bemerkt, solange das Endgerät hinreichend aktuell ist.
+\textbf{Schnelligkeit}: Die App soll durch Reaktionsschnelligkeit ein flüssiges und ansprechendes Nutzungserlebnis ermöglichen. Das maßgebliche Kriterium dafür ist, dass jede Schaltflächenbedienung ein unmittelbares Feedback für den Benutzer auslöst, ohne dass dieser eine Wartezeit bemerkt, solange das Endgerät hinreichend aktuell ist. Hinreichend aktuell sind dabei insbesondere Geräte, die weniger als ein Jahr alt sind und die aktuellste verfügbare Betriebssystemversion installiert haben.
 
-\textbf{Sicherheit der Benutzerdaten}: Es ist essentiell, dass die persönlichen Daten der Benutzer geschützt sind. Jegliche Interaktion mit und Datenverarbeitung durch die App muss datenschutzkonform sein und Datensicherheit bieten.
+\textbf{Sicherheit der Benutzerdaten}: Es ist essentiell, dass die persönlichen Daten der Benutzer geschützt sind. Jegliche Interaktion mit und Datenverarbeitung durch die App muss datenschutzkonform sein und Datensicherheit bieten. Maßgeblich ist dafür die gesetzliche Regelung.
 
-\textbf{Stabilität und Zuverlässigkeit}: Die App muss robust sein und selbst unter Last und bei mäßig vielen gleichzeitigen Benutzern stabil bleiben, sodass Abstürze oder unerwartete Fehler weitestgehend vermieden werden.
+\textbf{Stabilität und Zuverlässigkeit}: Die App muss robust sein und selbst unter Last und bei mäßig vielen gleichzeitigen Benutzern stabil bleiben, sodass Abstürze oder unerwartete Fehler weitestgehend vermieden werden. Das maßgebliche Kriterium dafür sind die Testszenarien mit zahlreichen gleichzeitigen Usern. (solche Tests auch einfügen !!!)
 
-\textbf{Wartbarkeit und Portierungsmöglichkeiten}: Die Architektur der App soll gut wartbar sein, um zukünftige Anpassungen oder Erweiterungen zu ermöglichen. Zudem soll die Architektur die Möglichkeit zur verhältnismäßig einfachen Portierung der App auf andere mobile Betriebssysteme wie iOS bieten. 
+\textbf{Wartbarkeit und Portierungsmöglichkeiten}: Die Architektur der App soll gut wartbar sein, um zukünftige Anpassungen oder Erweiterungen zu ermöglichen. Zudem soll die Architektur die Möglichkeit zur verhältnismäßig einfachen Portierung der App auf andere mobile Betriebssysteme wie iOS bieten. Dazu soll möglichst viel Logik auf dem Server geschehen, wie im Systemmodell beschrieben (Kapitel \ref{chap:Systemmodell}). Für diese Qualitätszielbestimmung existiert absichtlich kein gerichtsfestes Kriterium zur Überprüfung, maßgeblich ist die subjektive Einschätzung von Betrachtern des Systems. Die Erfüllung dieser Qualitätszielbestimmung ist im Verhältnis zu den anderen Bestimmungen nachrangig.
 
 \textbf{Grundsätzliches zur Qualität}: Diese Qualitätszielbestimmungen werden während allen Projektphasen beachtet und in der Qualitätssicherungsphase intern abgenommen. Die Qualität der App besitzt während allen Projektphasen einen sehr hohen Stellenwert: Sie wird stets als Priorität betrachtet und in der Qualitätssicherungsphase abschließend und eingehend geprüft.
-
-GERICHTSFEST machen
 
 
 
@@ -415,67 +401,132 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \end{figure}
 
 
+
 \chapter{Testfälle und -szenarien}
 \label{chap:Tests}
 
-In diesem Kapitel werden alle Testfälle und -szenarien definiert, die einen oder mehrere Benutzer des fertiggestellten Produkts durchgeführt werden. Die hier definierten Testfälle sollen deshalb explizit keine technischen Funktionalitäten testen, die ausreichend detailliert erst während der Entwurfsphase festgelegt werden. Solche technischen Funktionalitäten werden durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
+In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch einen oder mehrere Benutzer des Produkts durchgeführt werden können. Die hier definierten Testfälle sollen deshalb explizit keine technischen Funktionalitäten testen, die ausreichend detailliert erst während der Entwurfsphase festgelegt werden. Solche technischen Funktionalitäten werden durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
 
 \section{Testfälle}
 \label{sec:Tests:Testfälle}
 
 Testfälle sind Tests zu aus Benutzersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Benutzereingabe. Eine solche Benutzereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird.
 
-\begin{itemize}
+\begin{enumerate}
     \item Starten und Laden der App
     \item Verlassen der App
     \item Beenden der App
-    \item Gruppenbeitritt beginnen
-    \item Gruppenbeitritt verlassen
-    \item Eingabe des Zugangscodes zum Gruppenbeitritt
-    \item Veranlassen des tatsächlichen Gruppenbeitritts
-    \item Verlassen der Gruppe
-    \item Abstimmen für einen Song
-    \item Öffnen der Songsuche
-    \item Verlassen der Songsuche
-    \item Suchen eines Songs
-    \item Hinzufügen eines Songs
-    \item Gruppenerstellung beginnen
-    \item Gruppenerstellung verlassen (Modus-Eigenschaften)
-    \item Auswählen des Modus (evt. noch nicht atomar genug)
-    \item Bestätigung des Modus
-    \item Gruppenerstellung verlassen (Modus-Details)
+    \item Beginnen des Sessionbeitrittsvorgangs
+    \item Verlassen des Sessionbeitrittsvorgangs
+    \item Eingabe des Zugangscodes zum Sessionbeitritt
+    \item Bestätigung des Zugangscodes zum Sessionbeitritt
+    \item Verlassen der Session (als Participant)
+    \item Upvote für einen Song (als Participant)
+    \item Nach geupvoteten Songs filtern (als Participant) (was heißt das ???)
+    \item Entfernen von Upvote von einem Song (als Participant)
+    \item Öffnen der Songsuche (als Active Participant)
+    \item Verlassen der Songsuche (als Active Participant)
+    \item Suchen eines Songs (als Active Participant)
+    \item Vorschlagen eines Songs (als Active Participant)
+    \item Beginnen der Sessionerstellung
+    \item Verlassen der Sessionerstellung (in der Modus-Wahl)
+    \item Wahl des Modus
+    \item Zurückgehen in der Sessionerstellung (von den Modus-Details zur Modus-Wahl)
+    \item Auswählen der Details des Modus
+    \begin{itemize}
+        \item Auswählen der Artists / der Genres /der Playlist (je nach Modus)
+        \item Einstellen des Cool-Downs, wann ein Lied erneut vorgeschlagen werden kann
+    \end{itemize}
+    \item Bestätigung der Details des Modus
+    \item Löschen der Gruppe (als Host)
+    \item Editieren der Queue (muss noch detaillierter werden) (als Host)
+    \item Editieren der Vorschlagsliste (muss noch detaillierter werden) (als Host)
+    \item Sperren eines Liedes (muss noch detaillierter werden)
+\end{enumerate}
+
+\section{Grundlegende Testszenarien}
+\label{sec:Tests:GrundlegendeTestszenarien}
+
+Grundlegende Testszenarien sind eine überschaubare und besonders essentielle Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen oder bereits zuvor definierten grundlegenden Testszenarien zusammen.
+
+\subsection{Grundlegendes Testszenario 1 (G1): Erstellen einer Session mit Modus $M$}
+\label{subsec:Tests:GrundlegendeTestszenarien:G1}
+Ein User erstellt eine Session und wird so zu ihrem Host.
+\begin{itemize}
+    \item Starten und Laden der App
+    \item Beginnen der Sessionerstellung
+    \item Wahl des Modus $M$
     \item Auswählen der Details des Modus
     \item Bestätigung der Details des Modus
-    \item Gruppe löschen
-    \item Lied abspielen
-    \item .......?
 \end{itemize}
 
-\section{Testszenarien}
-\label{sec:Tests:Testszenarien}
 
-Testszenarien sind eine Folge von atomaren Testfällen, die beispielhaft eine Benutzerinteraktion durchspielen.
-
-\subsection{Testszenario 1: Eine simple Benutzung}
-\label{subsec:Tests:Testszenarien:1}
-Zwei Nutzer, ein Host (H) und ein normaler Benutzer (N) (???), erstellen eine Gruppe, bzw. treten einer Gruppe bei, schlagen einen Song vor und spielen diesen ab.
-
+\subsection{Grundlegendes Testszenario 2 (G2): Beitritt einer Session mit Modus $M$ als Active Participant}
+\label{subsec:Tests:GrundlegendeTestszenarien:G2}
+Ein User, tritt als Active Participant einer Session mit Modus $M$ bei, die von einem anderen User als Host erstellt wurde.
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Starten und Laden der App (H, N)
-    \item Gruppenerstellung beginnen (H)
-    \item Auswählen des Modus (H)
-    \item Bestätigung des Modus (H)
-    \item Auswählen der Details des Modus (H)
-    \item Bestätigung der Details des Modus (H)
-    \item Gruppenbeitritt beginnen (N)
-    \item Eingabe des Zugangscodes zum Gruppenbeitritt (N)
-    \item Veranlassen des tatsächlichen Gruppeneitritts (N)
-    \item Öffnene der Songsuche (N)
-    \item Suchen eines Songs (N)
-    \item Hinzufügen eines Songs (N)
-    \item Abstimmen für einen Song (N)
-    \item Lied abspielen (H)
-    \item Verlassen der App (H, N)
+    \item Starten und Laden der App
+    \item Beginnen des Sessionbeitrittsvorgangs
+    \item Eingabe des Zugangscodes zum Sessionbeitritt
+    \item Bestätigung des Zugangscodes zum Sessionbeitritt
+\end{itemize}
+
+
+\subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session mit Modus $M$ als Passive Participant}
+\label{subsec:Tests:GrundlegendeTestszenarien:G3}
+Ein User, tritt als Passive Participant einer Session mit Modus $M$ bei, die von einem anderen User als Host erstellt wurde.
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
+\begin{itemize}
+    \item Starten und Laden der App
+    \item Beginnen des Sessionbeitrittsvorgangs
+    \item Eingabe des Zugangscodes zum Sessionbeitritt
+    \item Bestätigung des Zugangscodes zum Sessionbeitritt
+\end{itemize}
+
+\subsection{Grundlegendes Testszenario 4 (G4): Vorschlagen eines Songs}
+\label{subsec:Tests:GrundlegendeTestszenarien:G4}
+Ein User, der schon als Active Particpant einer Session mit Modus $M$ beigetreten ist, die von einem anderen User als Host erstellt wurde, schlägt einen Song vor. \\
+Dazu muss bereits G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) abgelaufen sein.
+\begin{itemize}
+    \item Öffnen der Songsuche
+    \item Suchen eines Songs
+    \item Vorschlagen eines Songs
+\end{itemize}
+
+\subsection{Grundlegendes Testszenario 5 (G5): Upvoten eines Songs}
+\label{subsec:Tests:GrundlegendeTestszenarien:G5}
+Ein User, der schon als Participant einer Session mit Modus $M$ beigetreten ist, die von einem anderen User als Host erstellt wurde, votet einen Song up. \\
+Dazu muss bereits G2 oder G3 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2} oder \ref{subsec:Tests:GrundlegendeTestszenarien:G3}) abgelaufen sein.
+\begin{itemize}
+    \item Upvote für einen Song
+\end{itemize}
+
+\subsection{Grundlegendes Testszenario 6 (G6): Hinzufügen eines vorgeschlagenen Songs zur Queue}
+\label{subsec:Tests:GrundlegendeTestszenarien:G6}
+Der Host fügt einen von Active Participants vorgeschlagenen Song in einer Session mit Modus $M$ zur Queue hinzu.
+Dazu muss bereits G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) und danach G4 (\ref{subsec:Tests:GrundlegendeTestszenarien:G4}) abgelaufen sein.
+\begin{itemize}
+    \item Editieren der Queue (muss noch detaillierter werden) (als Host) (?????)
+\end{itemize}
+
+
+
+\section{Erweiterte Testszenarien}
+\label{sec:Tests:ErweiterteTestszenarien}
+
+Erweiterte Testszenarien sind eine nicht-essentielle und möglicherweise längere Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen und grundlegenden Testszenarien zusammen.
+
+\subsection{Erweitertes Testszenario 1 (E1): Ein vorgeschlagener und einmal upgevoteter Song wird der Queue hinzugefügt}
+\label{subsec:Tests:ErweiterteTestszenarien:E1}
+Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passive Partipant (PP) beitreten. AP schlägt einen Song vor, den PP upvotet und H dann in die Queue hinzufügt.
+\begin{itemize}
+    \item G1 (H)
+    \item G2 (AP)
+    \item G3 (PP)
+    \item G4 (AP)
+    \item G5 (PP)
+    \item G6 (H)
 \end{itemize}
 
 
@@ -523,37 +574,43 @@ Zwei Nutzer, ein Host (H) und ein normaler Benutzer (N) (???), erstellen eine Gr
 \label{chap:Begriffserklärungen}
 
 \textbf{System}
- - Das gesamte zu entwickelnde Softwaresystem, Überbegriff von App und Server
+ - Das gesamte zu entwickelnde Softwaresystem, Überbegriff von App und Server.
 
 \textbf{App}
- - Der Teil des Softwaresystems, der auf dem Android-Gerät des Nutzers läuft
+ - Der Teil des Softwaresystems, der auf dem Android-Gerät des Nutzers läuft.
 
 \textbf{Server}
- - Der Teil des Softwaresystems, der nicht auf dem Android-Gerät des Nutzers, sondern auf einem zentralen und externen Server läuft
+ - Der Teil des Softwaresystems, der nicht auf dem Android-Gerät des Nutzers, sondern auf einem zentralen und externen Server läuft.
 
 \textbf{Produkt}
- - Der Zustand, in dem das System nach Fertigstellung sein wird
+ - Der Zustand, in dem das System nach Fertigstellung sein wird.
 
 \textbf{Session}
- - Eine Gruppe aus Participants und einem Gruppenersteller, dem Host. In ihr kann Musik vorgeschlagen und vom Host abegspielt werden
+ - Eine Gruppe aus Participants und einem Gruppenersteller, dem Host. In ihr kann Musik vorgeschlagen und vom Host abgespielt werden.
 
 \textbf{Host}
- - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant)
+ - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant).
 
 \textbf{Participant}
- - Teilnehmer einer Session, der Musik vorschlagen und darüber abstimmen kann (nicht der Host)
+ - Teilnehmer einer Session (nicht der Host). Überbegriff für Active Participant und Passive Participant.
+
+\textbf{Active Participant}
+ - Mit dem Musikdienst verknüpfter Participant, der Musik vorschlagen und darüber abstimmen kann.
+
+\textbf{Passive Participant}
+ - Nicht mit dem Musikdienst verknüpfter Participant, der nur über Vorschläge von anderen abstimmen kann.
 
 \textbf{User}
- - Jeder Benutzer der App, Participant und Host sind User
+ - Jeder Benutzer der App, Participant und Host sind User.
+
+\textbf{Musikdienst}
+ - Der Musik-Streaminganbieter, über den die App Musik abspielt. Bei unserer App ist das Spotify.
  
 \textbf{Queue}
- - Liste von Liedern, welche als nächstes durch den Musikdienst (Spotify) abgespielt werden
+ - Liste von Liedern, welche als nächstes durch den Musikdienst (Spotify) abgespielt werden.
 
 \textbf{Vorschlagsliste}
- - Liste von Liedern, die von einem User vorgeschlagen wurden
+ - Liste von Liedern, die von einem User vorgeschlagen wurden.
 
 
-TODO: Produktumgebung evt. überarbeiten zu Betriebsbedingugen/Anforderungen, Produktfunktionen mit den Tests mergen.
-
-\section{}
 \end{document}
