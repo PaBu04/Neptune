@@ -21,8 +21,7 @@
 %% ---------------------------------
 
 %% Name of the group and authors
-\author{von Neptun - \\
-Paul Buda, Martin Scheuermann, Stephan Schneider, \\
+\author{Paul Buda, Martin Scheuermann, Stephan Schneider, \\
 Simon Schütz und Nils Seibert}
 
 %% Title (and possibly subtitle) of the thesis
@@ -122,7 +121,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
         \end{itemize}
 
         \end{itemize}
-    \item Für eine Veranstaltung kann eine sogenannte Session durch den Host erstellt werden. Participants können dieser beitreten. Alle Entscheidungen über abzuspielende Musik finden innerhalb der Session statt.
+    \item Für eine Veranstaltung kann eine sogenannte Session durch den Host erstellt werden. Participants können dieser mithilfe eines sechsstelligen Beitrittscodes beitreten. Alle Entscheidungen über abzuspielende Musik finden innerhalb der Session statt.
     \item Das System verwendet zur Entscheidung über abzuspielende Songs ein nach diversen Kriterien konfigurierbares Abstimmungssystem.
     \begin{itemize}
         \item Zum einen sind verschiedene Abstimmungsmodi vorgesehen:
@@ -142,32 +141,24 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
         \item Englisch: Durch die weite Verbreitung der englischen Sprache sorgt ihre Unterstützung innerhalb der App dafür, dass die erreichbare Zielgruppe stark wächst, ohne direkt nativ eine Vielzahl von Sprachen unterstützen zu müssen.
         \item Deutsch: \textit{(--> muss hier eine Begruendung hin?)}
     \end{itemize}
-    
-    \end{itemize}
-
-
+\end{itemize}
 \section{Wunschkriterien}
 \label{sec:Zielbestimmungen:Wunschkriterien}
 \begin{itemize}
-    \item In der App sollen Statistiken bezüglich des Ablaufs eines Events zur Verfügung stehen. (LASSEN, oder SAUBER)
-    
-    Statistik Ideen:
-    Statistik wird beim Verlassen angezeigt und /oder durch einen button in der oberen Leiste
-    Statistik als Bild ausgebbar und teilbar über Standartandroid Schnittstelle
-    Statistik für alle Participant und Host einsehbar
-    Mögliche Elemente der Statistik
+    \item Jeder User soll in einer Statistikansicht Informationen über die Session einsehen können. Diese Ansicht wird automatisch beim Verlassen der Session angezeigt. Während der Session kann sie durch ein Button geöffnet werden. Die Statistik soll als Bild exportierbar und teilbar sein. 
+    Folgende Datenpunkte sollen dabei angezeigt werden. 
     \begin{itemize}
         \item Song mit meisten Votes der Session
         \item Genre mit den meisten Votes der Session
         \item Artist mit den meisten Votes der Session
         \item Anzahl abgespielte Songs in der Session
         \item Dauer der Session
-        \item Anzahl Teilnehmer in der Session (über GeräteId) ?
+        \item Anzahl Teilnehmer in der Session 
         \item Verteilte Herzen in Session
-        \item meistgespielter Künstler / Genre
     \end{itemize}
   
-    \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen. (soll das Kann-Kriterium bleiben ???)
+    \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
+    \item QR-Code (6stelliger Code in Musskrit)
 
 \end{itemize}
 
@@ -189,8 +180,8 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 \label{sec:Produktumgebung:Softwareanforderungen}
 
 \begin{itemize}
-    \item Spotify API
-    \item ...
+    \item Spotify Account (für Full Participant)
+    \item Spotify Premium Account (für Host)
 \end{itemize}
 
 \section{Hardwareanforderungen}
@@ -199,6 +190,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 \begin{itemize}
     \item Smartphone mit mindestens Android 7.0
     \item Server
+    \item aktive Internetverbindung
 \end{itemize}
 
 
@@ -225,8 +217,13 @@ Es erfolgt eine Teilung in Client und Server, wobei auf dem Server der größte 
 
 Für den Client könnte eine Model-View-Controller-Architektur verwendet werden. Besonders relevant ist dabei, dass Anfragen an die Musik-API sinnvoll eingegliedert werden, da diese einen großen Teil des App-Umfangs ausmachen. Vermutlich würde man sowohl Musik-API als auch Kommunkation mit dem Server in den Bereich des Controllers einordnen.
 
-Hier evt. noch Grafiken einfügen...
+\vspace{1cm}
 
+\begin{figure}[h]
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Verteilungsdiagramm.png}
+    \caption{Verteilungsdiagramm}
+    \label{fig:Verteilungsdiagramm}
+\end{figure}
 
 
 \chapter{Benutzeroberfläche}
@@ -250,26 +247,38 @@ In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für 
 
 \section{Grafikentwürfe}
 \label{sec:Benutzeroberfläche:Grafikentwürfe}
+Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
 
 \begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
       \caption{startPage}
+    
+        Im Startmenü kann der Nutzer entweder über die Buttons in der Mitte einer Gruppe beitreten, oder eine Gruppe erstellen. Über den Zurück-Knopf oben links verlässt der Nutzer die App.
    \end{minipage}
-   \hspace{2cm}% Abstand zwischen Bilder
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
       \caption{userJoinGroupPage}
+        Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
    \end{minipage}
-   
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userVotePage.png}
       \caption{userVotePage}
+        Auf der Nutzer Abstimmungsseite sieht der Nutzer die Tracks die bereits von Sessionmitglieder vorgeschlagen und geliked wurden. Zudem kann er Lieder liken, welche er noch nicht geliked hat. Durch klicken des Lieder suchen Buttons gelangt der Nutzer zur Tracksuche. Über den Zurück-Knopf oben links gelangt der Nutzer zurück zum Startmenü. Dieser Vorgang muss über ein Pop-Up Fenster bestätigt werden, da gleichseitig die Gruppe verlassen wird.
    \end{minipage}
-   \hspace{2cm}% Abstand zwischen Bilder
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userSearchPage.png}
       \caption{userSearchPage}
+        Im 
    \end{minipage}
 \end{figure}
 
@@ -277,21 +286,33 @@ In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für 
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
       \caption{hostModusSelectPage}
+        In der Modusauswahlview kann der Host einen der vier möglichen Modi auswählen, dabei ist am Beginn ist der General Mode ausgewählt. Im Textfeld darunter wird ein kurze Beschreibung des gerade ausgewählten Modus angezeigt. Mit dem Bestätigen Button springt man in die Einstellungspage des Hosts.
    \end{minipage}
-   \hspace{2cm}% Abstand zwischen Bilder
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
       \caption{hostModusSettingsPage}
-   \end{minipage}
-   
+        In den Host Einstellungen kann man mit dem Einfügen eines Spotifyplaylistlinkes eine Standartplaylist hinterlegen.
+        In der Genre/Artist Feld kann man die Genre und Artistbeschränkungen auswählen (Todo wie)
+    
+    \end{minipage}
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
       \caption{hostControlPage}
+        In der HostControlPage kann der Host die Queue in Spotify einsehen. 
    \end{minipage}
-   \hspace{2cm}% Abstand zwischen Bilder
+\end{figure}
+
+\begin{figure}
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
       \caption{hostSearchPage}
+        TODO
    \end{minipage}
 \end{figure}
 
@@ -299,27 +320,17 @@ In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für 
    \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
       \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
       \caption{shareLinkPopUpPage}
-   \end{minipage}
-   \hspace{2cm}% Abstand zwischen Bilder
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userLeaveGroupPopupPage.png}
-      \caption{userLeaveGroupPopupPage}
-   \end{minipage}
-   
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostDeleteGroupPopupPage.png}
-      \caption{hostDeleteGroupPopupPage}
+        TODO
    \end{minipage}
 \end{figure}
 
-Spare Text:
-
-Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
-
-Im Startmenü kann der Nutzer entweder über die Buttons in der Mitte einer Gruppe beitreten, oder eine Gruppe erstellen. Über den Zurück-Knopf oben links verlässt der Nutzer die App.
-
-Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitglieder vorgeschlagen und geliked wurden. Zudem kann er Lieder liken, welche er noch nicht geliked hat. Durch klicken des Lieder suchen Buttons gelangt der Nutzer zur Liedersuche. Über den Zurück-Knopf oben links gelangt der Nutzer zurück zum Startmenü. Dieser Vorgang muss über ein Pop-Up Fenster bestätigt werden, da gleichseitig die Gruppe verlassen wird.
-
+\begin{figure}
+   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/statisticsPopUpPage.png}
+      \caption{statisticsPopUpPage}
+        TODO
+   \end{minipage}
+\end{figure}
 
 
 
@@ -328,15 +339,15 @@ Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitgl
 
 \textbf{Korrekte Funktionalität}: Die korrekte Funktionalität der App muss gewährleistet sein. Maßgeblich zur Definition dieser korrekten Funktionalität ist dieses Pflichtenheft und insbesondere die Musskriterien aus dem Kapitel der Zielbestimmungen (Kapitel \ref{sec:Zielbestimmungen:Musskriterien}).
 
-\textbf{Benutzerfreundlichkeit}: Die App soll eine einfache und intuitive Benutzererfahrung bieten. Die Navigation innerhalb der App soll für alle Benutzer leicht verständlich sein, ohne dass diese eine Einführung in die App-Bedienung benötigen. Das maßgebliche Kriterium dafür ist, dass Benutzer der Zielgruppe (Kapitel \ref{sec:Einleitung:Zielgruppe}) die App bei der ersten Benutzung innerhalb von zwei Minuten problemlos navigieren können laut eigener Einschätzung. (ist so ok ???)
+\textbf{Benutzerfreundlichkeit}: Die App soll eine einfache und intuitive Benutzererfahrung bieten. Die Navigation innerhalb der App soll für alle Benutzer leicht verständlich sein, ohne dass diese eine Einführung in die App-Bedienung benötigen. Das maßgebliche Kriterium dafür ist, dass Benutzer der Zielgruppe (Kapitel \ref{sec:Einleitung:Zielgruppe}) die App bei der ersten Benutzung innerhalb von zwei Minuten problemlos navigieren können laut eigener Einschätzung. (AUßER LIKE UND ZURÜCK; HÖCHSTENS 3 BUTTONS; AUßGENOMEN HOST IN SEINER VIEW -> DORT 5 BUTTONS)
 
-\textbf{Schnelligkeit}: Die App soll durch Reaktionsschnelligkeit ein flüssiges und ansprechendes Nutzungserlebnis ermöglichen. Das maßgebliche Kriterium dafür ist, dass jede Schaltflächenbedienung ein unmittelbares Feedback für den Benutzer auslöst, ohne dass dieser eine Wartezeit bemerkt, solange das Endgerät hinreichend aktuell ist. Hinreichend aktuell sind dabei insbesondere Geräte, die weniger als ein Jahr alt sind und die aktuellste verfügbare Betriebssystemversion installiert haben.
+\textbf{Schnelligkeit}: Die App soll durch Reaktionsschnelligkeit ein flüssiges und ansprechendes Nutzungserlebnis ermöglichen. Das maßgebliche Kriterium dafür ist, dass jede Schaltflächenbedienung ein unmittelbares Feedback innerhalb von 300ms für den Benutzer auslöst, ohne dass dieser eine Wartezeit bemerkt, solange das Endgerät hinreichend aktuell ist. Hinreichend aktuell sind dabei insbesondere Geräte, die weniger als ein Jahr alt sind und die aktuellste verfügbare Betriebssystemversion installiert haben.
 
 \textbf{Sicherheit der Benutzerdaten}: Es ist essentiell, dass die persönlichen Daten der Benutzer geschützt sind. Jegliche Interaktion mit und Datenverarbeitung durch die App muss datenschutzkonform sein und Datensicherheit bieten. Maßgeblich ist dafür die gesetzliche Regelung.
 
 \textbf{Stabilität und Zuverlässigkeit}: Die App muss robust sein und selbst unter Last und bei mäßig vielen gleichzeitigen Benutzern stabil bleiben, sodass Abstürze oder unerwartete Fehler weitestgehend vermieden werden. Das maßgebliche Kriterium dafür sind die Testszenarien mit zahlreichen gleichzeitigen Usern. (solche Tests auch einfügen !!!)
 
-\textbf{Wartbarkeit und Portierungsmöglichkeiten}: Die Architektur der App soll gut wartbar sein, um zukünftige Anpassungen oder Erweiterungen zu ermöglichen. Zudem soll die Architektur die Möglichkeit zur verhältnismäßig einfachen Portierung der App auf andere mobile Betriebssysteme wie iOS bieten. Dazu soll möglichst viel Logik auf dem Server geschehen, wie im Systemmodell beschrieben (Kapitel \ref{chap:Systemmodell}). Für diese Qualitätszielbestimmung existiert absichtlich kein gerichtsfestes Kriterium zur Überprüfung, maßgeblich ist die subjektive Einschätzung von Betrachtern des Systems. Die Erfüllung dieser Qualitätszielbestimmung ist im Verhältnis zu den anderen Bestimmungen nachrangig.
+\textbf{Wartbarkeit und Portierungsmöglichkeiten}: Die Architektur der App soll gut wartbar sein, um zukünftige Anpassungen oder Erweiterungen zu ermöglichen. Zudem soll die Architektur die Möglichkeit zur verhältnismäßig einfachen Portierung der App auf andere mobile Betriebssysteme wie iOS bieten. Dazu soll möglichst viel Logik auf dem Server geschehen, wie im Systemmodell beschrieben (Kapitel \ref{chap:Systemmodell}). Für diese Qualitätszielbestimmung existiert absichtlich kein gerichtsfestes Kriterium zur Überprüfung, maßgeblich ist die subjektive Einschätzung von Betrachtern des Systems. Die Erfüllung dieser Qualitätszielbestimmung ist im Verhältnis zu den anderen Bestimmungen nachrangig. (NACHFRAGEN OB OK?)
 
 \textbf{Grundsätzliches zur Qualität}: Diese Qualitätszielbestimmungen werden während allen Projektphasen beachtet und in der Qualitätssicherungsphase intern abgenommen. Die Qualität der App besitzt während allen Projektphasen einen sehr hohen Stellenwert: Sie wird stets als Priorität betrachtet und in der Qualitätssicherungsphase abschließend und eingehend geprüft.
 
@@ -345,14 +356,14 @@ Auf der Nutzer Abstimmungsseite sieht der Nutzer lieder bereits von Gruppenmitgl
 \chapter{Anwendungsfälle}
 \label{chap:Anwendungsfälle}
 
-In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case Diagrammen anschaulich gemacht.
+In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case Diagrammen anschaulich gemacht. Diese beschreiben das Starten einer Session, sowie die einzelnen Modi der App.
 
-\section{App Start}
-\label{sec:Anwendungsfälle:App Start}
+\section{Session erstellen}
+\label{sec:Anwendungsfälle:Session erstellen}
 
 \begin{figure}[h]
-    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case App Start.png}
-    \caption{App Start}
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Session erstellen.png}
+    \caption{Session erstellen}
     \label{fig:Use Case App Start}
 \end{figure}
 
@@ -362,7 +373,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \label{sec:Anwendungsfälle:General Mode}
 
 \begin{figure}[h]
-    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case General Mode.png}
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case General Mode.png}
     \caption{General Mode}
     \label{fig:Use Case General Mode}
 \end{figure}
@@ -373,7 +384,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \label{sec:Anwendungsfälle:Artist Mode}
 
 \begin{figure}[h]
-    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Artist Mode.png}
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Artist Mode.png}
     \caption{Artist Mode}
     \label{fig:Use Case Artist Mode}
 \end{figure}
@@ -384,7 +395,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \label{sec:Anwendungsfälle:Genre Mode}
 
 \begin{figure}[h]
-    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Genre Mode.png}
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Genre Mode.png}
     \caption{Genre Mode}
     \label{fig:Use Case Genre Mode}
 \end{figure}
@@ -395,7 +406,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \label{sec:Anwendungsfälle:Playlist Mode}
 
 \begin{figure}[h]
-    \includegraphics[width = 18cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Playlist Mode.png}
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Playlist Mode.png}
     \caption{Playlist Mode}
     \label{fig:Use Case Playlist Mode}
 \end{figure}
@@ -405,12 +416,14 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \chapter{Testfälle und -szenarien}
 \label{chap:Tests}
 
+TODO: Aus dem Inhaltsverzeichnis rausbekommen
+
 In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch einen oder mehrere Benutzer des Produkts durchgeführt werden können. Die hier definierten Testfälle sollen deshalb explizit keine technischen Funktionalitäten testen, die ausreichend detailliert erst während der Entwurfsphase festgelegt werden. Solche technischen Funktionalitäten werden durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
 
 \section{Testfälle}
 \label{sec:Tests:Testfälle}
 
-Testfälle sind Tests zu aus Benutzersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Benutzereingabe. Eine solche Benutzereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird.
+Testfälle sind Tests zu aus Usersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Usereingabe. Eine solche Usereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird. Falls ein Testfall nur für eine bestimmte Gruppe von Usern ausführbar ist, steht das in Klammern hinter dem Testfall mit folgenden verwendeten Abkürzungen: Host (H), Participant (P), Full Participant (FP) und Restricted Participant (RP).
 
 \begin{enumerate}
     \item Starten und Laden der App
@@ -420,50 +433,53 @@ Testfälle sind Tests zu aus Benutzersicht atomaren Vorgängen. Jeder Testfall b
     \item Verlassen des Sessionbeitrittsvorgangs
     \item Eingabe des Zugangscodes zum Sessionbeitritt
     \item Bestätigung des Zugangscodes zum Sessionbeitritt
-    \item Verlassen der Session (als Participant)
-    \item Upvote für einen Song (als Participant)
-    \item Nach geupvoteten Songs filtern (als Participant) (was heißt das ???)
-    \item Entfernen von Upvote von einem Song (als Participant)
-    \item Öffnen der Songsuche (als Active Participant)
-    \item Verlassen der Songsuche (als Active Participant)
-    \item Suchen eines Songs (als Active Participant)
-    \item Vorschlagen eines Songs (als Active Participant)
-    \item Beginnen der Sessionerstellung
-    \item Verlassen der Sessionerstellung (in der Modus-Wahl)
-    \item Wahl des Modus
-    \item Zurückgehen in der Sessionerstellung (von den Modus-Details zur Modus-Wahl)
-    \item Auswählen der Details des Modus
+    \item Verlassen der Session (P)
+    \item Upvote für einen Track
+    \item Entfernen des Upvote von einem Track
+    \item Öffnen der Tracksuche (H, FP)
+    \item Verlassen der Tracksuche (H, FP)
+    \item Suchen eines Tracks (FP)
+    \item Vorschlagen eines Track durch Upvote (FP)
+    \item Beginnen der Sessionerstellung (H)
+    \item Verlassen der Sessionerstellung in der Modus-Wahl (H)
+    \item Wahl des Modus (H)
+    \item Zurückgehen in der Sessionerstellung von den Modus-Details zur Modus-Wahl (H)
+    \item Auswählen der Details des Modus (H)
     \begin{itemize}
-        \item Auswählen der Artists / der Genres /der Playlist (je nach Modus)
+        \item Auswählen der Artists / der Genres / der Playlist (je nach Modus)
         \item Einstellen des Cool-Downs, wann ein Lied erneut vorgeschlagen werden kann
     \end{itemize}
-    \item Bestätigung der Details des Modus
-    \item Löschen der Gruppe (als Host)
-    \item Editieren der Queue (muss noch detaillierter werden) (als Host)
-    \item Editieren der Vorschlagsliste (muss noch detaillierter werden) (als Host)
-    \item Sperren eines Liedes (muss noch detaillierter werden)
+    \item Bestätigung der Details des Modus (H)
+    \item Löschen der Session (H)
+    \item Löschen eines Tracks aus der Queue (H)
+    \item Einfügen eines Tracks in die Queue aus der Tracksuche (H)
+    \item Einfügen eines Tracks in die Queue aus der Vorschlagsliste (H)
+    \item Ändern der Reihenfolge der Queue durch Drag and Drop (H)
+    \item Löschen eines Tracks aus der Vorschlagsliste (H)
+    \item Sperren eines Tracks (H) (Machen wir das überhaupt ???)
 \end{enumerate}
 
 \section{Grundlegende Testszenarien}
 \label{sec:Tests:GrundlegendeTestszenarien}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 Grundlegende Testszenarien sind eine überschaubare und besonders essentielle Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen oder bereits zuvor definierten grundlegenden Testszenarien zusammen.
 
-\subsection{Grundlegendes Testszenario 1 (G1): Erstellen einer Session mit Modus $M$}
+\subsection{Grundlegendes Testszenario 1 (G1): Erstellen einer Session}
 \label{subsec:Tests:GrundlegendeTestszenarien:G1}
-Ein User erstellt eine Session und wird so zu ihrem Host.
+Ein User erstellt eine Session mit einem bestimmten Modus und wird so zu ihrem Host.
 \begin{itemize}
     \item Starten und Laden der App
     \item Beginnen der Sessionerstellung
-    \item Wahl des Modus $M$
+    \item Wahl des Modus
     \item Auswählen der Details des Modus
     \item Bestätigung der Details des Modus
 \end{itemize}
 
 
-\subsection{Grundlegendes Testszenario 2 (G2): Beitritt einer Session mit Modus $M$ als Active Participant}
+\subsection{Grundlegendes Testszenario 2 (G2): Beitritt einer Session als Full Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G2}
-Ein User, tritt als Active Participant einer Session mit Modus $M$ bei, die von einem anderen User als Host erstellt wurde.
+Ein User, tritt als Full Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
     \item Starten und Laden der App
@@ -475,7 +491,7 @@ Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufe
 
 \subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session mit Modus $M$ als Passive Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G3}
-Ein User, tritt als Passive Participant einer Session mit Modus $M$ bei, die von einem anderen User als Host erstellt wurde.
+Ein User, tritt als Restricted Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
     \item Starten und Laden der App
@@ -484,53 +500,103 @@ Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufe
     \item Bestätigung des Zugangscodes zum Sessionbeitritt
 \end{itemize}
 
-\subsection{Grundlegendes Testszenario 4 (G4): Vorschlagen eines Songs}
+\subsection{Grundlegendes Testszenario 4 (G4): Vorschlagen eines Songs als Full Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G4}
-Ein User, der schon als Active Particpant einer Session mit Modus $M$ beigetreten ist, die von einem anderen User als Host erstellt wurde, schlägt einen Song vor. \\
-Dazu muss bereits G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) abgelaufen sein.
+Ein User, der schon als Full Particpant einer Session mit einem bestimmten Modus beigetreten ist, die von einem anderen User als Host erstellt wurde, schlägt einen Song vor, indem er ihn zum ersten Mal upvotet. \\
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) und dann G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) abgelaufen sein.
 \begin{itemize}
     \item Öffnen der Songsuche
     \item Suchen eines Songs
     \item Vorschlagen eines Songs
 \end{itemize}
 
-\subsection{Grundlegendes Testszenario 5 (G5): Upvoten eines Songs}
+\subsection{Grundlegendes Testszenario 5 (G5): Vorschlagen eines Songs als Host}
 \label{subsec:Tests:GrundlegendeTestszenarien:G5}
-Ein User, der schon als Participant einer Session mit Modus $M$ beigetreten ist, die von einem anderen User als Host erstellt wurde, votet einen Song up. \\
-Dazu muss bereits G2 oder G3 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2} oder \ref{subsec:Tests:GrundlegendeTestszenarien:G3}) abgelaufen sein.
+Der Host schlägt einen Song vor, indem er ihn zum ersten Mal upvotet. \\
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
+\begin{itemize}
+    \item Öffnen der Songsuche
+    \item Suchen eines Songs
+    \item Vorschlagen eines Songs
+\end{itemize}
+
+\subsection{Grundlegendes Testszenario 6 (G6): Upvoten eines Songs}
+\label{subsec:Tests:GrundlegendeTestszenarien:G6}
+Ein User in einer Session mit einem bestimmten Modus votet einen Song up. \\
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) und dann G2 oder G3 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2} oder \ref{subsec:Tests:GrundlegendeTestszenarien:G3}) und dann G4 (\ref{subsec:Tests:GrundlegendeTestszenarien:G4}) abgelaufen sein.
 \begin{itemize}
     \item Upvote für einen Song
 \end{itemize}
 
-\subsection{Grundlegendes Testszenario 6 (G6): Hinzufügen eines vorgeschlagenen Songs zur Queue}
-\label{subsec:Tests:GrundlegendeTestszenarien:G6}
-Der Host fügt einen von Active Participants vorgeschlagenen Song in einer Session mit Modus $M$ zur Queue hinzu.
-Dazu muss bereits G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) und danach G4 (\ref{subsec:Tests:GrundlegendeTestszenarien:G4}) abgelaufen sein.
+\subsection{Grundlegendes Testszenario 7 (G7): Hinzufügen eines bestimmten vorgeschlagenen Tracks zur Queue}
+\label{subsec:Tests:GrundlegendeTestszenarien:G7}
+Der Host fügt einen bestimmten Track aus der Vorschlagsliste in einer Session mit einem bestimmten Modus zur Queue hinzu.
+Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Editieren der Queue (muss noch detaillierter werden) (als Host) (?????)
+    \item Einfügen eines Tracks in die Queue aus der Vorschlagsliste
+\end{itemize}
+
+\subsection{Grundlegendes Testszenario 8 (G8): Vollständiges Beenden einer Session}
+\label{subsec:Tests:GrundlegendeTestszenarien:G8}
+Alle Participants verlassen die Session, anschließend beendet der Host die Session. Alle User verlassen und beenden die App.
+Dazu muss bereits mindestens G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
+\begin{itemize}
+    \item Alle Participants der Session: Verlassen der Session
+    \item Löschen der Session (Host)
+    \item Alle User (Participants und Host): Verlassen der App
+    \item Alle User (Participants und Host): Beenden der App
 \end{itemize}
 
 
-
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \section{Erweiterte Testszenarien}
 \label{sec:Tests:ErweiterteTestszenarien}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 Erweiterte Testszenarien sind eine nicht-essentielle und möglicherweise längere Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen und grundlegenden Testszenarien zusammen.
 
-\subsection{Erweitertes Testszenario 1 (E1): Ein vorgeschlagener und einmal upgevoteter Song wird der Queue hinzugefügt}
+
+\subsection{Erweitertes Testszenario 1 (E1): Grundlegende Session-Funktionalität}
 \label{subsec:Tests:ErweiterteTestszenarien:E1}
-Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passive Partipant (PP) beitreten. AP schlägt einen Song vor, den PP upvotet und H dann in die Queue hinzufügt.
+Ein Host (H) erstellt eine Session, der ein Full Participant (FP) beitritt. Anschließend wird die Session ordnungsgemäß beendet und alle User beenden die App.
 \begin{itemize}
     \item G1 (H)
-    \item G2 (AP)
-    \item G3 (PP)
-    \item G4 (AP)
-    \item G5 (PP)
-    \item G6 (H)
+    \item G2 (FP)
+    \item G8
 \end{itemize}
 
 
+\subsection{Erweitertes Testszenario 2 (E2): Track-Upvote und Abspielen}
+\label{subsec:Tests:ErweiterteTestszenarien:E1}
+Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und ein Restricted Partipant (RP) beitreten. FP schlägt einen Song vor durch Upvote, den auch RP upvotet und H dann in die Queue hinzufügt.
+\begin{itemize}
+    \item G1 (H)
+    \item G2 (FP)
+    \item G3 (RP)
+    \item G4 (FP)
+    \item G6 (RP)
+    \item G7 (H)
+\end{itemize}
 
+
+\subsection{Erweitertes Testszenario 3 (E3): Abspielen von fünf vorgeschlagenen Tracks}
+\label{subsec:Tests:ErweiterteTestszenarien:E3}
+Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restricted Partipants (R1 und R2) beitreten. H schlägt zwei Tracks vor, FP schlägt Tracks Songs vor. R1 votet einen Track von H und einen Track von FP up. R2 votet nur denselben Track von H up. H spielt die Tracks nach Anzahl der Upvotes ab.
+\begin{itemize}
+    \item G1 (H)
+    \item G2 (FP)
+    \item G3 (R1)
+    \item G3 (R2)
+    \item G4 (FP) (3x)
+    \item G5 (H) (2x)
+    \item G6, Song von H (R1)
+    \item G6, Song von FP (R1)
+    \item G6, selber Song von H (R2)
+    \item G7 (H) (5x, in Reihenfolge der Upvotes)
+\end{itemize}
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \chapter{Entwicklungsumgebung}
 \label{chap:Entwicklungsumgebung}
 
@@ -545,12 +611,19 @@ Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passi
     
     \item Versionsverwaltung
     \begin{itemize}
-        \item GitHub
+        \item Git
+        \item GitHub (zur Kommunikation)
     \end{itemize}
 
-    \item Modellierung
+    \item UML Modellierung
     \begin{itemize}
         \item Creately
+    \end{itemize}
+
+    \item Grafikentwürfe
+    \begin{itemize}
+        \item PHPStorm
+        \item GIMP
     \end{itemize}
 
     \item Sonstige Software
@@ -565,8 +638,9 @@ Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passi
 \label{sec:Entwicklungsumgebung:Hardware}
 
 \begin{itemize}
-    \item Diverse Standard PCs
+    \item Diverse handelsübliche PCs und Laptops
     \item Diverse Android Smartphones mit mindestens Android 7.0
+    \item Linux Rootserver
 \end{itemize}
 
 
@@ -589,15 +663,15 @@ Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passi
  - Eine Gruppe aus Participants und einem Gruppenersteller, dem Host. In ihr kann Musik vorgeschlagen und vom Host abgespielt werden.
 
 \textbf{Host}
- - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant).
+ - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant). Der Host benötigt ein Premium Abonnenment des Musikdienstes Spotify.
 
 \textbf{Participant}
- - Teilnehmer einer Session (nicht der Host). Überbegriff für Active Participant und Passive Participant.
+ - Teilnehmer einer Session (nicht der Host). Überbegriff für Full Participant und Restricted Participant.
 
-\textbf{Active Participant}
+\textbf{Full Participant}
  - Mit dem Musikdienst verknüpfter Participant, der Musik vorschlagen und darüber abstimmen kann.
 
-\textbf{Passive Participant}
+\textbf{Restricted Participant}
  - Nicht mit dem Musikdienst verknüpfter Participant, der nur über Vorschläge von anderen abstimmen kann.
 
 \textbf{User}
@@ -609,8 +683,11 @@ Ein Host (H) erstellt eine Gruppe, der ein Active Participant (AP) und ein Passi
 \textbf{Queue}
  - Liste von Liedern, welche als nächstes durch den Musikdienst (Spotify) abgespielt werden.
 
+ \textbf{Track}
+ - Lied bzw. Musikstück.
+
 \textbf{Vorschlagsliste}
- - Liste von Liedern, die von einem User vorgeschlagen wurden.
+ - Liste von Tracks einer Session, die von einem User vorgeschlagen wurden.
 
 
 \end{document}
