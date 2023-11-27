@@ -7,7 +7,7 @@
 %% Dr.-Ing. Erik Burger
 %% burger@kit.edu
 %%
-%% S ee https://sdq.kastel.kit.edu/wiki/Dokumentvorlagen
+%% See https://sdq.kastel.kit.edu/wiki/Dokumentvorlagen
 %%
 %% Version 1.0, 2023-11-20
 
@@ -117,7 +117,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \end{itemize}
     \item Das System ist in der Lage, Usern einen durchsuchbaren Musikkatalog zur Verfügung zu stellen. Diese werden über entsprechende, auf dem Markt verfügbare Schnittstellen externer Anbieter bereitgestellt. Konkret wird dies im System durch die Einbindung mindestens einer externen API-Schnittstelle eines Musikstreaming-Anbieters realisiert.
     \begin{itemize}
-        \item Das im Rahmen des Moduls ''Praxis der Softwareentwicklung'' zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
+        \item Das im Rahmen des Moduls ''Praxis der Softwareentwicklung'' zu entwickelnde System beschränkt sich hierbei auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
         \begin{itemize}
             \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt.
             \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Songs in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
@@ -129,9 +129,26 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \begin{itemize}
         \item Zum einen sind verschiedene Abstimmungsmodi vorgesehen:
         \begin{itemize}
-            \item (HINWEIS: Explizite Modi füge ich noch hinzu)
+            \item General Mode
+            \begin{itemize}
+                \item Full Participants sowie der Host können im bereitgestellten Musikkatalog einen beliebigen Track auswählen und diesen vorschlagen
+                \item Participants haben die Möglichkeit, einem Track ein Upvote zu geben. Hat ein Participant bereits selbst ein Upvote an einen Track vergeben, so ist es ihm möglich, dieses wieder zu entfernen.
+                \item Der Host kann einen Track, welcher ein Upvote erhalten hat, zur Queue hinzufügen. Außerdem hat er die Möglichkeit, Tracks zu sperren.
+            \end{itemize}
+            \item Artist Mode
+            \begin{itemize}
+                \item Die Grundfunktionalität ist gleich der des General Modes. Hierbei legt der Host jedoch zuvor eine Liste an erlaubten Artists fest. Während der gesamten Session kann ein Track ausschließlich dann in der Suche gefunden, vorgeschlagen werden, Upvotes erhalten und abgespielt werden, wenn er mindestens einem der erlaubten Artists zugeordnet werden kann.
+            \end{itemize}
+            \item Genre Mode
+            \begin{itemize}
+                \item Die Grundfunktionalität ist gleich der des General Modes. Hierbei legt der Host jedoch zuvor eine Liste an erlaubten Genres fest. Während der gesamten Session kann ein Track ausschließlich dann in der Suche gefunden, vorgeschlagen werden, Upvotes erhalten und abgespielt werden, wenn er mindestens einem der erlaubten Genres zugeordnet werden kann.
+            \end{itemize}
+            \item Playlist Mode
+            \begin{itemize}
+                \item Die Grundfunktionalität ist gleich der des General Modes. Hierbei hinterlegt der Host jedoch zuvor eine Playlist, welche von dem für die Session genutzten Musikstreaming-Anbieter stammt. Während der gesamten Session kann ein Track ausschließlich dann in der Suche gefunden, vorgeschlagen werden, Upvotes erhalten und abgespielt werden, wenn er in der hinterlegten Playlist enthalten ist.
+            \end{itemize}
         \end{itemize}
-        \item  (platzhalter zwecks Format)
+
     \end{itemize}
     \item Die User können genau eine der untenstehend aufgeführten Rollen bekleiden. Je nach der individuellen Ausgestaltung der Abstimmungsmodi ist die Rolle eines Users entscheidend in Hinblick auf die Entscheidungsfindung zur abzuspielenden Musik.
     \begin{itemize}
@@ -181,107 +198,272 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 \chapter{Benutzeroberfläche}
 \label{chap:Benutzeroberfläche}
 
-\section{Einführung}
-\label{sec:Benutzeroberfläche:Einführung}
-\textbf{} Die Benutzeroberfläche wird so gestaltet, dass diese einfach von Nutzern ohne Vorkenntnissen über die App genutzt werden kann.
+\section{Allgemeines}
+\label{sec:Benutzeroberfläche:Allgemeines}
+Die Benutzeroberfläche wird so gestaltet, dass diese einfach, intuitiv und ohne Vorkenntnisse von Nutzern der Zielgruppe verwendet werden kann. Näheres findet sich unter Benutzerfreundlichkeit im Kapitel Qualitätszielbestimmungen (\ref{Qualitätszielbestimmungen_Benutzerfreundlichkeit}).
 
-\section{Startmenü}
-\label{sec:Benutzeroberfläche:Startmenü}
-Der Nutzer landet beim Start der App immer im Startmenü.
+Beim Starten der App, wenn die App vollständig beendet ist/war, öffnet sich eine von drei Views:
+\begin{itemize}
+    \item Die userVoteView (REF) öffnet sich, wenn man derzeit Participant einer aktiven Session ist.
+    \item Die hostControlView (REF) öffnet sich, wenn man derzeit Host einer aktiven Session ist.
+    \item Die startView (REF) öffnet sich, wenn man derzeit nicht Participant oder Host einer aktiven Session ist.
+\end{itemize}
+Falls die App nicht vollständig beendet wurde und die Zustandsdaten des Android-Betriebssystems noch vorhanden sind, so öffnet sich die App in der Ansicht, in der man sie verlassen hat.
 
-\section{Participant Ansicht}
-\label{sec:Benutzeroberfläche:participantAnsicht}
-In der Participant Ansicht kann der Nutzer einer Gruppe beitreten und je nach Modus neue Lieder vorschlagen und liken.
 
-\section{Host Ansicht}
-\label{sec:Benutzeroberfläche:hostAnsicht}
-In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für die Session definieren. Des weiteren kann er wie ein Participant Lieder hinzufügen und liken. Zusätzlich kann der Host Lieder aus der Queue löschen und Lieder aus der Vorschlagsliste zur Queue hinzufügen
 
-\section{Grafikentwürfe}
-\label{sec:Benutzeroberfläche:Grafikentwürfe}
-Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen ''Gruppe beitreten'' und ''Gruppe erstellen'' wählen. 
+\newpage
 
-%
-\makeatletter
-\setlength{\@fptop}{1cm}
-\makeatother
-%
+\section{Grafikentwürfe und funktionale Anforderungen}
+\label{sec:Benutzeroberfläche:Grafiken}
+% do not show subsections in contents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-\begin{figure}
-    \hypertarget{startPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
-        \caption{startPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        Bei Drücken des Zurück Button erscheint ein Pop-Up Fenster mit der Frage ''NepTune wirklich schließen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden. Durch auswählen von ''Ja'' wird die App geschlossen. Durch Auswählen von ''Nein'' bleibt der Nutzer in der \hyperlink{startPage}{startPage}.\\
-        Durch klicken des ''Session beitreten" Button gelangt der Nutzer auf die \hyperlink{userJoinGroupPage}{userJoinGroupPage}. \\
-        Durch klicken des ''Session erstellen'' Button gelangt der Nutzer auf die \hyperlink{hostModusSelectPage}{hostModusSelectPage}. Der ''Session erstellen'' Button ist jedoch so lange deaktiviert, bis sich der Nutzer mit über den ''Mit Spotify verknüpfen'' Button mit Spotify verbunden hat und verifiziert wurde, dass es sich um einen Spotify Premium Account handelt.\\
-        Hat sich der Nutzer mit Spotify angemeldet, so ändert sich der ''Mit Spotify verknüpfen'' Button zu ''Von Spotify trennen''. Durch Nutzung des Buttons wird das Spotify Konto des Nutzers wieder von NepTune getrennt.
-    \end{minipage}
-\end{figure}
+Die folgenden Grafikentwürfe sind nur erste Entwürfe. Sie sollen einen ersten Eindruck vom Aussehen der App vermitteln und vor allem die ''Topologie'' der App darstellen: Das heißt, wo sich welche Buttons befinden und was diese bewirken. Wir möchten ausdrücklich klarstellen, dass wir die hier gezeigten Designs hinsichtlich Formen, Farben und Anordnung noch verändern wollen und werden. Die Designs sind nicht als final zu verstehen.
 
-\begin{figure}
-    \hypertarget{userJoinGroupPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
-        \caption{userJoinGroupPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-         Der <- Button oben links führt zurück auf die \hyperlink{startPage}{startPage}.
-         Im Textfeld darunter kann der 6-stellige Zugangscode eingegeben werden. Existiert eine Session zu dem eingegeben Zugangscode kann man mit dem -> Button zur
-         \hyperlink{userVotePage}{userVotePage} springen. Alternativ kann mit dem ''Code Scannen'' Button den QR-Codereader öffnen. Nach erfolgreichen einscannen landet man hier ebenfalls auf der \hyperlink{userVotePage}{userVotePage}. 
-         
-    \end{minipage}
-\end{figure}
+In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitelaufbau ist folgendermaßen: Jede View enthält einen Grafikentwurf, eine grobe textuelle Erläuterung und die detaillierte Definition aller wichtigen Benutzeroberflächen-Elemente. Das Klicken selbst und das Verhalten nach dem Klicken auf ein klickbares solches Element ist stets als funktionale Anforderung zu verstehen.
 
-\begin{figure}
-    \hypertarget{userVotePage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userVotePage.png}
-        \caption{userVotePage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        Auf der userVotingPage sieht der Nutzer die Tracks die bereits von Sessionmitglieder upgevotet wurden. Zudem kann er Lieder upvoten, die er noch nicht upgevotet hat, durch erneutes Anklicken wird der Upvote wieder entfernt. Durch drücken des ''Lied suchen'' Button springt man in die  \hyperlink{userSearchPage}{userSearchPage}. Über den Zurück-Knopf oben links gelangt der Nutzer zurück zur \hyperlink{startPage}{startPage}. Dieser Vorgang muss über ein Pop-Up Fenster bestätigt werden, da gleichseitig die Gruppe verlassen wird.
-    \end{minipage}
-\end{figure}
 
-\begin{figure}
-    \hypertarget{userSearchPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userSearchPage.png}
-        \caption{userSearchPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        Der <- Button führt zurück in die \hyperlink{userVotingPage}{userVotingPage}  
-    \end{minipage}
-\end{figure}
+\subsection{Startseite (startView)}
+\label{sec:Benutzeroberfläche:startView}
 
-\begin{figure}
-    \hypertarget{hostModusSelectPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
-        \caption{hostModusSelectPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        In der Modusauswahlview kann der Host einen der vier möglichen Modi auswählen, dabei ist am Beginn ist der General Mode ausgewählt. Im Textfeld darunter wird ein kurze Beschreibung des gerade ausgewählten Modus angezeigt. Mit dem Bestätigen Button springt man in die Einstellungspage des Hosts.
-    \end{minipage}
-\end{figure}
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{startView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
+    \captionof{figure}{startView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    Beim Öffnen der App soll der User mit möglichst wenigen Optionen konfrontiert werden. Ihm Stehen nur das Verlassen der App, der Beitritt einer Session, das Erstellen einer Session (falls bereits mit Spotify-Premium-Account verknüpft) und das Verwalten der Spotify-Verknüpfung zur Auswahl. 
+\end{minipage}
+\vspace{\baselineskip}
+
+\newpage
+\textbf{Session beitreten:}
+\begin{itemize}
+    \item Solange der User sich nicht mit einem Spotify-Account verknüpft hat, wird darunter ein Hinweis angezeigt, dass User ohne verknüpften Account nur über von anderen Usern vorgeschlagene Tracks abstimmen können und zum Vorschlagen ein verknüpfter Spotify-Account benötigt wird.
+    \item Durch Klicken des Buttons ''Session beitreten" gelangt der Nutzer auf die \hyperlink{userJoinGroupPage}{userJoinGroupPage}. Dabei wird er zum Full Participant, wenn er mit einem Spotify-Account verknüpft ist. Anderfalls wird er zu einem Restricted Partcipant.
+\end{itemize}
+
+\textbf{Session erstellen:}
+\begin{itemize}
+    \item Der Button ''Session erstellen'' ist so lange deaktiviert und ''verblasst'', bis sich der Nutzer über den Button ''Mit Spotify verknüpfen'' erfolgreich mit einem Spotify-Premium-Account verknüpft hat. Danach wird er funktionsfähig.
+    \item Solange der Button ''Session erstellen'' deaktiviert ist, wird darunter ein Hinweis angezeigt, dass das Erstellen einer Session nu mit einem verknüpften Spotify-Premium-Account möglich ist.
+    \item Durch Klicken des funktionsfähigen Buttons ''Session erstellen'' gelangt der Nutzer auf die \hyperlink{hostModusSelectPage}{hostModusSelectPage}.
+\end{itemize}
+
+\textbf{Mit Spotify verknüpfen:}
+\begin{itemize}
+    \item Durch Klicken des Buttons ''Mit Spotify verknüpfen'' verknüpft sich die App wenn möglich automatisch und im Hintergrund mit dem lokal angemeldeten Spotify-Account. Ist dies nicht möglich öffnet sich die von Spotify zur Verfügung gestellte Anmeldemaske, um per Login seinen Account zu verknüpfen.
+    \item Nach dem erfolgreichen Verknüpfen mit Spotify, ändert sich die Beschriftung des Buttons von ''Mit Spotify verknüpfen'' zu ''Von Spotify trennen''.
+    \item Durch Klicken des Buttons ''Von Spotify trennen'' wird das Spotify Konto des Nutzers wieder von NepTune getrennt.
+    \item Nach dem erfolgreichen Trennen von Spotify, ändert sich die Beschriftung des Buttons von ''Von Spotify trennen'' zu ''Mit Spotify verknüpfen''.
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''NepTune wirklich schließen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \begin{itemize}
+        \item Durch Auswählen von ''Ja'' verlässt der User die App und die App wird beendet.
+        \item Durch Auswählen von ''Nein'' bleibt der User in der \hyperlink{startView}{startView}.
+    \end{itemize}
+\end{itemize}
+
+
+\newpage
+
+\subsection{Sessionbeitritt (joinSessionView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{joinSessionView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
+    \captionof{figure}{joinSessionView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    Zum Beitritt einer Session als Full Participant (mit verknüpftem Spotify-Account) oder Restricted Participant (mit verknüpften Spotify-Account) muss der User einen gültigen Session-Code eingeben oder einen gültigen QR-Code einscannen. Die Möglichkeit dazu bietet ihm diese View.
+\end{minipage}
+\vspace{\baselineskip}
+
+\textbf{Code-Eingabefeld:}
+\begin{itemize}
+    \item Eingabefeld zur Eingabe des sechsstelligen Codes, der die Session eindeutig identifiziert.
+\end{itemize}
+
+\textbf{Code bestätigen:}
+\begin{itemize}
+    \item Existiert eine Session zum eingegebenen sechsstelligen Code, führt Klicken des Bestätigungsbuttons auf die \hyperlink{userVotePage}{userVotePage} der Session.
+    \item Existiert keine Session zur Eingabe, erscheint ein entsprechender Hinweis unter dem Code-Eingabefeld und der Inhalt des Code-Eingabefeldes wird gelöscht.
+\end{itemize}
+
+\textbf{Code scannen:}
+\begin{itemize}
+    \item Durch Klicken des Buttons ''Code scannen'' öffnet sich ein QR-Code-Reader. Nach dem erfolgreichen Scannen eines gültigen QR-Codes gelangt man ebenfalls auf die \hyperlink{userVotePage}{userVotePage} der Session.
+    \item Der sich nach dem Klicken öffnende QR-Code-Reader besitzt einen Button zum Schließen.
+    \item Der sich nach dem Klicken öffnende QR-Code-Reader zeigt eine Meldung mit entsprechendem Hinweis an, falls ein erfolgreich gelesener QR-Code keinen gültigen Session-Code darstellt.
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Durch Klicken des Zurück-Buttons gelangt man auf die \hyperlink{startView}{startView}.
+\end{itemize}
+
+\newpage
+
+\subsection{Abstimmungsansicht einer Session (sessionVoteView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{sessionVoteView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/userVotePage.png}
+    \captionof{figure}{sessionVoteView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+\textbf{Session-Info:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+\end{itemize}
+
+\textbf{Statistiken:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+\end{itemize}
+
+\textbf{Track-Anzeige:}
+\begin{itemize}
+    \item Grundsätzlich nicht klickbare (außer dem Track-Upvote-Button) Liste von Tracks mit mindestens einem Upvote. \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Ausnahme: Im Playlist Mode werden alle Tracks der Playlist angezeigt, auch solche ohne Upvote.
+\end{itemize}
+
+\textbf{Track-Upvote:}
+\begin{itemize}
+    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt.
+    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+\end{itemize}
+
+\textbf{Track suchen:}
+\begin{itemize}
+    \item Durch Klicken des Buttons ''Track suchen'' gelangt man in die Tracksuche (REF).
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich verlassen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \begin{itemize}
+        \item Durch Auswählen von ''Ja'' verlässt die Session und gelangt in die \hyperlink{startView}{startView}.
+        \item Durch Auswählen von ''Nein'' bleibt der User in der \hyperlink{sessionVoteView}{sessionVoteView}.
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\subsection{Tracksuche für Participants (participantSearchView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{participantSearchView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/userSearchPage.png}
+    \captionof{figure}{participantSearchView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+\textbf{Session-Info:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+\end{itemize}
+
+\textbf{Statistiken:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+\end{itemize}
+
+\textbf{Track-Eingabefeld:}
+\begin{itemize}
+    \item Eingabefeld für den Suchbegriff. Ändert sich der Eingabebegriff, wird die Track-Anzeige aktualisiert.
+\end{itemize}
+
+\textbf{Track-Anzeige:}
+\begin{itemize}
+    \item Grundsätzlich nicht klickbare (außer dem Track-Upvote-Button) Liste von Tracks, die dem eingegebenen Suchbegriff entsprechen. Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Bei Full Participants wird dabei der gesamte Musikkatalog von Spotify durchsucht, um zum Suchbegriff passende Tracks zu finden, mit folgenden Einschränkungen:
+    \begin{itemize}
+        \item Im General Mode gibt es keine Einschränkungen.
+        \item Im Artist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Artists angezeigt.
+        \item Im Genre Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Genres angezeigt.
+        \item Im Playlist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Playlist angezeigt.
+    \end{itemize}
+    \item Bei Restricted Participants wird nur die Vorschlagsliste durchsucht, die Tracks mit mindestens einem Upvote enthält. Ausnahme ist der Playlist Mode, darin werden alle Tracks der Playlist durchsucht ohne Berücksichtigung der Upvotes.
+\end{itemize}
+
+\textbf{Track-Upvote:}
+\begin{itemize}
+    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt. Der erste Upvote, also das erste Klicken auf einen Track ohne bisherige Upvotes, entspricht dem Vorschlagen eines Tracks.
+    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{sessionVoteView}{sessionVoteView}.
+\end{itemize}
+
+\newpage
+
+\subsection{Moduswahl für den Host (hostModeSelectView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{hostModeSelectView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
+    \captionof{figure}{hostModeSelectView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+\textbf{Modus-Buttons:}
+\begin{itemize}
+    \item Es stehen vier Modus-Buttons zur Verfügung:
+    \begin{itemize}
+        \item Der erste Button ist für den General Mode (REF Use-Case-Diag.)
+        \item Der zweite Button ist für den Artist Mode (REF Use-Case-Diag.)
+        \item Der dritte Button ist für den Genre Mode (REF Use-Case-Diag.)
+        \item Der vierte Button ist für den Playlist Mode (REF Use-Case-Diag.)
+    \end{itemize}
+    \item Durch Klicken auf einen der vier Modus-Buttons wird dieser markiert. Es kann stets nur ein Modus-Button markiert sein. Zu Beginn ist kein Button markiert. Der Modus des markierten Buttons ist angewählt.
+\end{itemize}
+
+\textbf{Modus-Info-Anzeige:}
+\begin{itemize}
+    \item Die nicht klickbare Anzeige beinhaltet eine kurze Beschreibung des angewählten Modus.
+\end{itemize}
+
+\textbf{Modus bestätigen:}
+\begin{itemize}
+    \item Der Modus-Bestätigen-Button ist zunächst verblasst und nicht klickbar. Er wird erst klickbar, nachdem ein Modus angewählt wurde.
+    \item Durch Klicken des Modus-Bestätigen-Buttons wird der angewählte Modus ausgewählt und der Host gelangt in die EinstellungsView (REF).
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{startView}{startView}.
+\end{itemize}
+
+\newpage
+
+TODO: Ab hier weitermachen im obigen Format, also einfach copy paste und ausfüllen...
 
 \begin{figure}
     \hypertarget{hostModusSettingsPage}{}
@@ -356,7 +538,8 @@ Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwische
 \end{figure}
 
 
-
+% show subsections in contents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \chapter{Anwendungsfälle}
 \label{chap:Anwendungsfälle}
 
@@ -426,6 +609,8 @@ In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch ein
 \section{Testfälle}
 \label{sec:Tests:Testfälle}
 
+TODO: Liste wegmachen und einfach die funktionalen Anforderungen durchnummerieren. Das sind dann einfach alle Testfälle.
+
 Testfälle sind Tests zu aus Usersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Usereingabe. Eine solche Usereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird. Falls ein Testfall nur für eine bestimmte Gruppe von Usern ausführbar ist, steht das in Klammern hinter dem Testfall mit folgenden verwendeten Abkürzungen: Host (H), Participant (P), Full Participant (FP) und Restricted Participant (RP).
 
 \begin{enumerate}
@@ -464,6 +649,7 @@ Testfälle sind Tests zu aus Usersicht atomaren Vorgängen. Jeder Testfall bezie
 
 \section{Grundlegende Testszenarien}
 \label{sec:Tests:GrundlegendeTestszenarien}
+% do not show subsections in contents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 Grundlegende Testszenarien sind eine überschaubare und besonders essentielle Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen oder bereits zuvor definierten grundlegenden Testszenarien zusammen.
@@ -599,7 +785,7 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restr
 \end{itemize}
 
 
-
+% show subsections in contents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \chapter{Qualitätszielbestimmungen}
 \label{chap:Qualitätszielbestimmungen}
@@ -607,6 +793,7 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restr
 \textbf{Korrekte Funktionalität}: Die korrekte Funktionalität der App muss gewährleistet sein. Maßgeblich zur Definition dieser korrekten Funktionalität ist dieses Pflichtenheft und insbesondere die Musskriterien aus dem Kapitel der Zielbestimmungen (Kapitel \ref{sec:Zielbestimmungen:Musskriterien}).
 
 \textbf{Benutzerfreundlichkeit}: Die App soll eine einfache und intuitive Benutzererfahrung bieten. Die Navigation innerhalb der App soll für alle Benutzer leicht verständlich sein, ohne dass diese eine Einführung in die App-Bedienung benötigen. Das maßgebliche Kriterium dafür ist, dass Benutzer der Zielgruppe (Kapitel \ref{sec:Einleitung:Zielgruppe}) die App bei der ersten Benutzung innerhalb von zwei Minuten problemlos navigieren können laut eigener Einschätzung. (AUßER LIKE UND ZURÜCK; HÖCHSTENS 3 BUTTONS; AUßGENOMEN HOST IN SEINER VIEW -> DORT 5 BUTTONS)
+\label{Qualitätszielbestimmungen_Benutzerfreundlichkeit}
 
 \textbf{Schnelligkeit}: Die App soll durch Reaktionsschnelligkeit ein flüssiges und ansprechendes Nutzungserlebnis ermöglichen. Das maßgebliche Kriterium dafür ist, dass jede Schaltflächenbedienung ein unmittelbares Feedback innerhalb von 300ms für den Benutzer auslöst, ohne dass dieser eine Wartezeit bemerkt, solange das Endgerät hinreichend aktuell ist. Hinreichend aktuell sind dabei insbesondere Geräte, die weniger als ein Jahr alt sind und die aktuellste verfügbare Betriebssystemversion installiert haben.
 
@@ -619,18 +806,22 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restr
 \textbf{Grundsätzliches zur Qualität}: Diese Qualitätszielbestimmungen werden während allen Projektphasen beachtet und in der Qualitätssicherungsphase intern abgenommen. Die Qualität der App besitzt während allen Projektphasen einen sehr hohen Stellenwert: Sie wird stets als Priorität betrachtet und in der Qualitätssicherungsphase abschließend und eingehend geprüft.
 
 
+\chapter{Systemmodell}
+\label{chap:Systemmodell}
 
-\chapter{Anforderungen an die App-Umgebung}
-\label{chap:Appumgebung}
+Es erfolgt eine Teilung des Systems in Clients (die Apps) und einen Server. Dabei soll auf dem Server der größte Teil der Systemlogik ablaufen. Dies vereinfacht die Portierung des Systems auf andere mobile Betriebssystem, da nur die App als Client verändert werden muss, während die Logik auf dem Server unverändert bleiben kann.
 
-Wir stellen folgen Software und Hardware-Anforderungen an die App-Umgebung:
+Die Kommunikation mit der Spotify API erfolgt grundsätzlich über die App-Clients selbst, nicht über den zentralen Server. Dabei werden soweit möglich lokale Kommunikationswege mit dem Musikdienst, bei uns Spotify, auf dem Mobilgerät selbst verwendet. Wenn dies nicht möglich ist, werden API-Anfragen über eine Verbindung zum Internet-Netzwerk an die Musikdienst-API gerichtet. Die Kommunikation mit dem Musik-Player des Session-Hosts übernimmt ausschließlich der Musikdienst.
 
-\begin{itemize}
-    \item Als Gerät wird ein Smartphone oder gleichwertiges Gerät mit mindestens Android 7.0 benötigt.
-    \item Eine jederzeit aktive Internetverbindung wird zur Nutzung der App-Funktionalität benötigt.
-    \item Ein verknüpfter Spotify-Account wird benötigt, um als Full Participant an einer Session teilzunehmen.
-    \item Ein verknüpfter Spotify-Premium-Account wird benötigt, um als Host eine Session zu erstellen und an ihr teilzunehmen.
-\end{itemize}
+Der Server verwendet zur Speicherung der Daten eine Datenbank.
+
+\vspace{1cm}
+
+\begin{figure}[h]
+    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Verteilungsdiagramm.png}
+    \caption{Verteilungsdiagramm}
+    \label{fig:Verteilungsdiagramm}
+\end{figure}
 
 
 
@@ -649,26 +840,22 @@ Es werden keinerlei sensiblen Nutzerdaten gespeichert. Im Fall des Musikdienstes
 
 
 
-\chapter{Systemmodell}
-\label{chap:Systemmodell}
+\chapter{Anforderungen an die App-Umgebung}
+\label{chap:Appumgebung}
 
-Es erfolgt eine Teilung des Systems in Clients (die Apps) und einen Server. Dabei soll auf dem Server der größte Teil der Systemlogik ablaufen. Dies vereinfacht die Portierung des Systems auf andere mobile Betriebssystem, da nur die App als Client verändert werden muss, während die Logik auf dem Server unverändert bleiben kann.
+Wir stellen folgen Software und Hardware-Anforderungen an die App-Umgebung:
 
-Die Kommunikation mit der Spotify API erfolgt grundsätzlich über die App-Clients selbst, nicht über den zentralen Server. Dabei werden soweit möglich lokale Kommunikationswege mit dem Musikdienst, bei uns Spotify, auf dem Mobilgerät selbst verwendet. Wenn dies nicht möglich ist, werden API-Anfragen über eine Verbindung zum Internet-Netzwerk an die Musikdienst-API gerichtet. Die Kommunikation mit dem Musik-Player des Session-Hosts übernimmt ausschließlich der Musikdienst.
-
-Der Server verwendet zu Speicherung der Daten eine Datenbank.
-
-\vspace{1cm}
-
-\begin{figure}[h]
-    \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Verteilungsdiagramm.png}
-    \caption{Verteilungsdiagramm}
-    \label{fig:Verteilungsdiagramm}
-\end{figure}
+\begin{itemize}
+    \item Als Gerät wird ein Smartphone oder gleichwertiges Gerät mit mindestens Android 7.0 benötigt.
+    \item Eine jederzeit aktive Internetverbindung wird zur Nutzung der App-Funktionalität benötigt.
+    \item Ein verknüpfter Spotify-Account wird benötigt, um als Full Participant an einer Session teilzunehmen.
+    \item Ein verknüpfter Spotify-Premium-Account wird benötigt, um als Host eine Session zu erstellen und an ihr teilzunehmen.
+\end{itemize}
 
 
 
-\chapter{Entwicklungsumgebung}
+
+\chapter{Tools und Ressourcen zur Entwicklung}
 \label{chap:Entwicklungsumgebung}
 
 \section{Software}
@@ -712,6 +899,7 @@ Der Server verwendet zu Speicherung der Daten eine Datenbank.
     \item Diverse Android Smartphones mit mindestens Android 7.0
     \item Linux Rootserver
 \end{itemize}
+
 
 
 \chapter{Begriffserklärungen}
