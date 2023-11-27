@@ -78,9 +78,9 @@ Musik spielt im Leben vieler Menschen eine enorm wichtige Rolle. Insbesondere be
 
 Nahezu alle der heute gängigen Musikstreaming-Anbieter versuchen bereits mit proprietären Lösungen, dem entgegenzuwirken. In der Praxis jedoch sind die eigens von den Anbietern angebotenen Lösungen häufig nicht praktikabel. Die Ursachen hierfür sind divers, so setzen die von den Anbietern selbst entwickelten Tools häufig voraus, dass alle Teilnehmer über ein bestehendes Abonnement beim entsprechenden Anbieter verfügen. 
 
-Das Ziel des Projekts „Neptune“ ist es, eine praktikable Lösung für die eingangs beschriebene Problematik anzugeben. Hierzu soll im Rahmen des Moduls „Praxis der Softwareentwicklung“ eine Android-App entwickelt werden, mithilfe derer über die bei einer Party oder einem vergleichbaren Event abgespielte Musik entschieden werden kann.
+Das Ziel des Projekts ''Neptune'' ist es, eine praktikable Lösung für die eingangs beschriebene Problematik anzugeben. Hierzu soll im Rahmen des Moduls ''Praxis der Softwareentwicklung'' eine Android-App entwickelt werden, mithilfe derer über die bei einer Party oder einem vergleichbaren Event abgespielte Musik entschieden werden kann.
 
-Hierzu sollen die Anwesenden in verschiedenen verfügbaren Abstimmungs-Modi Musikvorschläge einbringen und über diese abstimmen können. Die Musik soll dann über das Endgerät einer weiteren anwesenden Person, des sogenannten „Hosts“, abgespielt werden. 
+Hierzu sollen die Anwesenden in verschiedenen verfügbaren Abstimmungs-Modi Musikvorschläge einbringen und über diese abstimmen können. Die Musik soll dann über das Endgerät einer weiteren anwesenden Person, des sogenannten ''Hosts'', abgespielt werden. 
 Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in die Lage versetzt werden, einen breiten Musikkatalog bereitzustellen.
 
 
@@ -88,12 +88,12 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 \label{sec:Einleitung:Anwendungsbereich}
 
 Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
-Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen aktiven "DJ"  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
+Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen aktiven ''DJ''  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
 
-Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Vorschlagsliste hinzufügen und mit dem Verteilen von Likes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Queue, sowie die Vorschlagsliste in Neptune. Er kann in dieser Ansicht Songs in die Queue hinzufügen und entfernen, sowie Lieder aus der Vorschlagsliste entfernen, dadurch hat der Host weiterhin die volle Kontrolle über die Musikauswahl. Zusätzlich kann er durch die Einstellung
+Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Vorschlagsliste hinzufügen und mit dem Verteilen von Upvotes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Queue, sowie die Vorschlagsliste in Neptune. Er kann in dieser Ansicht Songs in die Queue hinzufügen und entfernen, sowie Lieder aus der Vorschlagsliste entfernen, dadurch hat der Host weiterhin die volle Kontrolle über die Musikauswahl. Zusätzlich kann er durch die Einstellung
 eines Cooldowns verhindern das diesselben Songs mehrmals mit geringen Abstand gespielt werden.
 
-Eine vollständige Beschreibung der Anwendungsfälle sind  den Use-Case-Diagrammen zu entnehmen   LINK
+Eine vollständige Beschreibung der Anwendungsfälle sind  den \hyperlink{Anwendungsfaelle}{Use Case Diagrammen} zu entnehmen   
 
 
 \section{Zielgruppe}
@@ -110,11 +110,14 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 \section{Musskriterien}
 \label{sec:Zielbestimmungen:Musskriterien}
 \begin{itemize}
-    \item Mithilfe des Systems sollen User gemeinsam auf Veranstaltungen live über die während der Veranstaltung abgespielte Musik entscheiden können
-    \item Hauptbestandteil des Systems ist zum einen ein Entscheidungssystem, welches Usern das Vorschlagen neuer Songs ermöglicht. Zum anderen ermöglicht das System den Usern, in verschiedenen Modi über die abzuspielenden Songs abzustimmen.
+    \item Mithilfe des Systems sollen User gemeinsam auf Veranstaltungen live über die während der Veranstaltung abgespielte Musik abstimmen bzw. entscheiden können.
+    \item Hauptbestandteil des Systems ist ein Abstimmungssystem, welches Participants das Vorschlagen von Tracks ermöglicht. Dazu stellt das System verschiedene Modi zu Auswahl.
+    \begin{itemize}
+        \item Participants können bezüglich bereits vorgeschlagener Tracks ein Upvote abgeben. Je nach gewähltem Abstimmungsmodus hat die jeweilige Anzahl der Upvotes eines Tracks Einfluss darauf, ob und wann er abgespielt wird.
+    \end{itemize}
     \item Das System ist in der Lage, Usern einen durchsuchbaren Musikkatalog zur Verfügung zu stellen. Diese werden über entsprechende, auf dem Markt verfügbare Schnittstellen externer Anbieter bereitgestellt. Konkret wird dies im System durch die Einbindung mindestens einer externen API-Schnittstelle eines Musikstreaming-Anbieters realisiert.
     \begin{itemize}
-        \item Das im Rahmen des Moduls "Praxis der Softwareentwicklung" zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
+        \item Das im Rahmen des Moduls ''Praxis der Softwareentwicklung'' zu entwickelnde System beschränkt sich hierbei zunächst auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
         \begin{itemize}
             \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt.
             \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Songs in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
@@ -168,29 +171,22 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \item Musik soll nicht innerhalb der App selbst abgespielt werden.
     \item Im Rahmen des Projekts soll keine öffentlich zugängliche API und insgesamt keine Schnittstelle für weitere externe Anwendungen bereitgestellt werden
     \item Die App soll, abgesehen von einer Internetverbindung, keine weiteren alternativen Netzwerktechnologien wie Bluetooth o.ä. nutzen.
+    \item Die App unterstützt nur den Portrait-Modus, nicht den Landscape-Modus.
 
 \end{itemize}
 
 
 
-\chapter{Anforderungen an die Produktumgebung}
-\label{chap:Produktumgebung}
+\chapter{Anforderungen an die App-Umgebung}
+\label{chap:Appumgebung}
 
-\section{Softwareanforderungen}
-\label{sec:Produktumgebung:Softwareanforderungen}
-
-\begin{itemize}
-    \item Spotify Account (für Full Participant)
-    \item Spotify Premium Account (für Host)
-\end{itemize}
-
-\section{Hardwareanforderungen}
-\label{sec:Produktumgebung:Hardwareanforderungen}
+Wir stellen folgen Software und Hardware-Anforderungen an die App-Umgebung:
 
 \begin{itemize}
-    \item Smartphone mit mindestens Android 7.0
-    \item Server
-    \item aktive Internetverbindung
+    \item Als Gerät wird ein Smartphone oder gleichwertiges Gerät mit mindestens Android 7.0 benötigt.
+    \item Eine jederzeit aktive Internetverbindung wird zur Nutzung der App-Funktionalität benötigt.
+    \item Ein verknüpfter Spotify-Account wird benötigt, um als Full Participant an einer Session teilzunehmen.
+    \item Ein verknüpfter Spotify-Premium-Account wird benötigt, um als Host eine Session zu erstellen und an ihr teilzunehmen.
 \end{itemize}
 
 
@@ -201,21 +197,23 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 \section{Systemdaten}
 \label{sec:Produktdaten:Systemdaten}
 
-Als Systemdaten werden sämtliche Daten zur Generierung der Benutzeroberfläche gespeichert, sowie Sitzungs-IDs oder Geräte-Tokens und Daten zum Auffinden des Servers. (Evt. kommen noch weiter hinzu wie Benutzereinstellungen, Historiendaten (einfachere Suche vllt.),  App-Zustandsdaten, ...)
+Als Systemdaten werden sämtliche Daten zur Generierung der Benutzeroberfläche gespeichert, sowie die eindeutige Identifikation der App und Daten zum Auffinden des Servers. Zustandsdaten der App werden je nach Entwurfsentscheidung abgespeichert, um die App auch nach dem Schließen im selben Zustand erneut laden zu können. Es werden keinerlei Benutzereinstellungen oder Historiendaten gespeichert (SICHER ???). Auf dem Server werden Daten zum Zustand von Sessions gespeichert. Diese Session-Daten oder Teile von ihnen können auch kurzfristig lokal in der App der User gespeichert werden.
 
 \section{Nutzerdaten}
 \label{sec:Produktdaten:Nutzerdaten}
 
-Falls das Account-System nicht umgesetzt wird, werden keine sensiblen Nutzerdaten verarbeitet und gespeichert. Ausschließlich die zum Aufruf der Musik-App API benötigten Daten (WELCHE SIND DAS ???) sowie Sitzungs-IDs oder Geräte-Tokens werden verarbeitet und gespeichert.
+Es werden keinerlei sensiblen Nutzerdaten gespeichert. Im Fall des Musikdienstes Spotify müssen zur Verwendung der API keine Nutzerdaten gespeichert werden. Nur der generierte Nutzungstoken der API wird lokal gespeichert. Außerdem wird nach der Installation eine eindeutige Identifikation der App generiert, um User voneinander zu unterscheiden. Diese Identifikation wird lokal gespeichert und bei der Kommunikation von App und Server verwendet.
 
 
 
 \chapter{Systemmodell}
 \label{chap:Systemmodell}
 
-Es erfolgt eine Teilung in Client und Server, wobei auf dem Server der größte Teil der Logik geschieht.
+Es erfolgt eine Teilung des Systems in Clients (die Apps) und einen Server. Dabei soll auf dem Server der größte Teil der Systemlogik ablaufen. Dies vereinfacht die Portierung des Systems auf andere mobile Betriebssystem, da nur die App als Client verändert werden muss, während die Logik auf dem Server unverändert bleiben kann.
 
-Für den Client könnte eine Model-View-Controller-Architektur verwendet werden. Besonders relevant ist dabei, dass Anfragen an die Musik-API sinnvoll eingegliedert werden, da diese einen großen Teil des App-Umfangs ausmachen. Vermutlich würde man sowohl Musik-API als auch Kommunkation mit dem Server in den Bereich des Controllers einordnen.
+Die Kommunikation mit der Spotify API erfolgt grundsätzlich über die App-Clients selbst, nicht über den zentralen Server. Dabei werden soweit möglich lokale Kommunikationswege mit dem Musikdienst, bei uns Spotify, auf dem Mobilgerät selbst verwendet. Wenn dies nicht möglich ist, werden API-Anfragen über eine Verbindung zum Internet-Netzwerk an die Musikdienst-API gerichtet. Die Kommunikation mit dem Musik-Player des Session-Hosts übernimmt ausschließlich der Musikdienst.
+
+Der Server verwendet zu Speicherung der Daten eine Datenbank.
 
 \vspace{1cm}
 
@@ -231,7 +229,7 @@ Für den Client könnte eine Model-View-Controller-Architektur verwendet werden.
 
 \section{Einführung}
 \label{sec:Benutzeroberfläche:Einführung}
-\textbf{} Die Benutzeroberfläche wird so gestaltet, dass diese einfach von Nutzern ohne Vorkenntnissen über die App genutzt werden kann. 
+\textbf{} Die Benutzeroberfläche wird so gestaltet, dass diese einfach von Nutzern ohne Vorkenntnissen über die App genutzt werden kann.
 
 \section{Startmenü}
 \label{sec:Benutzeroberfläche:Startmenü}
@@ -247,92 +245,161 @@ In der Host Ansicht kann der Host einen Modus auswählen und Einstellungen für 
 
 \section{Grafikentwürfe}
 \label{sec:Benutzeroberfläche:Grafikentwürfe}
-Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
+Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen ''Gruppe beitreten'' und ''Gruppe erstellen'' wählen. 
+
+%
+\makeatletter
+\setlength{\@fptop}{1cm}
+\makeatother
+%
 
 \begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
-      \caption{startPage}
-    
-        Im Startmenü kann der Nutzer entweder über die Buttons in der Mitte einer Gruppe beitreten, oder eine Gruppe erstellen. Über den Zurück-Knopf oben links verlässt der Nutzer die App.
-   \end{minipage}
-\end{figure}
-
-\begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
-      \caption{userJoinGroupPage}
-        Um ein übersichtliches Startmenü zu gewährleisten kann der Nutzer nur zwischen den Optionen "Gruppe beitreten" und "Gruppe erstellen" wählen. 
-   \end{minipage}
-\end{figure}
-
-\begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userVotePage.png}
-      \caption{userVotePage}
-        Auf der Nutzer Abstimmungsseite sieht der Nutzer die Tracks die bereits von Sessionmitglieder vorgeschlagen und geliked wurden. Zudem kann er Lieder liken, welche er noch nicht geliked hat. Durch klicken des Lieder suchen Buttons gelangt der Nutzer zur Tracksuche. Über den Zurück-Knopf oben links gelangt der Nutzer zurück zum Startmenü. Dieser Vorgang muss über ein Pop-Up Fenster bestätigt werden, da gleichseitig die Gruppe verlassen wird.
-   \end{minipage}
-\end{figure}
-
-\begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/userSearchPage.png}
-      \caption{userSearchPage}
-        Im 
-   \end{minipage}
-\end{figure}
-
-\begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
-      \caption{hostModusSelectPage}
-        In der Modusauswahlview kann der Host einen der vier möglichen Modi auswählen, dabei ist am Beginn ist der General Mode ausgewählt. Im Textfeld darunter wird ein kurze Beschreibung des gerade ausgewählten Modus angezeigt. Mit dem Bestätigen Button springt man in die Einstellungspage des Hosts.
-   \end{minipage}
-\end{figure}
-
-\begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
-      \caption{hostModusSettingsPage}
-        In den Host Einstellungen kann man mit dem Einfügen eines Spotifyplaylistlinkes eine Standartplaylist hinterlegen.
-        In der Genre/Artist Feld kann man die Genre und Artistbeschränkungen auswählen (Todo wie)
-    
+    \hypertarget{startPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
+        \caption{startPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        Bei Drücken des Zurück Button erscheint ein Pop-Up Fenster mit der Frage ''NepTune wirklich schließen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden. Durch auswählen von ''Ja'' wird die App geschlossen. Durch Auswählen von ''Nein'' bleibt der Nutzer in der \hyperlink{startPage}{startPage}.\\
+        Durch klicken des ''Session beitreten" Button gelangt der Nutzer auf die \hyperlink{userJoinGroupPage}{userJoinGroupPage}. \\
+        Durch klicken des ''Session erstellen'' Button gelangt der Nutzer auf die \hyperlink{hostModusSelectPage}{hostModusSelectPage}. Der ''Session erstellen'' Button ist jedoch so lange deaktiviert, bis sich der Nutzer mit über den ''Mit Spotify verknüpfen'' Button mit Spotify verbunden hat und verifiziert wurde, dass es sich um einen Spotify Premium Account handelt.\\
+        Hat sich der Nutzer mit Spotify angemeldet, so ändert sich der ''Mit Spotify verknüpfen'' Button zu ''Von Spotify trennen''. Durch Nutzung des Buttons wird das Spotify Konto des Nutzers wieder von NepTune getrennt.
     \end{minipage}
 \end{figure}
 
 \begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
-      \caption{hostControlPage}
-        In der HostControlPage kann der Host die Queue in Spotify einsehen. 
-   \end{minipage}
+    \hypertarget{userJoinGroupPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
+        \caption{userJoinGroupPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+         Der <- Button oben links führt zurück auf die \hyperlink{startPage}{startPage}.
+         Im Textfeld darunter kann der 6-stellige Zugangscode eingegeben werden. Existiert eine Session zu dem eingegeben Zugangscode kann man mit dem -> Button zur
+         \hyperlink{userVotePage}{userVotePage} springen. Alternativ kann mit dem ''Code Scannen'' Button den QR-Codereader öffnen. Nach erfolgreichen einscannen landet man hier ebenfalls auf der \hyperlink{userVotePage}{userVotePage}. 
+         
+    \end{minipage}
 \end{figure}
 
 \begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
-      \caption{hostSearchPage}
-        TODO
-   \end{minipage}
+    \hypertarget{userVotePage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userVotePage.png}
+        \caption{userVotePage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        Auf der userVotingPage sieht der Nutzer die Tracks die bereits von Sessionmitglieder upgevotet wurden. Zudem kann er Lieder upvoten, die er noch nicht upgevotet hat, durch erneutes Anklicken wird der Upvote wieder entfernt. Durch drücken des ''Lied suchen'' Button springt man in die  \hyperlink{userSearchPage}{userSearchPage}. Über den Zurück-Knopf oben links gelangt der Nutzer zurück zur \hyperlink{startPage}{startPage}. Dieser Vorgang muss über ein Pop-Up Fenster bestätigt werden, da gleichseitig die Gruppe verlassen wird.
+    \end{minipage}
 \end{figure}
 
 \begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
-      \caption{shareLinkPopUpPage}
-        TODO
-   \end{minipage}
+    \hypertarget{userSearchPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/userSearchPage.png}
+        \caption{userSearchPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        Der <- Button führt zurück in die \hyperlink{userVotingPage}{userVotingPage}  
+    \end{minipage}
 \end{figure}
 
 \begin{figure}
-   \begin{minipage}[b]{.4\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=5.5cm]{LATEX/Pflichtenheft/GraphicDesigns/statisticsPopUpPage.png}
-      \caption{statisticsPopUpPage}
-        TODO
-   \end{minipage}
+    \hypertarget{hostModusSelectPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSelectPage.png}
+        \caption{hostModusSelectPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        In der Modusauswahlview kann der Host einen der vier möglichen Modi auswählen, dabei ist am Beginn ist der General Mode ausgewählt. Im Textfeld darunter wird ein kurze Beschreibung des gerade ausgewählten Modus angezeigt. Mit dem Bestätigen Button springt man in die Einstellungspage des Hosts.
+    \end{minipage}
 \end{figure}
 
+\begin{figure}
+    \hypertarget{hostModusSettingsPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
+        \caption{hostModusSettingsPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        In den Host Einstellungen kann man mit dem Einfügen eines Spotifyplaylistlinkes eine Standartplaylist hinterlegen.
+        In der Genre/Artist Feld kann man die Genre und Artistbeschränkungen auswählen \textit{(Todo wie)}
+    \end{minipage}
+\end{figure}
 
+\begin{figure}
+    \hypertarget{hostControlPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
+        \caption{hostControlPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        In der HostControlPage kann der Host die Queue in Spotify einsehen. Genau wie ein Participant kann er hier Upvotes auf Tracks verteilen und wieder entfernen. Zudem kann der Host durch drücken auf die drei Punkte eines Tracks weitere Einstellung vornehmen. Zu diesen gehören das Hinzufügen und Entfernen eines Tracks zur Queue, sowie das Sperren und Entsperren von Tracks. Gesperrte Tracks können keine Upvotes erhalten und werden nicht abgespielt.
+    \end{minipage}
+\end{figure}
+
+\begin{figure}
+    \hypertarget{hostSearchPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
+        \caption{hostSearchPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        TODO
+    \end{minipage}
+\end{figure}
+
+\begin{figure}
+    \hypertarget{shareLinkPopUpPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
+        \caption{shareLinkPopUpPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        Die shareLinkPopUpPage stellt für den Host einer Session in gebündelter Form Möglichkeiten zur Verfügung,  User als Participants zu der entsprechenden Session einzuladen. Primär stehen hierfür ein der Session eindeutig zugeordneter, sechstelliger Code aus Ganzzahlen sowie ein analog der Session zugeordneter Beitrittslink zur Verfügung. Für den Beitrittslink ist in der Anzeige ein Button enthalten, mithilfe dessen der Link geteilt werden kann. Für das Teilen wird hierbei die von Android bereitgestellte Schnittfläche verwendet. Darüber hinaus soll als Alternative gleichzeitig auch ein analog funktionierender QR-Code zur Verfügung stehen, welcher in dieser Ansicht mit angezeigt wird. Zusätzlich werden in dieser Anzeige der Bezeichner des Gruppenmodus der Session sowie gegebenenfalls Informationen über Modusseitige Einschränkungen hinsichtlich Genres und Artists angezeigt. Durch Auswahl des "Zurück
+ Buttons (symbolisiert durch Pfeil) gelangt man zur zuvor angezeigten Ansicht zurück. Durch Auswahl des "X"-Buttons lässt sich diese Anzeige schließen und man gelangt zur \textit{(uv)-}Ansicht. \textit{(TODO: ENTSPRECHENDE ANSICHT DAZU SCHREIBEN!)}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}
+    \hypertarget{statisticsPopUpPage}{}
+    \begin{minipage}[t]{7 cm}
+        \vspace{-1.5ex}
+        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/statisticsPopUpPage.png}
+        \caption{statisticsPopUpPage}
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}[t]{7 cm}
+        \vspace{1cm}
+        TODO
+    \end{minipage}
+\end{figure}
 
 \chapter{Qualitätszielbestimmungen}
 \label{chap:Qualitätszielbestimmungen}
@@ -362,6 +429,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \label{sec:Anwendungsfälle:Session erstellen}
 
 \begin{figure}[h]
+   \hypertarget{Anwendungsfaelle}{}
     \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case Session erstellen.png}
     \caption{Session erstellen}
     \label{fig:Use Case App Start}
@@ -415,8 +483,6 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 
 \chapter{Testfälle und -szenarien}
 \label{chap:Tests}
-
-TODO: Aus dem Inhaltsverzeichnis rausbekommen
 
 In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch einen oder mehrere Benutzer des Produkts durchgeführt werden können. Die hier definierten Testfälle sollen deshalb explizit keine technischen Funktionalitäten testen, die ausreichend detailliert erst während der Entwurfsphase festgelegt werden. Solche technischen Funktionalitäten werden durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
 
@@ -489,7 +555,7 @@ Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufe
 \end{itemize}
 
 
-\subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session mit Modus $M$ als Passive Participant}
+\subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session als Passive Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G3}
 Ein User, tritt als Restricted Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
@@ -628,8 +694,7 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restr
 
     \item Sonstige Software
     \begin{itemize}
-        \item LATEX (Dokumentation)
-        \item ...
+        \item Overleaf (für LATEX Dokumentation)
     \end{itemize}
     
 \end{itemize}
@@ -647,47 +712,50 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restr
 \chapter{Begriffserklärungen}
 \label{chap:Begriffserklärungen}
 
-\textbf{System}
- - Das gesamte zu entwickelnde Softwaresystem, Überbegriff von App und Server.
-
 \textbf{App}
  - Der Teil des Softwaresystems, der auf dem Android-Gerät des Nutzers läuft.
 
-\textbf{Server}
- - Der Teil des Softwaresystems, der nicht auf dem Android-Gerät des Nutzers, sondern auf einem zentralen und externen Server läuft.
-
-\textbf{Produkt}
- - Der Zustand, in dem das System nach Fertigstellung sein wird.
-
-\textbf{Session}
- - Eine Gruppe aus Participants und einem Gruppenersteller, dem Host. In ihr kann Musik vorgeschlagen und vom Host abgespielt werden.
+ \textbf{Full Participant}
+ - Mit dem Musikdienst verknüpfter Participant, der Tracks im gesamten Katalog des Musikdienstes suchen kann.
 
 \textbf{Host}
  - Ersteller einer Session, der (vorgeschlagene) Musik abspielt (kein Participant). Der Host benötigt ein Premium Abonnenment des Musikdienstes Spotify.
 
-\textbf{Participant}
+ \textbf{Musikdienst}
+ - Der Musik-Streaminganbieter, über den die App Musik abspielt. Bei dieser App ist das Spotify.
+
+ \textbf{Participant}
  - Teilnehmer einer Session (nicht der Host). Überbegriff für Full Participant und Restricted Participant.
 
-\textbf{Full Participant}
- - Mit dem Musikdienst verknüpfter Participant, der Musik vorschlagen und darüber abstimmen kann.
+ \textbf{Produkt}
+ - Der Zustand, in dem das System nach Fertigstellung sein wird.
 
-\textbf{Restricted Participant}
- - Nicht mit dem Musikdienst verknüpfter Participant, der nur über Vorschläge von anderen abstimmen kann.
+ \textbf{Queue}
+ - Liste von Liedern, welche als nächstes durch den Musikdienst abgespielt werden.
 
-\textbf{User}
- - Jeder Benutzer der App, Participant und Host sind User.
+ \textbf{Restricted Participant}
+ - Nicht mit dem Musikdienst verknüpfter Participant, der nur Tracks von den bisher upgevoteten suchen kann.
 
-\textbf{Musikdienst}
- - Der Musik-Streaminganbieter, über den die App Musik abspielt. Bei unserer App ist das Spotify.
- 
-\textbf{Queue}
- - Liste von Liedern, welche als nächstes durch den Musikdienst (Spotify) abgespielt werden.
+ \textbf{Server}
+ - Der Teil des Softwaresystems, der nicht auf dem Android-Gerät des Nutzers, sondern auf einem zentralen und externen Server läuft.
+
+ \textbf{Session}
+ - Eine Gruppe aus Participants und einem Host. In ihr können Tracks upgevotet und vom Host abgespielt werden.
+
+\textbf{System}
+ - Das gesamte zu entwickelnde Softwaresystem, Überbegriff von App und Server.
 
  \textbf{Track}
  - Lied bzw. Musikstück.
 
-\textbf{Vorschlagsliste}
- - Liste von Tracks einer Session, die von einem User vorgeschlagen wurden.
+ \textbf{Upvote}
+ - Bewertung auf einen Track. Je mehr Upvotes ein Track hat, desto beliebter ist er.
 
+ \textbf{User}
+ - Jeder Benutzer der App, Participant und Host sind User.
+
+ \textbf{Vorschlagsliste}
+ - Liste von Tracks einer Session, die mindestens ein Upvote haben.
+ 
 
 \end{document}

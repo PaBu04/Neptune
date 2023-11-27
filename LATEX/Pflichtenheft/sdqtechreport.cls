@@ -195,7 +195,8 @@
 
 % PDF specific packages
 \RequirePackage[hyphens]{url}
-\RequirePackage[breaklinks,colorlinks=false]{hyperref}
+\RequirePackage[breaklinks,urlcolor = blue, colorlinks=true,
+    linkcolor=blue,]{hyperref}
 \newcommand\setpdf{
     \hypersetup{%
     pdftitle={Technical Report},%
