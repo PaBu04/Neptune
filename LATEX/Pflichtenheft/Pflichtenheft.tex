@@ -219,7 +219,7 @@ Falls die App nicht vollständig beendet wurde und die Zustandsdaten des Android
 % do not show subsections in contents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-Die folgenden Grafikentwürfe sind nur erste Entwürfe. Sie sollen einen ersten Eindruck vom Aussehen der App vermitteln und vor allem die ''Topologie'' der App darstellen: Das heißt, wo sich welche Buttons befinden und was diese bewirken. Wir möchten ausdrücklich klarstellen, dass wir die hier gezeigten Designs hinsichtlich Formen, Farben und Anordnung noch verändern wollen und werden. Die Designs sind nicht als final zu verstehen.
+Die folgenden Grafikentwürfe sind nur erste Entwürfe. Sie sollen einen ersten Eindruck vom Aussehen der App vermitteln und vor allem die ''Topologie'' der App darstellen: Das heißt, wo sich welche Buttons befinden und was diese bewirken. Wir möchten ausdrücklich klarstellen, dass wir die hier gezeigten Designs hinsichtlich Formen, Farben, Anordnung und exakter Beschriftung noch verändern wollen und werden. Die Designs sind nicht als final zu verstehen.
 
 In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitelaufbau ist folgendermaßen: Jede View enthält einen Grafikentwurf, eine grobe textuelle Erläuterung und die detaillierte Definition aller wichtigen Benutzeroberflächen-Elemente. Das Klicken selbst und das Verhalten nach dem Klicken auf ein klickbares solches Element ist stets als funktionale Anforderung zu verstehen.
 
@@ -227,29 +227,23 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 \subsection{Startseite (startView)}
 \label{sec:Benutzeroberfläche:startView}
 
-\begin{minipage}{0.5\textwidth}
+\begin{center}
     \hypertarget{startView}{}
-    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
+    \includegraphics[width=0.4\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/startPage.png}
     \captionof{figure}{startView}
-\end{minipage} 
-\hfill
-\begin{minipage}{0.5\textwidth}
-    Beim Öffnen der App soll der User mit möglichst wenigen Optionen konfrontiert werden. Ihm Stehen nur das Verlassen der App, der Beitritt einer Session, das Erstellen einer Session (falls bereits mit Spotify-Premium-Account verknüpft) und das Verwalten der Spotify-Verknüpfung zur Auswahl. 
-\end{minipage}
-\vspace{\baselineskip}
+\end{center}
 
-\newpage
 \textbf{Session beitreten:}
 \begin{itemize}
     \item Solange der User sich nicht mit einem Spotify-Account verknüpft hat, wird darunter ein Hinweis angezeigt, dass User ohne verknüpften Account nur über von anderen Usern vorgeschlagene Tracks abstimmen können und zum Vorschlagen ein verknüpfter Spotify-Account benötigt wird.
-    \item Durch Klicken des Buttons ''Session beitreten" gelangt der Nutzer auf die \hyperlink{userJoinGroupPage}{userJoinGroupPage}. Dabei wird er zum Full Participant, wenn er mit einem Spotify-Account verknüpft ist. Anderfalls wird er zu einem Restricted Partcipant.
+    \item Durch Klicken des Buttons ''Session beitreten" gelangt der Nutzer auf die \hyperlink{userJoinGroupView}{userJoinGroupView}. Dabei wird er zum Full Participant, wenn er mit einem Spotify-Account verknüpft ist. Anderfalls wird er zu einem Restricted Partcipant.
 \end{itemize}
 
 \textbf{Session erstellen:}
 \begin{itemize}
     \item Der Button ''Session erstellen'' ist so lange deaktiviert und ''verblasst'', bis sich der Nutzer über den Button ''Mit Spotify verknüpfen'' erfolgreich mit einem Spotify-Premium-Account verknüpft hat. Danach wird er funktionsfähig.
     \item Solange der Button ''Session erstellen'' deaktiviert ist, wird darunter ein Hinweis angezeigt, dass das Erstellen einer Session nu mit einem verknüpften Spotify-Premium-Account möglich ist.
-    \item Durch Klicken des funktionsfähigen Buttons ''Session erstellen'' gelangt der Nutzer auf die \hyperlink{hostModusSelectPage}{hostModusSelectPage}.
+    \item Durch Klicken des funktionsfähigen Buttons ''Session erstellen'' gelangt der Nutzer auf die \hyperlink{hostModusSelectView}{hostModusSelectView}.
 \end{itemize}
 
 \textbf{Mit Spotify verknüpfen:}
@@ -270,22 +264,16 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 \end{itemize}
 
 
-\newpage
 
 \subsection{Sessionbeitritt (joinSessionView)}
 \label{sec:Benutzeroberfläche:joinSessionView}
 
 
-\begin{minipage}{0.5\textwidth}
+\begin{center}
     \hypertarget{joinSessionView}{}
-    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
+    \includegraphics[width=0.4\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/userJoinGroupPage.png}
     \captionof{figure}{joinSessionView}
-\end{minipage} 
-\hfill
-\begin{minipage}{0.5\textwidth}
-    Zum Beitritt einer Session als Full Participant (mit verknüpftem Spotify-Account) oder Restricted Participant (mit verknüpften Spotify-Account) muss der User einen gültigen Session-Code eingeben oder einen gültigen QR-Code einscannen. Die Möglichkeit dazu bietet ihm diese View.
-\end{minipage}
-\vspace{\baselineskip}
+\end{center}
 
 \textbf{Code-Eingabefeld:}
 \begin{itemize}
@@ -294,13 +282,13 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 
 \textbf{Code bestätigen:}
 \begin{itemize}
-    \item Existiert eine Session zum eingegebenen sechsstelligen Code, führt Klicken des Bestätigungsbuttons auf die \hyperlink{userVotePage}{userVotePage} der Session.
+    \item Existiert eine Session zum eingegebenen sechsstelligen Code, führt Klicken des Bestätigungsbuttons auf die \hyperlink{userVoteView}{userVoteView} der Session.
     \item Existiert keine Session zur Eingabe, erscheint ein entsprechender Hinweis unter dem Code-Eingabefeld und der Inhalt des Code-Eingabefeldes wird gelöscht.
 \end{itemize}
 
 \textbf{Code scannen:}
 \begin{itemize}
-    \item Durch Klicken des Buttons ''Code scannen'' öffnet sich ein QR-Code-Reader. Nach dem erfolgreichen Scannen eines gültigen QR-Codes gelangt man ebenfalls auf die \hyperlink{userVotePage}{userVotePage} der Session.
+    \item Durch Klicken des Buttons ''Code scannen'' öffnet sich ein QR-Code-Reader. Nach dem erfolgreichen Scannen eines gültigen QR-Codes gelangt man ebenfalls auf die \hyperlink{userVoteView}{userVoteView} der Session.
     \item Der sich nach dem Klicken öffnende QR-Code-Reader besitzt einen Button zum Schließen.
     \item Der sich nach dem Klicken öffnende QR-Code-Reader zeigt eine Meldung mit entsprechendem Hinweis an, falls ein erfolgreich gelesener QR-Code keinen gültigen Session-Code darstellt.
 \end{itemize}
@@ -309,8 +297,6 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 \begin{itemize}
     \item Durch Klicken des Zurück-Buttons gelangt man auf die \hyperlink{startView}{startView}.
 \end{itemize}
-
-\newpage
 
 \subsection{Abstimmungsansicht einer Session (sessionVoteView)}
 \label{sec:Benutzeroberfläche:joinSessionView}
@@ -333,7 +319,7 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 
 \textbf{Statistiken:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
 \end{itemize}
 
 \textbf{Track-Anzeige:}
@@ -362,8 +348,6 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \end{itemize}
 \end{itemize}
 
-\newpage
-
 \subsection{Tracksuche für Participants (participantSearchView)}
 \label{sec:Benutzeroberfläche:joinSessionView}
 
@@ -385,7 +369,7 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 
 \textbf{Statistiken:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
 \end{itemize}
 
 \textbf{Track-Eingabefeld:}
@@ -416,8 +400,6 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
 \begin{itemize}
     \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{sessionVoteView}{sessionVoteView}.
 \end{itemize}
-
-\newpage
 
 \subsection{Moduswahl für den Host (hostModeSelectView)}
 \label{sec:Benutzeroberfläche:joinSessionView}
@@ -461,45 +443,196 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{startView}{startView}.
 \end{itemize}
 
+
+\subsection{Moduseinstellungen für den Host (hostModeSettingsView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{hostModeSettingsView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
+    \captionof{figure}{hostModeSettingsView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+\textbf{Playlist-Link:}
+\begin{itemize}
+    \item Nur im Playlist Mode vorhanden: Eingabefeld zum Einfügen des Spotify-Share-Links der gewünschten Playlist.
+\end{itemize}
+
+\textbf{Artist-Auswahl:}
+\begin{itemize}
+    \item TODO: Wie?
+\end{itemize}
+
+\textbf{Genre-Auswahl:}
+\begin{itemize}
+    \item TODO: Wie?
+\end{itemize}
+
+\textbf{Track-Cooldown:}
+\begin{itemize}
+    \item In jedem Modus vorhanden: Ein Slider zur Auswahl des zeitlichen Cooldowns bis ein gespielter Track erneut zum Upvoten verfügbar wird. (TODO: Wie zeigen wir das an? Sind die Tracks einfach verschwunden? Oder nicht klickbar?)
+    \item Der derzeit eingestellte Wert wird neben dem Slider angezeigt.
+\end{itemize}
+
+\textbf{Einstellungen bestätigen:}
+\begin{itemize}
+    \item Der Einstellungen-Bestätigen-Button ist zunächst verblasst und nicht klickbar. Er wird erst klickbar, nachdem je nach Modus eine Playlist, mindestens ein Artist oder mindestens ein Genre eingestellt wurden.
+    \item Durch Klicken des Einstellungen-Bestätigen-Buttons werden die Einstellungen angewendet und die Session eröffnet. Der Host gelangt in die ControlView (REF).
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostModeSelectView}{hostModeSelectView}.
+\end{itemize}
+
+
+\subsection{Kontrollansicht für den Host (hostControlView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{hostControlView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
+    \captionof{figure}{hostControlView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+\textbf{Session-Info:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+\end{itemize}
+
+\textbf{Statistiken:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+\end{itemize}
+
+\textbf{Queue-Anzeige:}
+\begin{itemize}
+    \item Liste von Tracks, die sich derzeit in der Queue befinden und dementsprechend in dieser Reihenfolge zukünftig abgespielt werden.
+    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Queue. Per Drag and Drop lässt sich mit ihm der Track an eine andere Stelle in der Queue ziehen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \begin{itemize}
+        \item Track aus Queue entfernen
+        \item Track sperren
+    \end{itemize}
+\end{itemize}
+
+\textbf{Top-Voted-Anzeige:}
+\begin{itemize}
+    \item Liste von Tracks mit mindestens einem Upvote sortiert nach der Anzahl der Upvotes. Auch Tracks aus der Queue sind noch enthalten. (TODO: Markierung einfügen ob Track in Queue ist oder nicht)
+    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Top-Voted-Liste. Per Drag and Drop lässt sich mit ihm der Track an eine bestimmte Stelle in der Queue ziehen und dadurch hinzufügen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \begin{itemize}
+        \item Track unten zur Queue hinzufügen
+        \item Track sperren
+    \end{itemize}
+    \item Ausnahme: Im Playlist Mode werden alle Tracks der Playlist angezeigt, auch solche ohne Upvote.
+\end{itemize}
+
+\textbf{Track-Upvote:}
+\begin{itemize}
+    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt.
+    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+\end{itemize}
+
+\textbf{Track suchen:}
+\begin{itemize}
+    \item Durch Klicken des Buttons ''Track suchen'' gelangt man in die Tracksuche für den Host (REF).
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich löschen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \begin{itemize}
+        \item Durch Auswählen von ''Ja'' wird die Session gelöscht und der Host gelangt in die \hyperlink{startView}{startView}. Auch alle Participants der Session gelangen in die \hyperlink{startView}{startView}.
+        \item Durch Auswählen von ''Nein'' bleibt der Host in der \hyperlink{hostControlView}{hostControlView}.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Tracksuche für den Host (hostSearchView)}
+\label{sec:Benutzeroberfläche:joinSessionView}
+
+
+\begin{minipage}{0.5\textwidth}
+    \hypertarget{hostSearchView}{}
+    \includegraphics[width=0.9\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
+    \captionof{figure}{hostSearchView}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.5\textwidth}
+    XXX
+\end{minipage}
+
+TODO: DAS HIER MUSS ALLES NOCH KORREKT BESCHRIFTET WERDEN
+
+\textbf{Session-Info:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+\end{itemize}
+
+\textbf{Statistiken:}
+\begin{itemize}
+    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+\end{itemize}
+
+\textbf{Queue-Anzeige:}
+\begin{itemize}
+    \item Liste von Tracks, die sich derzeit in der Queue befinden und dementsprechend in dieser Reihenfolge zukünftig abgespielt werden.
+    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Queue. Per Drag and Drop lässt sich mit ihm der Track an eine andere Stelle in der Queue ziehen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \begin{itemize}
+        \item Track aus Queue entfernen
+        \item Track sperren
+    \end{itemize}
+\end{itemize}
+
+\textbf{Top-Voted-Anzeige:}
+\begin{itemize}
+    \item Liste von Tracks mit mindestens einem Upvote sortiert nach der Anzahl der Upvotes. Auch Tracks aus der Queue sind noch enthalten. (TODO: Markierung einfügen ob Track in Queue ist oder nicht)
+    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
+    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Top-Voted-Liste. Per Drag and Drop lässt sich mit ihm der Track an eine bestimmte Stelle in der Queue ziehen und dadurch hinzufügen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \begin{itemize}
+        \item Track unten zur Queue hinzufügen
+        \item Track sperren
+    \end{itemize}
+    \item Ausnahme: Im Playlist Mode werden alle Tracks der Playlist angezeigt, auch solche ohne Upvote.
+\end{itemize}
+
+\textbf{Track-Upvote:}
+\begin{itemize}
+    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt.
+    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+\end{itemize}
+
+\textbf{Track suchen:}
+\begin{itemize}
+    \item Durch Klicken des Buttons ''Track suchen'' gelangt man in die Tracksuche für den Host (REF).
+\end{itemize}
+
+\textbf{Zurück-Button:}
+\begin{itemize}
+    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostControlView}{hostControlView}.
+\end{itemize}
+
 \newpage
 
 TODO: Ab hier weitermachen im obigen Format, also einfach copy paste und ausfüllen...
 
 \begin{figure}
-    \hypertarget{hostModusSettingsPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostModusSettingsPage.png}
-        \caption{hostModusSettingsPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        In den Host Einstellungen kann man mit dem Einfügen eines Spotifyplaylistlinkes eine Standartplaylist hinterlegen.
-        In der Genre/Artist Feld kann man die Genre und Artistbeschränkungen auswählen \textit{(Todo wie)}
-    \end{minipage}
-\end{figure}
-
-\begin{figure}
-    \hypertarget{hostControlPage}{}
-    \begin{minipage}[t]{7 cm}
-        \vspace{-1.5ex}
-        \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
-        \caption{hostControlPage}
-    \end{minipage}
-    \hspace{1cm}
-    \begin{minipage}[t]{7 cm}
-        \vspace{1cm}
-        In der HostControlPage kann der Host die Queue in Spotify einsehen. Genau wie ein Participant kann er hier Upvotes auf Tracks verteilen und wieder entfernen. Zudem kann der Host durch drücken auf die drei Punkte eines Tracks weitere Einstellung vornehmen. Zu diesen gehören das Hinzufügen und Entfernen eines Tracks zur Queue, sowie das Sperren und Entsperren von Tracks. Gesperrte Tracks können keine Upvotes erhalten und werden nicht abgespielt.
-    \end{minipage}
-\end{figure}
-
-\begin{figure}
-    \hypertarget{hostSearchPage}{}
+    \hypertarget{hostSearchView}{}
     \begin{minipage}[t]{7 cm}
         \vspace{-1.5ex}
         \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/hostSearchPage.png}
-        \caption{hostSearchPage}
+        \caption{hostSearchView}
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}[t]{7 cm}
@@ -509,26 +642,26 @@ TODO: Ab hier weitermachen im obigen Format, also einfach copy paste und ausfül
 \end{figure}
 
 \begin{figure}
-    \hypertarget{shareLinkPopUpPage}{}
+    \hypertarget{shareLinkPopUpView}{}
     \begin{minipage}[t]{7 cm}
         \vspace{-1.5ex}
         \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/shareLinkPopUpPage.png}
-        \caption{shareLinkPopUpPage}
+        \caption{shareLinkPopUpView}
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}[t]{7 cm}
         \vspace{1cm}
-        Die shareLinkPopUpPage stellt für den Host einer Session in gebündelter Form Möglichkeiten zur Verfügung,  User als Participants zu der entsprechenden Session einzuladen. Primär stehen hierfür ein der Session eindeutig zugeordneter, sechstelliger Code aus Ganzzahlen sowie ein analog der Session zugeordneter Beitrittslink zur Verfügung. Für den Beitrittslink ist in der Anzeige ein Button enthalten, mithilfe dessen der Link geteilt werden kann. Für das Teilen wird hierbei die von Android bereitgestellte Schnittfläche verwendet. Darüber hinaus soll als Alternative gleichzeitig auch ein analog funktionierender QR-Code zur Verfügung stehen, welcher in dieser Ansicht mit angezeigt wird. Zusätzlich werden in dieser Anzeige der Bezeichner des Gruppenmodus der Session sowie gegebenenfalls Informationen über Modusseitige Einschränkungen hinsichtlich Genres und Artists angezeigt. Durch Auswahl des "Zurück
- Buttons (symbolisiert durch Pfeil) gelangt man zur zuvor angezeigten Ansicht zurück. Durch Auswahl des "X"-Buttons lässt sich diese Anzeige schließen und man gelangt zur \textit{(uv)-}Ansicht. \textit{(TODO: ENTSPRECHENDE ANSICHT DAZU SCHREIBEN!)}
+        Die shareLinkPopUpView stellt für die User einer Session in gebündelter Form Möglichkeiten zur Verfügung, User als Participants zu der entsprechenden Session einzuladen. Primär stehen hierfür ein der Session eindeutig zugeordneter, sechstelliger Code aus Ganzzahlen sowie ein analog der Session zugeordneter Beitrittslink zur Verfügung. Für den Beitrittslink ist in der Anzeige ein Button enthalten, mithilfe dessen der Link geteilt werden kann. Für das Teilen wird hierbei die von Android bereitgestellte Schnittfläche verwendet. Darüber hinaus soll als Alternative gleichzeitig auch ein analog funktionierender QR-Code zur Verfügung stehen, welcher in dieser Ansicht mit angezeigt wird. Zusätzlich werden in dieser Anzeige der Bezeichner des Gruppenmodus der Session sowie gegebenenfalls Informationen über Modusseitige Einschränkungen hinsichtlich Genres und Artists angezeigt.\\
+        Durch Auswahl des ''Zurück Buttons'' (symbolisiert durch den Pfeil oben links) gelangt man zur letzten View auf dem BackStack.
  \end{minipage}
 \end{figure}
 
 \begin{figure}
-    \hypertarget{statisticsPopUpPage}{}
+    \hypertarget{statisticsPopUpView}{}
     \begin{minipage}[t]{7 cm}
         \vspace{-1.5ex}
         \includegraphics[width=7cm]{LATEX/Pflichtenheft/GraphicDesigns/statisticsPopUpPage.png}
-        \caption{statisticsPopUpPage}
+        \caption{statisticsPopUpView}
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}[t]{7 cm}
