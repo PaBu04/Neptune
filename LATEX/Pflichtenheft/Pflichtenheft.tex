@@ -88,10 +88,10 @@ Mittels der Einbindung eines gängigen Musikstreaming-Service soll die App in di
 \label{sec:Einleitung:Anwendungsbereich}
 
 Das Ziel von Neptune ist es, die Musikauswahl bei privaten Veranstaltungen, wie zum Beispiel studentische WG- und Wohnheimpartys, einfacher und gerechter zu gestalten.
-Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Songs abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen aktiven ''DJ''  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
+Die Android-App Neptune bietet Gruppen die Möglichkeit jeden an der Musikauswahl zu beteiligen und über die Abspielreihenfolge demokratisch abzustimmen. Durch die Integration mit einem Audio-Streaming-Dienst wie Spotify kann Neptune automatisch die am besten bewerteten Tracks abspielen. Damit ist es möglich Songwünsche von Gästen zu erfüllen, ohne einen aktiven ''DJ''  der die Wünsche entgegen nimmt und sie manuell in die Warteschlange hinzufügt.
 
-Bei der Erstellung einer Listening-Session kann der Gastgeber die verfügbaren Lieder nach Belieben auf verschiedene Genres oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Lieder in die Vorschlagsliste hinzufügen und mit dem Verteilen von Upvotes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Queue, sowie die Vorschlagsliste in Neptune. Er kann in dieser Ansicht Songs in die Queue hinzufügen und entfernen, sowie Lieder aus der Vorschlagsliste entfernen, dadurch hat der Host weiterhin die volle Kontrolle über die Musikauswahl. Zusätzlich kann er durch die Einstellung
-eines Cooldowns verhindern das diesselben Songs mehrmals mit geringen Abstand gespielt werden.
+Bei der Erstellung einer Session kann der Gastgeber die verfügbaren Tracks nach Belieben auf verschiedene Genres/Artists oder eine Playlist beschränken. Nach Auswahl des Modus kann der Gastgeber die Gäste einladen, sich an der Musikauswahl zu beteiligen, indem er einen sechsstelligen Zahlencode oder einen Link weitergibt. Die Gäste können dann in der App Tracks in die Vorschlagsliste hinzufügen und mit dem Verteilen von Upvotes Lieder in der Liste nach oben voten und sie somit schneller zum Abspielen bringen. Der Host hat durch eine Kontrollansicht einen Überblick über die Queue, sowie die Vorschlagsliste in Neptune. Er kann in dieser Ansicht Tracks in die Queue hinzufügen und entfernen, sowie Tracks aus der Vorschlagsliste sperren, dadurch hat der Host weiterhin die volle Kontrolle über die Musikauswahl. Zusätzlich kann er durch die Einstellung
+eines Cooldowns verhindern, dass diesselben Tracks mehrmals mit geringen Abstand gespielt werden.
 
 Eine vollständige Beschreibung der Anwendungsfälle sind  den \hyperlink{Anwendungsfaelle}{Use Case Diagrammen} zu entnehmen   
 
@@ -101,8 +101,8 @@ Eine vollständige Beschreibung der Anwendungsfälle sind  den \hyperlink{Anwend
 
 Die primäre Zielgruppe von Neptune besteht aus Veranstaltern und Besuchern von Privatpartys, die zwischen 5-50 Besucher haben. Das Alter der Zielgruppe liegt dabei bei 18-35 Jahren, in dieser Altersgruppe ist von Vertrautheit bei der Bedingung von Smartphoneapps auszugehen. Darüber hinaus haben eine Mehrheit in dieser Altersgruppe einen Zugang zu Spotify, sowie ein aktuelles Smartphone. Dadurch sind die Zugangsbarrieren für die Benutzung von Neptune sehr niedrig.
 
-Auch für Menschen außerhalb dieser primären Zielgruppe kann Neptune durch sein flexibles und einfaches Design interessant sein. Zum Beispiel ist mit der App auch möglich über die perfekte Entspannungsmusik beim Yoga abzustimmen oder das beliebteste Weihnachtslied in der Großfamilie zu ermitteln. 
-Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschränkt.
+Auch für Menschen außerhalb dieser primären Zielgruppe kann Neptune durch sein flexibles und einfaches Design interessant sein. Zum Beispiel ist es mit der App auch möglich, über die perfekte Entspannungsmusik beim Yoga abzustimmen oder das beliebteste Weihnachtslied in der Großfamilie zu ermitteln. 
+Im Rahmen dieses PSE-Projekts wird die Zielgruppe auf Androidbenutzer eingeschränkt.
 
 \chapter{Zielbestimmungen}
 \label{chap:Zielbestimmungen}
@@ -113,17 +113,17 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \item Mithilfe des Systems sollen User gemeinsam auf Veranstaltungen live über die während der Veranstaltung abgespielte Musik abstimmen bzw. entscheiden können.
     \item Hauptbestandteil des Systems ist ein Abstimmungssystem, welches Participants das Vorschlagen von Tracks ermöglicht. Dazu stellt das System verschiedene Modi zu Auswahl.
     \begin{itemize}
-        \item Participants können bezüglich bereits vorgeschlagener Tracks ein Upvote abgeben. Je nach gewähltem Abstimmungsmodus hat die jeweilige Anzahl der Upvotes eines Tracks Einfluss darauf, ob und wann er abgespielt wird.
+        \item Participants können Tracks maximal ein Upvote abgeben. Je nach gewähltem Abstimmungsmodus hat die jeweilige Anzahl der Upvotes eines Tracks Einfluss darauf, ob und wann er abgespielt wird.
     \end{itemize}
     \item Das System ist in der Lage, Usern einen durchsuchbaren Musikkatalog zur Verfügung zu stellen. Diese werden über entsprechende, auf dem Markt verfügbare Schnittstellen externer Anbieter bereitgestellt. Konkret wird dies im System durch die Einbindung mindestens einer externen API-Schnittstelle eines Musikstreaming-Anbieters realisiert.
     \begin{itemize}
         \item Das im Rahmen des Moduls ''Praxis der Softwareentwicklung'' zu entwickelnde System beschränkt sich hierbei auf einen konkreten Musikstreaming-Anbieter, namentlich auf das Angebot des schwedischen Unternehmens Spotify. Hierbei soll die Möglichkeit zur einfachen komplexen Ausweitung des Systems auf weitere Musikstreaming-Anbieter gegeben sein.
         \begin{itemize}
             \item Aufgrund von Einschränkungen seitens Spotify bezüglich der Entwicklerarbeit mit der von Spotify bereitgestellten API ist die vorgesehene Anzahl zulässiger User innerhalb einer gemeinsamen Session zunächst auf 25 User beschränkt.
-            \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Songs in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
+            \item Aufgrund der Eigenschaften der Spotify-API ergibt sich darüber hinaus, dass für User ohne Spotify-Account sowie User ohne einen Spotify-Account mit einem Premium-Abonnement vorgesehen ist, dass diese nicht selbst neue Tracks in der App vorschlagen können. Jedoch können diese User über von anderen Usern vorgeschlagene Songs abstimmen.
         \end{itemize}
 
-        \end{itemize}
+    \end{itemize}
     \item Für eine Veranstaltung kann eine sogenannte Session durch den Host erstellt werden. Participants können dieser mithilfe eines sechsstelligen Beitrittscodes beitreten. Alle Entscheidungen über abzuspielende Musik finden innerhalb der Session statt.
     \item Das System verwendet zur Entscheidung über abzuspielende Songs ein nach diversen Kriterien konfigurierbares Abstimmungssystem.
     \begin{itemize}
@@ -131,8 +131,8 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
         \begin{itemize}
             \item General Mode
             \begin{itemize}
-                \item Full Participants sowie der Host können im bereitgestellten Musikkatalog einen beliebigen Track auswählen und diesen vorschlagen
-                \item Participants haben die Möglichkeit, einem Track ein Upvote zu geben. Hat ein Participant bereits selbst ein Upvote an einen Track vergeben, so ist es ihm möglich, dieses wieder zu entfernen.
+                \item Full Participants sowie der Host können im bereitgestellten Musikkatalog einen beliebigen Track auswählen und diesen durch einen Upvote vorschlagen
+                \item Participants haben die Möglichkeit, einem Track ein Upvote zu geben. Hat ein Participant bereits selbst ein Upvote an einen Track vergeben, so ist es ihm möglich, diesen wieder zu entfernen.
                 \item Der Host kann einen Track, welcher ein Upvote erhalten hat, zur Queue hinzufügen. Außerdem hat er die Möglichkeit, Tracks zu sperren.
             \end{itemize}
             \item Artist Mode
@@ -156,14 +156,13 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
         \item Participant: Alle Teilnehmer einer Session, welche nicht der Host sind, bekleiden automatisch die Rolle Participant. Participants können basierend auf den gewählten Abstimmungsparametern neue Songs vorschlagen und/oder über vorgeschlagene Songs abstimmen. 
     \end{itemize}
     \item Die abzuspielende Musik wird über externe Anbieter abgespielt. Hierbei wird analog zur Einbindung von Musikstreaming-Anbietern bereitgestellter externer Schnittstellen vorgegangen.
-    \item  Den Usern stehen für die Bedienung und das User-Interface der App folgende Sprachen zur Verfügung, zwischen welchen sie frei wechseln können:
-    \begin{itemize}
-        \item Englisch: Durch die weite Verbreitung der englischen Sprache sorgt ihre Unterstützung innerhalb der App dafür, dass die erreichbare Zielgruppe stark wächst, ohne direkt nativ eine Vielzahl von Sprachen unterstützen zu müssen.
-        \item Deutsch: \textit{(--> muss hier eine Begruendung hin?)}
-    \end{itemize}
+    \item  Für das User Interface der App werden die Sprachen Deutsch und Englisch verwendet. Die Sprachauswahl erfolgt hier automatisch anhand der vom Gerät festgelegten Systemsprache. Ist diese Deutsch, so wird in der App auch Deutsch verwendet. Wird auf dem Endgerät eine andere Sprache als Deutsch als Systemsprache verwendet, so wird in der App automatisch Englisch verwendet.
 \end{itemize}
+
+\hypertarget{Wunschkriterien}{}
 \section{Wunschkriterien}
 \label{sec:Zielbestimmungen:Wunschkriterien}
+
 \begin{itemize}
     \item Jeder User soll in einer Statistikansicht Informationen über die Session einsehen können. Diese Ansicht wird automatisch beim Verlassen der Session angezeigt. Während der Session kann sie durch ein Button geöffnet werden. Die Statistik soll als Bild exportierbar und teilbar sein. 
     Folgende Datenpunkte sollen dabei angezeigt werden. 
@@ -178,7 +177,7 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
     \end{itemize}
   
     \item Im Falle dessen, dass die Teilnehmer keine neue Musik vorschlagen und die Warteschlange hierdurch leer ist, soll die App mittels einer Autoplay-Funktion dennoch kontinuierlich Musik abspielen.
-    \item QR-Code (6stelliger Code in Musskrit)
+    \item QR-Code zum Einscannen, als Erweiterung zum 6 stelligen Beitrittscode
 
 \end{itemize}
 
@@ -195,31 +194,39 @@ Im Rahmen dieses PSE-Projekt wird die Zielgruppe auf Androidbenutzer eingeschrä
 
 
 
-\chapter{Benutzeroberfläche}
+\chapter{Benutzeroberfläche und funktionale Anforderungen}
 \label{chap:Benutzeroberfläche}
 
 \section{Allgemeines}
 \label{sec:Benutzeroberfläche:Allgemeines}
 Die Benutzeroberfläche wird so gestaltet, dass diese einfach, intuitiv und ohne Vorkenntnisse von Nutzern der Zielgruppe verwendet werden kann. Näheres findet sich unter Benutzerfreundlichkeit im Kapitel Qualitätszielbestimmungen (\ref{Qualitätszielbestimmungen_Benutzerfreundlichkeit}).
 
-Beim Starten der App, wenn die App vollständig beendet ist/war, öffnet sich eine von drei Views:
-\begin{itemize}
-    \item Die userVoteView (REF) öffnet sich, wenn man derzeit Participant einer aktiven Session ist.
-    \item Die hostControlView (REF) öffnet sich, wenn man derzeit Host einer aktiven Session ist.
-    \item Die startView (REF) öffnet sich, wenn man derzeit nicht Participant oder Host einer aktiven Session ist.
-\end{itemize}
-Falls die App nicht vollständig beendet wurde und die Zustandsdaten des Android-Betriebssystems noch vorhanden sind, so öffnet sich die App in der Ansicht, in der man sie verlassen hat.
 
-
-
-\section{Grafikentwürfe und funktionale Anforderungen}
+\section{Grafikentwürfe und deren funktionale Anforderungen}
 \label{sec:Benutzeroberfläche:Grafiken}
 % do not show subsections in contents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-Die folgenden Grafikentwürfe sind nur erste Entwürfe. Sie sollen einen ersten Eindruck vom Aussehen der App vermitteln und vor allem die ''Topologie'' der App darstellen: Das heißt, wo sich welche Buttons befinden und was diese bewirken. Wir möchten ausdrücklich klarstellen, dass wir die hier gezeigten Designs hinsichtlich Formen, Farben, Anordnung und exakter Beschriftung noch verändern wollen und werden. Die Designs sind nicht als final zu verstehen.
+Die folgenden Grafikentwürfe sind nur erste Entwürfe. Sie sollen einen ersten Eindruck vom Aussehen der App vermitteln und vor allem die ''Topologie'' der App darstellen: Das heißt, welche Buttons existieren und was diese bewirken. Wir möchten ausdrücklich klarstellen, dass wir die hier gezeigten Designs hinsichtlich Formen, Farben, Anordnung und exakter Beschriftung noch verändern wollen und werden. Die Designs sind nicht als final zu verstehen.
 
-In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitelaufbau ist folgendermaßen: Jede View enthält einen Grafikentwurf, eine grobe textuelle Erläuterung und die detaillierte Definition aller wichtigen Benutzeroberflächen-Elemente. Das Klicken selbst und das Verhalten nach dem Klicken auf ein klickbares solches Element ist stets als funktionale Anforderung zu verstehen.
+In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitelaufbau ist folgendermaßen: Jede View enthält einen Grafikentwurf und die detaillierte Definition aller wichtigen Benutzeroberflächen-Elemente. Das Klicken selbst und das Verhalten der gesamten Benutzerberfläche nach dem Klicken auf ein klickbares solches Element (<Button> oder <Eingabefeld>) ist stets als funktionale Anforderung zu verstehen. Jedes Klicken ist als Testfall zu verstehen und mit einer entsprechend F-Nummer versehen.
+\vspace{\baselineskip} \\
+
+Aufgrund der häufigen Verwendung einer <Track-Liste> wird dieses komplexe Benutzeroberflächenelement an dieser Stelle grundsätzlich definiert:
+\vspace{\baselineskip} \\
+\textbf{<Track-Liste>:}
+\begin{itemize}
+    \item Eine Track-Liste ist eine Anzeige für eine Sammlung beliebig vieler Tracks. Die anzuzeigende Sammlung ist jeweils im Einzelnen näher definiert.
+    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt.
+    \item Tracks die sich auf der Liste von durch den Host gesperrten Tracks befinden oder einen aktiven Cooldown haben, werden ausgegraut angezeigt. Ihr Upvote-Button ist nicht funktionsfähig.
+    \item Eine Track-Liste ist grundsätzlich nicht klickbar, die Anzeige jedes Tracks enthält aber klickbare Buttons:
+    \begin{itemize}
+        \item <Button> Upvote (immer vorhanden): Beim Klicken des Upvote-Buttons fügt der User dem Track einen Upvote hinzu, falls er den Track noch nicht geupvotet hat. Ansonsten wird durch das Klicken der Upvote entfernt. Dabei ändert sich das Aussehen des Upvote-Buttons, um den derzeiten Upvote-Zustand anzuzeigen.
+        \item <Button> Track-Menü (nur in Track-Listen für den Host vorhanden): Beim Klicken des Track-Menu-Buttons öffnet sich ein Dropdown-Menü mit Auswahlmöglichkeiten, die entsprechende Funktionalitäten besitzen. Diese Auswahlmöglichkeiten sind jeweils im Einzelnen näher definiert.
+    \end{itemize}
+    \item Bei Track-Listen für den Host kann eine Drag-and-Drop-Funktionalität implementiert sein. Diese ist jeweils im Einzelnen näher definiert.
+    \item Die Track-Liste ist scrollbar.
+\end{itemize}
 
 
 \subsection{Startseite (startView)}
@@ -231,33 +238,33 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{startView}
 \end{center}
 
-\textbf{Session beitreten:}
+\textbf{<Button> Session beitreten:}
 \begin{itemize}
-    \item Solange der User sich nicht mit einem Spotify-Account verknüpft hat, wird darunter ein Hinweis angezeigt, dass User ohne verknüpften Account nur über von anderen Usern vorgeschlagene Tracks abstimmen können und zum Vorschlagen ein verknüpfter Spotify-Account benötigt wird.
-    \item Durch Klicken des Buttons ''Session beitreten" gelangt der Nutzer auf die \hyperlink{userJoinGroupView}{userJoinGroupView}. Dabei wird er zum Full Participant, wenn er mit einem Spotify-Account verknüpft ist. Anderfalls wird er zu einem Restricted Partcipant.
+    \item Solange der User sich nicht mit einem Spotify-Account verknüpft hat, wird unter dem Button ein Hinweis angezeigt, dass User ohne verknüpften Account nur über die von anderen Usern vorgeschlagene Tracks abstimmen können. Zum Vorschlagen neuer Tacks wird ein verknüpfter Spotify-Account benötigt.
+    \item <F 1.1> Durch Klicken des Buttons ''Session beitreten'' gelangt der User auf die \hyperlink{joinSessionView}{joinSessionView}. Dabei wird er zum Full Participant, wenn er mit einem Spotify-Account verknüpft ist. Anderfalls wird er zu einem Restricted Partcipant.
 \end{itemize}
 
-\textbf{Session erstellen:}
+\textbf{<Button> Session erstellen:}
 \begin{itemize}
-    \item Der Button ''Session erstellen'' ist so lange deaktiviert und ''verblasst'', bis sich der Nutzer über den Button ''Mit Spotify verknüpfen'' erfolgreich mit einem Spotify-Premium-Account verknüpft hat. Danach wird er funktionsfähig.
-    \item Solange der Button ''Session erstellen'' deaktiviert ist, wird darunter ein Hinweis angezeigt, dass das Erstellen einer Session nu mit einem verknüpften Spotify-Premium-Account möglich ist.
-    \item Durch Klicken des funktionsfähigen Buttons ''Session erstellen'' gelangt der Nutzer auf die \hyperlink{hostModusSelectView}{hostModusSelectView}.
+    \item Der Button ''Session erstellen'' ist so lange deaktiviert und verblasst, bis sich der User über den Button ''Mit Spotify verknüpfen'' erfolgreich mit einem Spotify-Premium-Account verknüpft hat. Danach wird der Button funktionsfähig.
+    \item Solange der Button ''Session erstellen'' deaktiviert ist, wird darunter ein Hinweis angezeigt, dass das Erstellen einer Session nur mit einem verknüpften Spotify-Premium-Account möglich ist.
+    \item <F 1.2> Durch Klicken des funktionsfähigen Buttons ''Session erstellen'' gelangt der User auf die \hyperlink{hostModeSelectView}{hostModeSelectView}.
 \end{itemize}
 
-\textbf{Mit Spotify verknüpfen:}
+\textbf{<Button> Mit Spotify verknüpfen / Von Spotify trennen:}
 \begin{itemize}
-    \item Durch Klicken des Buttons ''Mit Spotify verknüpfen'' verknüpft sich die App wenn möglich automatisch und im Hintergrund mit dem lokal angemeldeten Spotify-Account. Ist dies nicht möglich öffnet sich die von Spotify zur Verfügung gestellte Anmeldemaske, um per Login seinen Account zu verknüpfen.
+    \item <F 1.3.A> Durch Klicken des Buttons ''Mit Spotify verknüpfen'' verknüpft sich die App, wenn möglich automatisch und im Hintergrund mit dem lokal angemeldeten Spotify-Account. Ist dies nicht möglich öffnet sich die von Spotify zur Verfügung gestellte Anmeldemaske, um per Login seinen Account zu verknüpfen.
     \item Nach dem erfolgreichen Verknüpfen mit Spotify, ändert sich die Beschriftung des Buttons von ''Mit Spotify verknüpfen'' zu ''Von Spotify trennen''.
-    \item Durch Klicken des Buttons ''Von Spotify trennen'' wird das Spotify Konto des Nutzers wieder von NepTune getrennt.
+    \item <F 1.3.B> Durch Klicken des Buttons ''Von Spotify trennen'' wird das Spotify Konto des Users wieder von NepTune getrennt.
     \item Nach dem erfolgreichen Trennen von Spotify, ändert sich die Beschriftung des Buttons von ''Von Spotify trennen'' zu ''Mit Spotify verknüpfen''.
 \end{itemize}
 
-\textbf{Zurück-Button:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''NepTune wirklich schließen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \item <F 1.4> Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''NepTune wirklich schließen?''. In diesem Pop-Up kann sich der User nun zwischen ''Ja'' und ''Nein'' entscheiden.
     \begin{itemize}
-        \item Durch Auswählen von ''Ja'' verlässt der User die App und die App wird beendet.
-        \item Durch Auswählen von ''Nein'' bleibt der User in der \hyperlink{startView}{startView}.
+        \item <F 1.4.A> Durch Auswählen von ''Ja'' verlässt der User die App und die App wird beendet.
+        \item <F 1.4.B> Durch Auswählen von ''Nein'' bleibt der User in der \hyperlink{startView}{startView}.
     \end{itemize}
 \end{itemize}
 
@@ -273,32 +280,34 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{joinSessionView}
 \end{center}
 
-\textbf{Code-Eingabefeld:}
+\textbf{<Eingabefeld> Code-Eingabe:}
 \begin{itemize}
     \item Eingabefeld zur Eingabe des sechsstelligen Codes, der die Session eindeutig identifiziert.
+    \item <F 2.1> Durch Anklicken des Code-Eingabefelds öffnet sich bei dem User die ''Ziffernblock-Tastatur'', mit welcher der User nun den sechsstelligen Code eingeben kann.
 \end{itemize}
 
-\textbf{Code bestätigen:}
+\textbf{<Button> Code bestätigen:}
 \begin{itemize}
-    \item Existiert eine Session zum eingegebenen sechsstelligen Code, führt Klicken des Bestätigungsbuttons auf die \hyperlink{userVoteView}{userVoteView} der Session.
-    \item Existiert keine Session zur Eingabe, erscheint ein entsprechender Hinweis unter dem Code-Eingabefeld und der Inhalt des Code-Eingabefeldes wird gelöscht.
+    \item <F 2.2.A> Existiert eine Session zum eingegebenen sechsstelligen Code, führt Klicken des Bestätigungsbuttons auf die \hyperlink{sessionVoteView}{sessionVoteView} der Session.
+    \item <F 2.2.B> Existiert keine Session zur Eingabe, erscheint ein entsprechender Hinweis unter dem Code-Eingabefeld und der Inhalt des Code-Eingabefeldes wird gelöscht.
 \end{itemize}
 
-\textbf{Code scannen:}
+\textbf{<Button> Code scannen:}
 \begin{itemize}
-    \item Durch Klicken des Buttons ''Code scannen'' öffnet sich ein QR-Code-Reader. Nach dem erfolgreichen Scannen eines gültigen QR-Codes gelangt man ebenfalls auf die \hyperlink{userVoteView}{userVoteView} der Session.
-    \item Der sich nach dem Klicken öffnende QR-Code-Reader besitzt einen Button zum Schließen.
+    \item <F 2.3> Durch Klicken des Buttons ''Code scannen'' öffnet sich ein QR-Code-Reader. Nach dem erfolgreichen Scannen eines gültigen QR-Codes gelangt man ebenfalls auf die \hyperlink{sessionVoteView}{sessionVoteView} der Session.
+    \item <F 2.4> Der sich nach dem Klicken öffnende QR-Code-Reader besitzt einen Zurück-Button, mit dem sich der Reader wieder schließen lässt.
     \item Der sich nach dem Klicken öffnende QR-Code-Reader zeigt eine Meldung mit entsprechendem Hinweis an, falls ein erfolgreich gelesener QR-Code keinen gültigen Session-Code darstellt.
 \end{itemize}
 
-\textbf{Zurück-Button:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man auf die \hyperlink{startView}{startView}.
+    \item <F 2.5> Durch Klicken des Zurück-Buttons gelangt man auf die \hyperlink{startView}{startView}.
 \end{itemize}
+
+
 
 \subsection{Abstimmungsansicht einer Session (sessionVoteView)}
 \label{sec:Benutzeroberfläche:sessionVoteView}
-
 
 \begin{center}
     \hypertarget{sessionVoteView}{}
@@ -306,39 +315,38 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{sessionVoteView}
 \end{center}
 
-\textbf{Session-Info:}
+\textbf{<Button> Session-Info:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+    \item <F 3.1> Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die \hyperlink{sessionInfoView}{sessionInfoView}.
 \end{itemize}
 
-\textbf{Statistiken:}
+\textbf{<Textanzeige> Session-Modus:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+    \item Zeigt den Modus der aktuellen Session an.
 \end{itemize}
 
-\textbf{Track-Anzeige:}
+\textbf{<Button> Statistiken:}
 \begin{itemize}
-    \item Grundsätzlich nicht klickbare (außer dem Track-Upvote-Button) Liste von Tracks mit mindestens einem Upvote. \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
-    \item Ausnahme: Im Playlist Mode werden alle Tracks der Playlist angezeigt, auch solche ohne Upvote.
+    \item <F 3.2> Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die \hyperlink{sessionStatsView}{sessionStatsView}.
 \end{itemize}
 
-\textbf{Track-Upvote:}
+\textbf{<Track-Liste> Vorschlagsliste:}
 \begin{itemize}
-    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt.
-    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+    \item Die Sammlung der angezeigten Tracks ist die Vorschlagsliste.
+    \item <F 3.3.A> bzw. <F 3.3.B> beschreiben das Klicken auf den Upvote-Button, um einen Upvote hinzuzufügen bzw. zu entfernen.
 \end{itemize}
 
-\textbf{Track suchen:}
+\textbf{<Button> Track suchen:}
 \begin{itemize}
-    \item Durch Klicken des Buttons ''Track suchen'' gelangt man in die Tracksuche (REF).
+    \item <F 3.4> Durch Klicken des Buttons ''Track suchen'' gelangt man in die \hyperlink{participantSearchView}{participantSearchView}.
 \end{itemize}
 
-\textbf{Zurück-Button:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich verlassen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \item <F 3.5> Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich verlassen?''. In diesem Pop-Up kann sich der Participant nun zwischen ''Ja'' und ''Nein'' entscheiden.
     \begin{itemize}
-        \item Durch Auswählen von ''Ja'' verlässt die Session und gelangt in die \hyperlink{startView}{startView}.
-        \item Durch Auswählen von ''Nein'' bleibt der User in der \hyperlink{sessionVoteView}{sessionVoteView}.
+        \item <F 3.5.A> Durch Auswählen von ''Ja'' verlässt die Session und gelangt in die \hyperlink{startView}{startView}.
+        \item <F 3.5.B> Durch Auswählen von ''Nein'' bleibt der Participant in der \hyperlink{sessionVoteView}{sessionVoteView}.
     \end{itemize}
 \end{itemize}
 
@@ -352,44 +360,46 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{participantSearchView}
 \end{center}
 
-\textbf{Session-Info:}
+\textbf{<Button> Session-Info:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+    \item <F 4.1> Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die \hyperlink{sessionInfoView}{sessionInfoView}.
 \end{itemize}
 
-\textbf{Statistiken:}
+\textbf{<Textanzeige> Session-Modus:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+    \item Zeigt den Modus der aktuellen Session an.
 \end{itemize}
 
-\textbf{Track-Eingabefeld:}
+\textbf{<Button> Statistiken:}
 \begin{itemize}
-    \item Eingabefeld für den Suchbegriff. Ändert sich der Eingabebegriff, wird die Track-Anzeige aktualisiert.
+    \item <F 4.2> Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die \hyperlink{sessionStatsView}{sessionStatsView}.
 \end{itemize}
 
-\textbf{Track-Anzeige:}
+\textbf{<Eingabefeld> Track-Suchbegriff:}
 \begin{itemize}
-    \item Grundsätzlich nicht klickbare (außer dem Track-Upvote-Button) Liste von Tracks, die dem eingegebenen Suchbegriff entsprechen. Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
-    \item Bei Full Participants wird dabei der gesamte Musikkatalog von Spotify durchsucht, um zum Suchbegriff passende Tracks zu finden, mit folgenden Einschränkungen:
+    \item Eingabefeld für den Eingabebegriff zur Suche nach Tracks.
+    \item <F 4.3> Ändert sich der Eingabebegriff, werden die Track-Suchergebnisse aktualisiert.
+    \item Die Tastatur wird standardmäßig beim Wechsel in die \hyperlink{participantSearchView}{participantSearchView} geöffnet.
+\end{itemize}
+
+\textbf{<Track-Liste> Track-Suchergebnisse:}
+\begin{itemize}
+    \item Die Sammlung der angezeigten Tracks ist bei Full Participants der gesamte Musikkatalog von Spotify, mit den zum Suchbegriff passenden Tracks. Dabei gelten folgende Einschränkungen:
     \begin{itemize}
         \item Im General Mode gibt es keine Einschränkungen.
-        \item Im Artist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Artists angezeigt.
-        \item Im Genre Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Genres angezeigt.
-        \item Im Playlist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Playlist angezeigt.
+        \item Im Artist Mode werden nur Tracks der vom Host bei \hyperlink{hostModeSettingsView}{Sessionerstellung} definierten Artists angezeigt.
+        \item Im Genre Mode werden nur Tracks der vom Host bei \hyperlink{hostModeSettingsView}{Sessionerstellung} definierten Genres angezeigt.
+        \item Im Playlist Mode werden nur Tracks der vom Host bei \hyperlink{hostModeSettingsView}{Sessionerstellung} definierten Playlist angezeigt.
     \end{itemize}
-    \item Bei Restricted Participants wird nur die Vorschlagsliste durchsucht, die Tracks mit mindestens einem Upvote enthält. Ausnahme ist der Playlist Mode, darin werden alle Tracks der Playlist durchsucht ohne Berücksichtigung der Upvotes.
+    \item Die Sammlung der angezeigten Tracks ist bei Restricted Participants nur die Vorschlagsliste.
+    \item <F 4.4.A> bzw. <F 4.4.B> beschreiben das Klicken auf den Upvote-Button, um einen Upvote hinzuzufügen bzw. zu entfernen.
 \end{itemize}
 
-\textbf{Track-Upvote:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt. Der erste Upvote, also das erste Klicken auf einen Track ohne bisherige Upvotes, entspricht dem Vorschlagen eines Tracks.
-    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+    \item <F 4.5> Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{sessionVoteView}{sessionVoteView}.
 \end{itemize}
 
-\textbf{Zurück-Button:}
-\begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{sessionVoteView}{sessionVoteView}.
-\end{itemize}
 
 \subsection{Moduswahl für den Host (hostModeSelectView)}
 \label{sec:Benutzeroberfläche:hostModeSelectView}
@@ -401,38 +411,37 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{hostModeSelectView}
 \end{center}
 
-\textbf{Modus-Buttons:}
+\textbf{<Buttons> Modus-Buttons:}
 \begin{itemize}
     \item Es stehen vier Modus-Buttons zur Verfügung:
     \begin{itemize}
-        \item Der erste Button ist für den General Mode (REF Use-Case-Diag.)
-        \item Der zweite Button ist für den Artist Mode (REF Use-Case-Diag.)
-        \item Der dritte Button ist für den Genre Mode (REF Use-Case-Diag.)
-        \item Der vierte Button ist für den Playlist Mode (REF Use-Case-Diag.)
+        \item Der erste Button ist für den General Mode \hyperlink{GeneralMode}{(Use-Case-Diagramm)}
+        \item Der zweite Button ist für den Artist Mode \hyperlink{Artist Mode}{(Use-Case-Diagramm)}
+        \item Der dritte Button ist für den Genre Mode \hyperlink{Genre Mode}{(Use-Case-Diagramm)}
+        \item Der vierte Button ist für den Playlist Mode \hyperlink{Playlist Mode}{(Use-Case-Diagramm)}
     \end{itemize}
-    \item Durch Klicken auf einen der vier Modus-Buttons wird dieser markiert. Es kann stets nur ein Modus-Button markiert sein. Zu Beginn ist kein Button markiert. Der Modus des markierten Buttons ist angewählt.
+    \item <F 5.1.A/B/C/D> Durch Klicken auf einen der vier Modus-Buttons wird dieser markiert. Es kann stets nur ein Modus-Button markiert sein. Zu Beginn ist der erste Button markiert. Der Modus des markierten Buttons ist angewählt.
 \end{itemize}
 
-\textbf{Modus-Info-Anzeige:}
+\textbf{<Textanzeige> Modus-Info-Anzeige:}
 \begin{itemize}
-    \item Die nicht klickbare Anzeige beinhaltet eine kurze Beschreibung des angewählten Modus.
+    \item Die Anzeige beinhaltet eine kurze Beschreibung des angewählten Modus.
 \end{itemize}
 
-\textbf{Modus bestätigen:}
+\textbf{<Button> Bestätigen:}
 \begin{itemize}
-    \item Der Modus-Bestätigen-Button ist zunächst verblasst und nicht klickbar. Er wird erst klickbar, nachdem ein Modus angewählt wurde.
-    \item Durch Klicken des Modus-Bestätigen-Buttons wird der angewählte Modus ausgewählt und der Host gelangt in die EinstellungsView (REF).
+    \item <F 5.2> Durch Klicken des Bestätigen-Buttons wird der angewählte Modus übernommen und der Host gelangt in die \hyperlink{hostModeSettingsView}{hostModeSettingsView}.
 \end{itemize}
 
-\textbf{Zurück-Button:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{startView}{startView}.
+    \item <F 5.3> Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{startView}{startView}.
 \end{itemize}
+
 
 
 \subsection{Moduseinstellungen für den Host (hostModeSettingsView)}
 \label{sec:Benutzeroberfläche:hostModeSettingsView}
-
 
 \begin{center}
     \hypertarget{hostModeSettingsView}{}
@@ -440,103 +449,103 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{hostModeSettingsView}
 \end{center}
 
-\textbf{Playlist-Link:}
+\textbf{<Eingabefeld> Playlist-Link:}
 \begin{itemize}
-    \item Nur im Playlist Mode vorhanden: Eingabefeld zum Einfügen des Spotify-Share-Links der gewünschten Playlist.
+    \item <F 6.1> Eingabefeld zum Einfügen eines gültigen Spotify-Share-Links der gewünschten Playlist.
+    \item Dieses Feld muss im Playlistmodus gefüllt werden, darf aber auch in jedem anderen Modus benutzt werden. Wurde eine Playlist in einem anderem Modus als dem Playlist-Mode eingegeben, dient diese als Quelle für weitere Tracks der Queue, falls die Queue leer ist und sich keine Tracks mehr in der Vorschlagsliste befinden.
 \end{itemize}
 
-\textbf{Artist-Auswahl:}
+\textbf{<Button> Artist-Auswahl:}
 \begin{itemize}
-    \item TODO: Wie?
+    \item Nur im Artsit Mode vorhanden.
+    \item <F 6.2> Durch Klicken der Artist-Auswahl gelangt man in die  \hyperlink{artistSelectView}{artistSelectView}.
 \end{itemize}
 
-\textbf{Genre-Auswahl:}
+\textbf{<Button> Genre-Auswahl:}
 \begin{itemize}
-    \item TODO: Wie?
+    \item Nur im Genre Mode vorhanden.
+    \item <F 6.3> Durch Klicken der Genre-Auswahl gelangt man in die  \hyperlink{genreSelectView}{genreSelectView}.
 \end{itemize}
 
-\textbf{Track-Cooldown:}
+\textbf{<Slider> Track-Cooldown:}
 \begin{itemize}
-    \item In jedem Modus vorhanden: Ein Slider zur Auswahl des zeitlichen Cooldowns bis ein gespielter Track erneut zum Upvoten verfügbar wird. (TODO: Wie zeigen wir das an? Sind die Tracks einfach verschwunden? Oder nicht klickbar?)
+    \item <F 6.4> In jedem Modus vorhanden: Ein Slider zur Auswahl des zeitlichen Cooldowns bis ein gespielter Track erneut zum Upvoten verfügbar wird.
     \item Der derzeit eingestellte Wert wird neben dem Slider angezeigt.
+    \item Der Wertebereich des Sliders geht von 0 Minuten bis 12 Stunden und verläuft nicht linear, sondern eher aber möglicherweise nicht exakt exponentiell.
 \end{itemize}
 
-\textbf{Einstellungen bestätigen:}
+\textbf{<Button> Bestätigen:}
 \begin{itemize}
-    \item Der Einstellungen-Bestätigen-Button ist zunächst verblasst und nicht klickbar. Er wird erst klickbar, nachdem je nach Modus eine Playlist, mindestens ein Artist oder mindestens ein Genre eingestellt wurden.
-    \item Durch Klicken des Einstellungen-Bestätigen-Buttons werden die Einstellungen angewendet und die Session eröffnet. Der Host gelangt in die ControlView (REF).
+    \item Der Bestätigen-Button ist zunächst verblasst und nicht klickbar. Er wird erst klickbar, nachdem je nach Modus eine Playlist, mindestens ein Artist oder mindestens ein Genre eingestellt wurden.
+    \item <F 6.5> Durch Klicken des Bestätigen-Buttons werden die Einstellungen angewendet und die Session eröffnet. Der Host gelangt in die \hyperlink{hostControlView}{hostControlView}.
 \end{itemize}
 
-\textbf{Zurück-Button:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostModeSelectView}{hostModeSelectView}.
+    \item <F 6.6> Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostModeSelectView}{hostModeSelectView}.
 \end{itemize}
+
 
 
 \subsection{Kontrollansicht für den Host (hostControlView)}
 \label{sec:Benutzeroberfläche:hostControlView}
 
-
 \begin{center}
     \hypertarget{hostControlView}{}
     \includegraphics[width=0.4\textwidth]{LATEX/Pflichtenheft/GraphicDesigns/hostControlPage.png}
     \captionof{figure}{hostControlView}
-\end{center} 
-\hfill
-\begin{minipage}{0.5\textwidth}
-    XXX
-\end{minipage}
+\end{center}
 
-\textbf{Session-Info:}
+\textbf{<Button> Session-Info:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
+    \item <F 7.1> Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die \hyperlink{sessionInfoView}{sessionInfoView}.
 \end{itemize}
 
-\textbf{Statistiken:}
+\textbf{<Textanzeige> Session-Modus:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
+    \item Zeigt den Modus der aktuellen Session an.
 \end{itemize}
 
-\textbf{Queue-Anzeige:}
+\textbf{<Button> Statistiken:}
 \begin{itemize}
-    \item Liste von Tracks, die sich derzeit in der Queue befinden und dementsprechend in dieser Reihenfolge zukünftig abgespielt werden.
-    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
-    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Queue. Per Drag and Drop lässt sich mit ihm der Track an eine andere Stelle in der Queue ziehen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \item <F 7.2> Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die \hyperlink{sessionStatsView}{sessionStatsView}.
+\end{itemize}
+
+\textbf{<Track-Liste> Queue-Anzeige:}
+\begin{itemize}
+    \item Die Sammlung der angezeigten Tracks ist die Queue.
+    \item <F 7.3.A> bzw. <F 7.3.B> beschreiben das Klicken auf den Upvote-Button, um einen Upvote hinzuzufügen bzw. zu entfernen.
+    \item <F 7.4> Der Track-Menü-Button bietet folgende Auswahlmöglichkeiten:
     \begin{itemize}
-        \item Track aus Queue entfernen
-        \item Track sperren
+        \item <F 7.4.A> Track aus Queue entfernen
+        \item <F 7.4.B> Track sperren
     \end{itemize}
+    \item <F 7.5> Jeder Track lässt sich per Drag-and-Drop innerhalb der Queue-Anzeige verschieben, um die Reihenfolge anzupassen. Ein Ziehen auf die Vorschlagsliste entfernt ihn aus der Queue.
 \end{itemize}
 
-\textbf{Top-Voted-Anzeige:}
+\textbf{<Track-Liste> Vorschlagsliste:}
 \begin{itemize}
-    \item Liste von Tracks mit mindestens einem Upvote sortiert nach der Anzahl der Upvotes. Auch Tracks aus der Queue sind noch enthalten. (TODO: Markierung einfügen ob Track in Queue ist oder nicht)
-    \item Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
-    \item Zusätzlich existiert ein Edit-Button (...-Symbol) für jeden Track in der Top-Voted-Liste. Per Drag and Drop lässt sich mit ihm der Track an eine bestimmte Stelle in der Queue ziehen und dadurch hinzufügen. Bei einem Klick auf ihn öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten: (TODO: Genauer definieren)
+    \item Die Sammlung der angezeigten Tracks ist die Vorschlagsliste.
+    \item <F 7.6.A> bzw. <F 7.6.B> beschreiben das Klicken auf den Upvote-Button, um einen Upvote hinzuzufügen bzw. zu entfernen.
+    \item <F 7.7> Der Track-Menü-Button bietet folgende Auswahlmöglichkeiten:
     \begin{itemize}
-        \item Track unten zur Queue hinzufügen
-        \item Track sperren
+        \item <F 7.7.A> Track unten zur Queue hinzufügen (Nur verfügbar, falls sich der Track noch nicht in der Queue befindet)
+        \item <F 7.7.B> Track sperren
     \end{itemize}
-    \item Ausnahme: Im Playlist Mode werden alle Tracks der Playlist angezeigt, auch solche ohne Upvote.
+    \item <F 7.8> Jeder Track lässt sich per Drag-and-Drop an eine bestimmte Stelle der Queue-Anzeige verschieben, um ihn an dieser Stelle in der Queue zu positionieren.
 \end{itemize}
 
-\textbf{Track-Upvote:}
+\textbf{<Button> Track suchen:}
 \begin{itemize}
-    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt.
-    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
-\end{itemize}
-
-\textbf{Track suchen:}
-\begin{itemize}
-    \item Durch Klicken des Buttons ''Track suchen'' gelangt man in die Tracksuche für den Host (REF).
+    \item <F 7.9> Durch Klicken des Buttons ''Track suchen'' gelangt man in die \hyperlink{hostSearchView}{hostSearchView}.
 \end{itemize}
 
 \textbf{Zurück-Button:}
 \begin{itemize}
-    \item Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich löschen?''. In diesem Pop-Up kann sich der Nutzer nun zwischen ''Ja'' und ''Nein'' entscheiden.
+    \item <F 7.10> Beim Klicken des Zurück-Buttons erscheint ein Pop-Up Fenster mit der Frage ''Session wirklich löschen?''. In diesem Pop-Up kann sich der Host nun zwischen ''Ja'' und ''Nein'' entscheiden.
     \begin{itemize}
-        \item Durch Auswählen von ''Ja'' wird die Session gelöscht und der Host gelangt in die \hyperlink{startView}{startView}. Auch alle Participants der Session gelangen in die \hyperlink{startView}{startView}.
-        \item Durch Auswählen von ''Nein'' bleibt der Host in der \hyperlink{hostControlView}{hostControlView}.
+        \item <F 7.10.A> Durch Auswählen von ''Ja'' wird die Session gelöscht und der Host gelangt in die \hyperlink{startView}{startView}. Auch alle Participants der Session gelangen in die \hyperlink{startView}{startView}.
+        \item <F 7.10.B> Durch Auswählen von ''Nein'' bleibt der Host in der \hyperlink{hostControlView}{hostControlView}.
     \end{itemize}
 \end{itemize}
 
@@ -550,59 +559,41 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{hostSearchView}
 \end{center}
 
+Die hostSearchView ist identisch zur \hyperlink{participantSearchView}{participantSearchView}, die Testfälle seien hier mit <F 8.x> als F-Nummern versehen. Ausnahmen sind folgende Elementen, die anders definiert sind bzw. zusätzlich vorhanden sind:
 
-\textbf{Session-Info:}
+\textbf{<Track-Liste> Track-Suchergebnisse:}
 \begin{itemize}
-    \item Durch Klicken auf den Button Session-Info (der mit dem Gruppen-Icon) gelangt man in die sessionInfoView (REF).
-\end{itemize}
-
-\textbf{Statistiken:}
-\begin{itemize}
-    \item Durch Klicken auf den Button Statistiken (der mit dem Balken-Icon) gelangt man in die sessionStatsView (REF).
-\end{itemize}
-
-\textbf{Track-Eingabefeld:}
-\begin{itemize}
-    \item Eingabefeld für den Suchbegriff. Ändert sich der Eingabebegriff, wird die Track-Anzeige aktualisiert.
-\end{itemize}
-
-\textbf{Track-Anzeige:}
-\begin{itemize}
-    \item Grundsätzlich nicht klickbare (außer dem Track-Upvote-Button und dem Edit-Button) Liste von Tracks, die dem eingegebenen Suchbegriff entsprechen. Jeder Track wird mit Cover, Titel, Interpret und der Anzahl der Upvotes angezeigt, sowie der Information, ob der User den Track geupvotet hat.
-    \item Der gesamte Musikkatalog von Spotify wird durchsucht, um zum Suchbegriff passende Tracks zu finden, mit folgenden Einschränkungen:
+    \item Die Sammlung der angezeigten Tracks ist gesamte Musikkatalog von Spotify, mit den zum Suchbegriff passenden Tracks. Dabei gelten ebenjene Einschränkungen aus der \hyperlink{participantSearchView}{participantSearchView}.
+    \item <F 8.4.A> bzw. <F 8.4.B> beschreiben das Klicken auf den Upvote-Button, um einen Upvote hinzuzufügen bzw. zu entfernen.
+    \item <F 8.5> Der Track-Menü-Button bietet folgende Auswahlmöglichkeiten:
     \begin{itemize}
-        \item Im General Mode gibt es keine Einschränkungen.
-        \item Im Artist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Artists angezeigt.
-        \item Im Genre Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Genres angezeigt.
-        \item Im Playlist Mode werden nur Tracks der vom Host bei Sessionerstellung (REF) definierten Playlist angezeigt.
+        \item <F 8.5.A> Track hinten in die Queue hinzufpgen (Nur möglich, falls der Track noch nicht in der Queue ist)
+        \item <F 8.5.B> Track sperren bzw. entsperren (Je nachdem ob der Track gesperrt bzw. entsperrt ist)
+        \item <F 8.5.C> Cooldown aufheben (Nur möglich, falls der Track einen Cooldown besitzt)
     \end{itemize}
 \end{itemize}
 
-\textbf{Track-Upvote:}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Track-Upvote-Buttons eines Tracks (der mit dem Herz) erhöht sich der Counter der Upvotes des Tracks und das Herz wird ausgefüllt. Der erste Upvote, also das erste Klicken auf einen Track ohne bisherige Upvotes, entspricht dem Vorschlagen eines Tracks.
-    \item Durch erneutes Klicken des bereits geklickten Track-Upvote-Buttons eines Tracks verringert sich der Counter der Upvotes des Tracks und das Herz wird leer. Der Button kehrt in seinen ursprünglichen Zustand zurück.
+    \item <F 8.6> Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostControlView}{hostControlView}.
 \end{itemize}
 
-\textbf{Edit-Button:}
+\textbf{<Button> Track-Filter:}
 \begin{itemize}
-    \item Durch Klicken des Edit-Buttons eines Tracks (der mit dem Herz) öffnet sich ein Auswahlmenü mit folgenden Auswahlmöglichkeiten mit entsprechenden Funktionalitäten:
+    \item <F 8.7> Bei Anklicken des Track-Filter-Buttons (der mit dem Filter-Icon) öffnet sich ein kleines Dropdown-Menü mit zwei Auswahlmöglichkeiten zur Filter-Aktivierung:
     \begin{itemize}
-        \item Track hinten in die Queue hinzufügen
-        \item Falls der Track nicht gesperrt ist: Track sperren
-        \item Falls der Track gesperrt ist: Track entsperren
+        \item <F 8.7.A> Dem Cooldown-Filter für Tracks mit Cooldown (Filter-Icon mit kleiner Uhr)
+        \item <F 8.7.B> Dem Sperr-Filter für gesperrte Tracks (Filter-Icon mit kleinem Schloss)
     \end{itemize}
-\end{itemize}
-
-\textbf{Zurück-Button:}
-\begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die  \hyperlink{hostControlView}{hostControlView}.
+    \item Durch Aktivieren werden in der Track-Anzeige nur Tracks angezeigt, welche auf den Filter zutreffen.
+    \item Das angezeigte Filter-Icon ist das des aktiven Filters.
+    \item <F 8.7.C> Wird das bereits aktive Filter-Icon erneut angeklickt, so wird der Filter deaktiviert.
+    \item Es kann stets nur ein Filter aktiv sein.
 \end{itemize}
 
 
 \subsection{Session-Info (sessionInfoView)}
 \label{sec:Benutzeroberfläche:sessionInfoView}
-
 
 \begin{center}
     \hypertarget{sessionInfoView}{}
@@ -610,43 +601,44 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{sessionInfoView}
 \end{center}
 
-\textbf{Sessionmodus:}
+\textbf{<Anzeige> Sessionmodus:}
 \begin{itemize}
     \item Anzeige des aktuellen Modus der Session.
 \end{itemize}
 
-\textbf{Artist/Genre-Info:}
+\textbf{<Anzeige> Artist/Genre-Info:}
 \begin{itemize}
     \item Nur im Artist oder Genre Mode: Anzeige der erlaubten Artists oder Genres.
 \end{itemize}
 
-\textbf{Beitrittscode:}
+\textbf{<Anzeige> Beitrittscode:}
 \begin{itemize}
     \item Anzeige des sechsstelligen Codes zum Beitritt der Session.
 \end{itemize}
 
-\textbf{QR-Code:}
+\textbf{<QR-Code-Anzeige> QR-Code:}
 \begin{itemize}
     \item Scannbare Anzeige des sechsstelligen Codes zum Beitritt der Session als QR-Code.
 \end{itemize}
 
-\textbf{Share-Link:}
+\textbf{<Anzeige> Share-Link:}
 \begin{itemize}
     \item Kopierbare Anzeige eines Links zum Beitreten der Session.
 \end{itemize}
 
-\textbf{Link teilen:}
+\textbf{<Button> Link teilen:}
 \begin{itemize}
-    \item Teilt den Link zum Beitreten der Session über die Android-Schnittstelle zum Teilen von Inhalten.
+    \item <F 9.1> Teilt beim Klicken den Link zum Beitreten der Session über die Android-Schnittstelle zum Teilen von Inhalten.
 \end{itemize}
 
-\textbf{Zurück-Button: (TODO: X-Button vs Zurück-Button...}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die letzte View auf dem Backstack, von der aus die sessionInfoView geöffnet wurde.
+    \item <F 9.2> Durch Klicken des Zurück-Buttons gelangt man in die letzte View auf dem Backstack, von der aus die sessionInfoView geöffnet wurde.
+    \item (Es wird keinen X-Button geben, obwohl dieser im Grafikentwurf gezeigt wird.)
 \end{itemize}
 
 
-\subsection{Session-Info (sessionStatsView)}
+\subsection{Session-Statistiken (sessionStatsView)}
 \label{sec:Benutzeroberfläche:sessionStatsView}
 
 
@@ -656,20 +648,65 @@ In den folgenden Unterkapiteln finden sich alle Views der App. Der Unterkapitela
     \captionof{figure}{sessionStatsView}
 \end{center}
 
-\textbf{Statistik-Bild:}
+\textbf{<Bild-Anzeige> Statistik-Bild:}
 \begin{itemize}
-    \item Anzeige eines generierten Bildes, das alle gewählten Statistiken über die Session aus den Wunschkriterien (REF) enthält.
+    \item Anzeige eines generierten Bildes, das alle gewählten Statistiken über die Session aus den \hyperlink{Wunschkriterien}{Wunschkriterien} enthält.
 \end{itemize}
 
-\textbf{Statistik-Bild teilen:}
+\textbf{<Button> Statistik-Bild teilen:}
 \begin{itemize}
-    \item Teilt das angezeigte Bild der Statistik über die Android-Schnittstelle zum Teilen von Inhalten.
+    \item <F 10.1> Teilt beim Klicken das angezeigte Bild der Statistik über die Android-Schnittstelle zum Teilen von Inhalten.
 \end{itemize}
 
-\textbf{Zurück-Button: (TODO: X-Button vs Zurück-Button...}
+\textbf{<Button> Zurück:}
 \begin{itemize}
-    \item Durch Klicken des Zurück-Buttons gelangt man in die letzte View auf dem Backstack, von der aus die sessionInfoView geöffnet wurde.
+    \item <F 10.2> Durch Klicken des Zurück-Buttons gelangt man in die letzte View auf dem Backstack, von der aus die sessionInfoView geöffnet wurde.
+    \item (Es wird keinen X-Button geben, obwohl dieser im Grafikentwurf gezeigt wird.)
 \end{itemize}
+
+
+
+\subsection{Artist-Auswahl (artistSelectView)}
+\label{sec:Benutzeroberfläche:artistSelectView}
+
+\hypertarget{artistSelectView}{}
+TODO: AUSFÜLLEN
+
+
+\subsection{Genre-Auswahl (genreSelectView)}
+\label{sec:Benutzeroberfläche:genreSelectView}
+
+\hypertarget{genreSelectView}{}
+TODO: AUSFÜLLEN
+
+
+
+
+
+
+\section{Weitere funktionale Anforderungen}
+\label{sec:Benutzeroberfläche:Grafiken}
+
+\begin{itemize}
+    \item <F 100> Das vollständige Beenden der App wird durch das Verlassen der \hyperlink{startView}{startView} per Zurück-Button oder durch Android-System-Funktionalitäten ermöglicht.
+    \item <F 101> Wenn die App vollständig beendet ist/war, öffnet sich beim Starten der App eine von drei Views:
+    \begin{itemize}
+        \item Die \hyperlink{userVoteView}{userVoteView} öffnet sich, wenn man derzeit Participant einer aktiven Session ist.
+        \item Die \hyperlink{hostControlView}{hostControlView} öffnet sich, wenn man derzeit Host einer aktiven Session ist.
+        \item Die \hyperlink{startView}{startView} öffnet sich, wenn man derzeit nicht Participant oder Host einer aktiven Session ist.
+    \end{itemize}
+    \item <F 102> Falls die App nicht vollständig beendet wurde und die Zustandsdaten des Android-Betriebssystems noch vorhanden sind, so öffnet sich die App in der Ansicht, in der man sie verlassen hat.
+    \item Beim Beginn des tatsächlichen Abspielens wird der Track aus der Queue und der Vorschlagsliste entfernt. Die vorhandenen Upvotes werden auf null zurückgesetzt und der Track wird mit dem vom Host bei der \hyperlink{hostModeSettingsView}{Sessionerstellung} definierten Cooldown belegt.
+    \item Eine Session kann entweder manuell durch den Host beendet werden, oder sie endet automatisch sobald: Die Queue leer ist und der derzeit abgespielte Song beendet ist. Sobald die Queue leer ist und der Host erreichbar ist (d.h. die App ausgeführt wird), wird nach den Regeln des Autoplays ein weiteres Lied in die Queue eingefügt. (TODO: WIRD DAS NOCH AKTUALISIERT; FALLS EIN ANDERES MEHR UPVOTES BEKOMMMT?)
+    \item Die Anzeigesprache der App ist Deutsch, wenn Deutsch als Systemsprache des Geräts eingestellt ist. Falls eine andere Sprache als Systemsprache eingestellt ist, ist die Anzeigesprache der App Englisch.
+    \item Die Verknüfung mit oder Trennung von Spotify wird dauerhaft gespeichert, auch nach vollständigem Beenden der App.
+\end{itemize}
+
+TODO: Am Ende der Session werden den Usern die Statistiken angezeigt. (WIE SETZEN WIR DAS UM???)
+
+
+
+
 
 
 % show subsections in contents
@@ -692,7 +729,7 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \newpage
 
 \section{General Mode}
-\label{sec:Anwendungsfälle:General Mode}
+\label{sec:Anwendungsfälle:GeneralMode}
 
 \begin{figure}[h]
     \includegraphics[width = 16cm]{LATEX/Pflichtenheft/GraphicDesigns/Use Case General Mode.png}
@@ -738,125 +775,90 @@ In diesem Kapitel werden einige Anwendungsfälle der App mithilfe von Use Case D
 \chapter{Testfälle und -szenarien}
 \label{chap:Tests}
 
-In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch einen oder mehrere Benutzer des Produkts durchgeführt werden können. Die hier definierten Testfälle sollen deshalb explizit keine technischen Funktionalitäten testen, die ausreichend detailliert erst während der Entwurfsphase festgelegt werden. Solche technischen Funktionalitäten werden durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
+In diesem Kapitel werden alle Testfälle und -szenarien definiert, die durch einen oder mehrere Benutzer des Produkts durchgeführt werden können. Dabei wird das definierte Verhalten erwartet- Die hier definierten Testfälle sollen explizit keine detaillierten technischen Funktionalitäten auf technischer Ebene testen. Die Überprüfung solcher detaillierten technischen Funktionalitäten wird durch Unittests abgedeckt, die während der Entwurfs- und Implementierungsphase entworfen und implementiert werden.
 
 \section{Testfälle}
 \label{sec:Tests:Testfälle}
 
-TODO: Liste wegmachen und einfach die funktionalen Anforderungen durchnummerieren. Das sind dann einfach alle Testfälle.
-
-Testfälle sind Tests zu aus Usersicht atomaren Vorgängen. Jeder Testfall bezieht sich also auf eine einzelne atomare Usereingabe. Eine solche Usereingabe besteht entweder aus einem einzelnen Touch-Eingabe oder einer inhaltlich sehr stark zusammenhängenden Folge von Touch-Eingaben, die als atomar betrachtet wird. Falls ein Testfall nur für eine bestimmte Gruppe von Usern ausführbar ist, steht das in Klammern hinter dem Testfall mit folgenden verwendeten Abkürzungen: Host (H), Participant (P), Full Participant (FP) und Restricted Participant (RP).
-
-\begin{enumerate}
-    \item Starten und Laden der App
-    \item Verlassen der App
-    \item Beenden der App
-    \item Beginnen des Sessionbeitrittsvorgangs
-    \item Verlassen des Sessionbeitrittsvorgangs
-    \item Eingabe des Zugangscodes zum Sessionbeitritt
-    \item Bestätigung des Zugangscodes zum Sessionbeitritt
-    \item Verlassen der Session (P)
-    \item Upvote für einen Track
-    \item Entfernen des Upvote von einem Track
-    \item Öffnen der Tracksuche (H, FP)
-    \item Verlassen der Tracksuche (H, FP)
-    \item Suchen eines Tracks (FP)
-    \item Vorschlagen eines Track durch Upvote (FP)
-    \item Beginnen der Sessionerstellung (H)
-    \item Verlassen der Sessionerstellung in der Modus-Wahl (H)
-    \item Wahl des Modus (H)
-    \item Zurückgehen in der Sessionerstellung von den Modus-Details zur Modus-Wahl (H)
-    \item Auswählen der Details des Modus (H)
-    \begin{itemize}
-        \item Auswählen der Artists / der Genres / der Playlist (je nach Modus)
-        \item Einstellen des Cool-Downs, wann ein Lied erneut vorgeschlagen werden kann
-    \end{itemize}
-    \item Bestätigung der Details des Modus (H)
-    \item Löschen der Session (H)
-    \item Löschen eines Tracks aus der Queue (H)
-    \item Einfügen eines Tracks in die Queue aus der Tracksuche (H)
-    \item Einfügen eines Tracks in die Queue aus der Vorschlagsliste (H)
-    \item Ändern der Reihenfolge der Queue durch Drag and Drop (H)
-    \item Löschen eines Tracks aus der Vorschlagsliste (H)
-    \item Sperren eines Tracks (H) (Machen wir das überhaupt ???)
-\end{enumerate}
+Die Testfälle lassen sich den dem Kapitel Benutzeroberfläche und funktionale Anforderungen (Kapitel \ref{chap:Benutzeroberfläche}) entnehmen. Jede mit einer F-Nummer versehene funktionale Anforderung ist ein Testfall.
 
 \section{Grundlegende Testszenarien}
 \label{sec:Tests:GrundlegendeTestszenarien}
 % do not show subsections in contents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-Grundlegende Testszenarien sind eine überschaubare und besonders essentielle Folge von atomaren Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen oder bereits zuvor definierten grundlegenden Testszenarien zusammen.
+Grundlegende Testszenarien sind eine überschaubare und besonders essentielle Folge von Testfällen, die eine Benutzerinteraktion durchspielen. Sie setzen sich aus Testfällen oder bereits zuvor definierten grundlegenden Testszenarien zusammen.
 
 \subsection{Grundlegendes Testszenario 1 (G1): Erstellen einer Session}
 \label{subsec:Tests:GrundlegendeTestszenarien:G1}
-Ein User erstellt eine Session mit einem bestimmten Modus und wird so zu ihrem Host.
+Ein mit Spotify-Premium verknüpfter User erstellt eine Session mit einem bestimmten Modus M und wird so zu ihrem Host.
 \begin{itemize}
-    \item Starten und Laden der App
-    \item Beginnen der Sessionerstellung
-    \item Wahl des Modus
-    \item Auswählen der Details des Modus
-    \item Bestätigung der Details des Modus
+    \item <F 101> Starten der App nach vollständiger Beendung
+    \item <F 1.1> Beginnen der Sessionerstellung
+    \item <F 5.1.M> Wahl des Modus
+    \item <F 5.2> Bestätigen des Modus
+    \item <F 6.1>, <F 6.2>/<F 6.3>, <F 6.4> Wählen entsprechender gültiger Einstellungen
+    \item <F 6.5> Bestätigen und Beginn der Session
 \end{itemize}
 
 
 \subsection{Grundlegendes Testszenario 2 (G2): Beitritt einer Session als Full Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G2}
-Ein User, tritt als Full Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
+Ein User tritt als Full Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Starten und Laden der App
-    \item Beginnen des Sessionbeitrittsvorgangs
-    \item Eingabe des Zugangscodes zum Sessionbeitritt
-    \item Bestätigung des Zugangscodes zum Sessionbeitritt
+    \item <F 101> Starten der App nach vollständiger Beendung
+    \item <F 1.1> Beginnen des Sessionbeitrittsvorgangs
+    \item <F 2.1> Eingabe des Zugangscodes zum Sessionbeitritt
+    \item <F 2.2.A> Bestätigung des Zugangscodes zum Sessionbeitritt
 \end{itemize}
 
 
-\subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session als Passive Participant}
+\subsection{Grundlegendes Testszenario 3 (G3): Beitritt einer Session als Restricted Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G3}
 Ein User, tritt als Restricted Participant einer Session mit einem bestimmten Modus bei, die von einem anderen User als Host erstellt wurde.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Starten und Laden der App
-    \item Beginnen des Sessionbeitrittsvorgangs
-    \item Eingabe des Zugangscodes zum Sessionbeitritt
-    \item Bestätigung des Zugangscodes zum Sessionbeitritt
+    \item <F 101> Starten der App nach vollständiger Beendung
+    \item <F 1.1> Beginnen des Sessionbeitrittsvorgangs
+    \item <F 2.1> Eingabe des Zugangscodes zum Sessionbeitritt
+    \item <F 2.2.A> Bestätigung des Zugangscodes zum Sessionbeitritt
 \end{itemize}
 
-\subsection{Grundlegendes Testszenario 4 (G4): Vorschlagen eines Songs als Full Participant}
+\subsection{Grundlegendes Testszenario 4 (G4): Upvoten eines neuen Tracks als Full Participant}
 \label{subsec:Tests:GrundlegendeTestszenarien:G4}
-Ein User, der schon als Full Particpant einer Session mit einem bestimmten Modus beigetreten ist, die von einem anderen User als Host erstellt wurde, schlägt einen Song vor, indem er ihn zum ersten Mal upvotet. \\
+Ein User, der schon als Full Particpant einer Session mit einem bestimmten Modus beigetreten ist, die von einem anderen User als Host erstellt wurde, votet einen neuen Track up. \\
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) und dann G2 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2}) abgelaufen sein.
 \begin{itemize}
-    \item Öffnen der Songsuche
-    \item Suchen eines Songs
-    \item Vorschlagen eines Songs
+    \item <F 3.4> Öffnen der Tracksuche
+    \item <F 4.3> Suchen eines Tracks
+    \item <F 4.4.A> Upvoten des Tracks
 \end{itemize}
 
-\subsection{Grundlegendes Testszenario 5 (G5): Vorschlagen eines Songs als Host}
+\subsection{Grundlegendes Testszenario 5 (G5): Upvoten eines neuen Tracks als Host}
 \label{subsec:Tests:GrundlegendeTestszenarien:G5}
-Der Host schlägt einen Song vor, indem er ihn zum ersten Mal upvotet. \\
+Der Host votet einen neuen Track up. \\
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Öffnen der Songsuche
-    \item Suchen eines Songs
-    \item Vorschlagen eines Songs
+    \item <F 7.9> Öffnen der Tracksuche
+    \item <F 8.3> Suchen eines Tracks
+    \item <F 8.4.A> Upvoten des Tracks
 \end{itemize}
 
 \subsection{Grundlegendes Testszenario 6 (G6): Upvoten eines Songs}
 \label{subsec:Tests:GrundlegendeTestszenarien:G6}
-Ein User in einer Session mit einem bestimmten Modus votet einen Song up. \\
+Ein Participant einer Session mit einem bestimmten Modus votet einen Track aus der Vorschlagsliste up. \\
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) und dann G2 oder G3 (\ref{subsec:Tests:GrundlegendeTestszenarien:G2} oder \ref{subsec:Tests:GrundlegendeTestszenarien:G3}) und dann G4 (\ref{subsec:Tests:GrundlegendeTestszenarien:G4}) abgelaufen sein.
 \begin{itemize}
-    \item Upvote für einen Song
+    \item <F 3.3.A> Upvote für einen Song
 \end{itemize}
 
 \subsection{Grundlegendes Testszenario 7 (G7): Hinzufügen eines bestimmten vorgeschlagenen Tracks zur Queue}
 \label{subsec:Tests:GrundlegendeTestszenarien:G7}
-Der Host fügt einen bestimmten Track aus der Vorschlagsliste in einer Session mit einem bestimmten Modus zur Queue hinzu.
+Der Host fügt einen bestimmten Track aus der Vorschlagsliste zur Queue hinzu.
 Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Einfügen eines Tracks in die Queue aus der Vorschlagsliste
+    \item <F7.7>, <F 7.7.A> Einfügen eines Tracks aus der Vorschlagsliste in die Queue
 \end{itemize}
 
 \subsection{Grundlegendes Testszenario 8 (G8): Vollständiges Beenden einer Session}
@@ -864,10 +866,9 @@ Dazu muss bereits G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufe
 Alle Participants verlassen die Session, anschließend beendet der Host die Session. Alle User verlassen und beenden die App.
 Dazu muss bereits mindestens G1 (\ref{subsec:Tests:GrundlegendeTestszenarien:G1}) abgelaufen sein.
 \begin{itemize}
-    \item Alle Participants der Session: Verlassen der Session
-    \item Löschen der Session (Host)
-    \item Alle User (Participants und Host): Verlassen der App
-    \item Alle User (Participants und Host): Beenden der App
+    \item Alle Participants der Session: <F 3.5>, <F 3.5.A> Verlassen der Session
+    \item <F 7.10>, <F 7.10.A> Löschen der Session (Host)
+    \item Alle User (Participants und Host): <F 100> Vollständiges Beenden der App
 \end{itemize}
 
 
@@ -904,7 +905,7 @@ Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und ein Restri
 
 \subsection{Erweitertes Testszenario 3 (E3): Abspielen von fünf vorgeschlagenen Tracks}
 \label{subsec:Tests:ErweiterteTestszenarien:E3}
-Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restricted Partipants (R1 und R2) beitreten. H schlägt zwei Tracks vor, FP schlägt Tracks Songs vor. R1 votet einen Track von H und einen Track von FP up. R2 votet nur denselben Track von H up. H spielt die Tracks nach Anzahl der Upvotes ab.
+Ein Host (H) erstellt eine Session, der ein Full Participant (FP) und zwei Restricted Partipants (R1 und R2) beitreten. H schlägt zwei Tracks vor, FP schlägt drei Tracks vor. R1 votet einen Track von H und einen Track von FP up. R2 votet nur denselben Track von H up. H spielt die Tracks nach Anzahl der Upvotes ab.
 \begin{itemize}
     \item G1 (H)
     \item G2 (FP)
@@ -1007,7 +1008,7 @@ Wir stellen folgen Software und Hardware-Anforderungen an die App-Umgebung:
         \item GitHub (zur Kommunikation)
     \end{itemize}
 
-    \item UML Modellierung
+    \item UML Modellierung (KOMMT SO EIN ZEUG DA JETZT REIN ???)
     \begin{itemize}
         \item Creately
     \end{itemize}
@@ -1082,7 +1083,7 @@ Wir stellen folgen Software und Hardware-Anforderungen an die App-Umgebung:
  - Jeder Benutzer der App, Participant und Host sind User.
 
  \textbf{Vorschlagsliste}
- - Liste von Tracks einer Session, die mindestens ein Upvote haben.
+ - Liste von Tracks einer Session, die mindestens ein Upvote haben. Ausgenommen ist der Playlist-Modus: In diesem ist die Vorschlagsliste gleichbedeutend mit der eingestellten Playlist.
  
 
 \end{document}
