@@ -1,4 +1,6 @@
-%% Based on techreport.tex template as sent by Erik Burger on 2023-11-20
+
+%% LaTeX2e class for technical reports
+%% techreport.tex
 %% 
 %% Karlsruhe Institute of Technology
 %% Institute for Program Structures and Data Organization
@@ -14,20 +16,19 @@
 %% Available page modes: oneside, twoside
 %% Available languages: english, ngerman
 %% Available modes: draft, final (see README)
-\documentclass[oneside, ngerman]{sdqtechreport}
+\documentclass[twoside, english]{sdqtechreport}
 
 %% ---------------------------------
-%% | Information about the document |
+%% | Information about the thesis  |
 %% ---------------------------------
 
-%% Name of the group and authors
-\author{Paul Buda, Martin Scheuermann, Stephan Schneider, \\
-Simon Schütz und Nils Seibert}
+%% Name of the author
+\author{My Name}
 
 %% Title (and possibly subtitle) of the thesis
-\title{Entwurfsdokument}
+\title{My Report}
 
-\subtitle{zur Android-App Neptune}
+\subtitle{Technical Report 2023–001}
 
 %% You can put a logo in the ``logos'' directory and include it here
 %% instead of the SDQ logo
@@ -35,7 +36,7 @@ Simon Schütz und Nils Seibert}
 %% Alternatively, you can disable the group logo
 % \nogrouplogo
 
-\date{01.12.2023}
+\date{\today}
 
 %% For example texts -- please remove in the final version
 \usepackage{blindtext}
@@ -69,12 +70,53 @@ Simon Schütz und Nils Seibert}
 %% | Example content |
 %% -------------------
 
-\chapter{Einleitung}
-\label{chap:Einleitung}
+\chapter{First Chapter}
+\label{chap:FirstContent}
 
-\section{Einführung}
-\label{sec:Einleitung:Einführung}
-Musik spielt im Leben vieler Menschen eine enorm wichtige Rolle. Insbesondere bei Partys und Zusammenkünften mit Freunden ist eine gute Musikauswahl essentiell für eine gute Stimmung unter den Anwesenden. Aber auch der umgekehrte Fall ist vielen sicherlich gut bekannt – gefällt die abgespielte Musik den Anwesenden nicht, so kann dies die Stimmung erheblich trüben.
- 
+\section{First Section}
+\label{sec:FirstContent:FirstSection}
+
+\Blindtext
+
+\subsection{A Subsection}
+\label{sec:FirstContent:FirstSubSection}
+
+\Blindtext
+
+\subsubsection{A Subsubsection}
+
+\Blindtext[1]
+
+\section{Second Section}
+\label{sec:FirstContent:SecondSection}
+
+\Blindtext
+
+\chapter{Second Chapter}
+\label{chap:SecondContent}
+
+\section{First Section}
+\label{sec:SecondContent:FirstSection}
+
+\Blindtext
+
+\subsection{A Subsection}
+\label{sec:SecondContent:FirstSubSection}
+
+\Blindtext
+
+\subsubsection{A Subsubsection}
+
+\Blindtext[1]
+
+\section{Second Section}
+\label{sec:SecondContent:SecondSection}
+
+\Blindtext
+
+%% ---------------------
+%% | / Example content |
+%% ---------------------
+
 
 \end{document}
