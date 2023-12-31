@@ -1,4 +1,4 @@
-package com.example.Neptune_Prototype.ui.views
+package com.example.Neptune_Prototype.ui.views.joinView
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -1,4 +1,4 @@
-package com.example.Neptune_Prototype.ui.views
+package com.example.Neptune_Prototype.ui.views.util
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

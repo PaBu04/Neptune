@@ -4,27 +4,50 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.Neptune_Prototype.ui.views.JoinView
-import com.example.Neptune_Prototype.ui.views.StartView
-import com.example.Neptune_Prototype.ui.views.VoteView
 
 @Composable
 fun NeptuneNavGraph() {
+
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Views.START_VIEW){
+    NavHost(navController = navController, startDestination = ViewsCollection.START_VIEW.name){
 
-        composable(Views.START_VIEW){
-            StartView(navController)
+        composable(ViewsCollection.START_VIEW.name){
+            ViewsCollection.START_VIEW.show(navController)
         }
 
-        composable(Views.JOIN_VIEW){
-            JoinView(navController)
+        composable(ViewsCollection.JOIN_VIEW.name){
+            ViewsCollection.JOIN_VIEW.show(navController)
         }
 
-        composable(Views.VOTE_VIEW){
-            VoteView(navController)
+        composable(ViewsCollection.VOTE_VIEW.name){
+            ViewsCollection.VOTE_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.SEARCH_VIEW.name){
+            ViewsCollection.SEARCH_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.MODE_SELECT_VIEW.name){
+            ViewsCollection.MODE_SELECT_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.MODE_SETTINGS_VIEW.name){
+            ViewsCollection.MODE_SETTINGS_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.CONTROL_VIEW.name){
+            ViewsCollection.CONTROL_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.INFO_VIEW.name){
+            ViewsCollection.INFO_VIEW.show(navController)
+        }
+
+        composable(ViewsCollection.STATS_VIEW.name){
+            ViewsCollection.STATS_VIEW.show(navController)
         }
 
     }
+
 }

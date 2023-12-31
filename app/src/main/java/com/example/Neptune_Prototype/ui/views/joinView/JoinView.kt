@@ -1,15 +1,13 @@
-package com.example.Neptune_Prototype.ui.views
+package com.example.Neptune_Prototype.ui.views.joinView
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Surface
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,28 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.Neptune_Prototype.ui.Views
+import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
-import com.example.Neptune_Prototype.ui.commons.TopBar
-import com.example.Neptune_Prototype.ui.theme.BackgroundColor
+import com.example.Neptune_Prototype.ui.commons.TopBarAndBody
+import com.example.Neptune_Prototype.ui.views.startView.onClickCreateSession
 
 
-@Composable
-fun JoinView(navController: NavController) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = BackgroundColor
-    ) {
-        Column {
-            Box(modifier = Modifier.weight(1f)) {
-                TopBar(onClickBack = { onClickBack() }, description = "Session beitreten")
-            }
-            Box(modifier = Modifier.weight(6f)) {
-                JoinViewBody(navController)
-            }
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,17 +63,10 @@ fun JoinViewBody(navController: NavController) {
     }
 }
 
-fun onClickBackJoinView(navController: NavController) {
+fun joinViewOnBack(navController: NavController) {
     navController.popBackStack()
 }
 
 fun onConfirmSessionCode(navController: NavController) {
-    navController.navigate(Views.VOTE_VIEW)
-}
-
-
-@Preview
-@Composable
-fun joinSessionViewPreview() {
-    JoinView(rememberNavController())
+    navController.navigate(ViewsCollection.VOTE_VIEW.name)
 }
