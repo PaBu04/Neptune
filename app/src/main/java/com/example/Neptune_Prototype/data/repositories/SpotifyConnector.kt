@@ -13,6 +13,7 @@ import com.example.Neptune_Prototype.data.room.SpotifyConnectionDataDao
 import io.ktor.client.HttpClient
 import io.ktor.client.request.HttpResponseData
 import io.ktor.client.request.forms.FormDataContent
+import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
@@ -22,6 +23,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.Parameters
 import io.ktor.http.contentType
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.serializer
 import org.json.JSONObject
 import kotlin.io.encoding.Base64
@@ -31,6 +33,8 @@ class SpotifyConnector(
     private val spotifyConnectionDataDao: SpotifyConnectionDataDao,
     private val httpClient: HttpClient
 ) {
+
+    private var accessToken = ""
 
     suspend fun hasLinkedEntry(): Boolean {
         return spotifyConnectionDataDao.entryCount() == 1
@@ -59,18 +63,11 @@ class SpotifyConnector(
 
 
     @OptIn(ExperimentalEncodingApi::class)
-    suspend fun getAccessToken(code: String): String {
+    suspend fun getAccessToken(code: String) {
         val toEncode = "12176f1d92634db682ee1db0a6d8aa3b:93b84241520f436889410a326855ec2c"
         val encodedCredentials = "Basic " + Base64.encode(toEncode.toByteArray())
-        val res = httpClient.post<HttpStatement>("https://accounts.spotify.com/api/token") {
-            //header("Content-Type", "application/x-www-form-urlencoded")
-            header(
-                "Authorization",
-                encodedCredentials
-            )
-            //parameter("grant_type", "authorization_code")
-            //parameter("code", code)
-            //parameter("redirect_uri", "oauth://neptune-spotify-callback")
+        val authResponse = httpClient.post<AuthResponse>("https://accounts.spotify.com/api/token") {
+            header("Authorization", encodedCredentials)
             body = FormDataContent(
                 Parameters.build {
                     append("grant_type", "authorization_code")
@@ -79,9 +76,30 @@ class SpotifyConnector(
                 }
             )
         }
-        serializer<>()
-        Log.w("JSON", res.toString())
-        return ""
+        accessToken = authResponse.access_token
+        Log.i("LINK", accessToken)
     }
+
+
+    suspend fun getBestTrack(searchInput: String): String{
+        val authResponse = httpClient.get<JSONObject>("https://api.spotify.com/v1/search") {
+            header("Authorization", "Bearer " + accessToken)
+            parameter("q", searchInput)
+            parameter("type", "track")
+            parameter("limit", "1")
+        }
+        return "Erg"
+    }
+
 }
+
+
+@Serializable
+data class AuthResponse(
+    val access_token: String,
+    val token_type: String,
+    val expires_in: Int,
+    val refresh_token: String,
+    val scope: String
+)
 

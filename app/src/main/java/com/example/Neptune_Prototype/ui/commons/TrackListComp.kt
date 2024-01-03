@@ -35,7 +35,6 @@ fun TrackListComp() {
                 )
             }
         }
-        Text("Tracksuche")
     }
 }
 

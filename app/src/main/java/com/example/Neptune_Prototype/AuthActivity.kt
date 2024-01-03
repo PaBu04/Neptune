@@ -12,16 +12,18 @@ class AuthActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         handleIntent(intent)
+        finish()
     }
 
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         intent?.let { handleIntent(it) }
+        finish()
     }
 
     fun handleIntent(intent: Intent){
-        Log.w("RETURN CODE OAUTH", "is called")
+        Log.i("RETURN CODE OAUTH", "is called")
         val code = intent.data?.getQueryParameter("code")
         if(code != null){
             GlobalScope.launch {
