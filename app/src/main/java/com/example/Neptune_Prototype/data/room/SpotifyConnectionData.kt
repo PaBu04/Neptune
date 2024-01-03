@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "spotify_linking_info")
-data class SpotifyLinkingInfo(
+data class SpotifyConnectionData(
     @ColumnInfo(name = "artificial_id")
     @PrimaryKey
     val artificialId: Int,

@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Neptune_Prototype"
 include(":app")
- 

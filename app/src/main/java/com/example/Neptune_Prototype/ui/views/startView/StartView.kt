@@ -1,5 +1,10 @@
 package com.example.Neptune_Prototype.ui.views.startView
 
+
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,16 +17,17 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.example.Neptune_Prototype.MainActivity
 import com.example.Neptune_Prototype.NeptuneApp
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
-import com.example.Neptune_Prototype.ui.commons.TopBarAndBody
 import com.example.Neptune_Prototype.ui.theme.PrimaryFontColor
 import com.example.Neptune_Prototype.ui.theme.SpotifyButtonColor
 import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
@@ -30,17 +36,21 @@ import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
 @Composable
 fun StartViewBody(navController: NavController) {
 
+    val context = LocalContext.current
     val startViewModel = viewModel<StartViewModel>(
         factory = viewModelFactory {
-            StartViewModel(NeptuneApp.spotifyLinkingInfoModule.spotifyLinkingInfoRepo)
+            StartViewModel(
+                NeptuneApp.spotifyConnectionDataModule.spotifyConnector,
+                context
+            )
         }
     )
 
     Row {
         Spacer(modifier = Modifier.weight(1f))
-        Column(modifier = Modifier.weight(4f)){
+        Column(modifier = Modifier.weight(4f)) {
             Spacer(modifier = Modifier.weight(1f))
-            Column(modifier = Modifier.weight(2f)){
+            Column(modifier = Modifier.weight(2f)) {
                 StandardButton(
                     onClick = { onClickJoinSession(navController) },
                     text = "Session beitreten"

@@ -1,7 +1,9 @@
 package com.example.Neptune_Prototype
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -20,3 +22,4 @@ class MainActivity : ComponentActivity() {
 fun NeptuneUi(){
     NeptuneNavGraph()
 }
+

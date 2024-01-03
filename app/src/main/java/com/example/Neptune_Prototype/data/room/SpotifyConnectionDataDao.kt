@@ -7,12 +7,12 @@ import androidx.room.Upsert
 
 
 @Dao
-interface SpotifyLinkingInfoDao{
+interface SpotifyConnectionDataDao{
     @Upsert
-    suspend fun upsert(spotifyLinkingInfo: SpotifyLinkingInfo)
+    suspend fun upsert(spotifyConnectionData: SpotifyConnectionData)
 
     @Delete
-    suspend fun delete(spotifyLinkingInfo: SpotifyLinkingInfo)
+    suspend fun delete(spotifyConnectionData: SpotifyConnectionData)
 
     @Query("SELECT isLinked FROM SPOTIFY_LINKING_INFO WHERE artificial_id=0")
     suspend fun isLinked(): Boolean

@@ -1,15 +1,18 @@
 package com.example.Neptune_Prototype.ui.views.startView
 
+import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.UriHandler
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.Neptune_Prototype.data.repositories.SpotifyLinkingInfoRepo
+import com.example.Neptune_Prototype.data.repositories.SpotifyConnector
 import kotlinx.coroutines.launch
 
 class StartViewModel(
-    private val spotifyLinkingInfoRepo: SpotifyLinkingInfoRepo
+    private val spotifyConnector: SpotifyConnector,
+    private val context: Context
 ) : ViewModel() {
 
     var isLinkedToSpotify by mutableStateOf(false)
@@ -19,20 +22,23 @@ class StartViewModel(
 
     init {
         viewModelScope.launch {
-            if (spotifyLinkingInfoRepo.hasLinkedEntry()) {
-                isLinkedToSpotify = spotifyLinkingInfoRepo.isLinked()
+            if (spotifyConnector.hasLinkedEntry()) {
+                isLinkedToSpotify = spotifyConnector.isLinked()
             } else {
-                spotifyLinkingInfoRepo.updateLinked(isLinkedToSpotify)
+                spotifyConnector.updateLinked(isLinkedToSpotify)
             }
             updateSpotifyButtonText()
         }
     }
 
     fun toggleLinkedToSpotify() {
+        if(!isLinkedToSpotify){
+            spotifyConnector.startLinking(context)
+        }
         isLinkedToSpotify = !isLinkedToSpotify
         updateSpotifyButtonText()
         viewModelScope.launch {
-            spotifyLinkingInfoRepo.updateLinked(isLinkedToSpotify)
+            spotifyConnector.updateLinked(isLinkedToSpotify)
         }
     }
 
