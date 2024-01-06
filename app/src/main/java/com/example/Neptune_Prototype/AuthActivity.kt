@@ -23,7 +23,7 @@ class AuthActivity : ComponentActivity() {
     }
 
     fun handleIntent(intent: Intent){
-        Log.i("RETURN CODE OAUTH", "is called")
+        Log.i("RETURN CODE OAUTH", "is called from spotify")
         val code = intent.data?.getQueryParameter("code")
         if(code != null){
             GlobalScope.launch {
