@@ -19,4 +19,10 @@ interface SpotifyConnectionDataDao{
 
     @Query("SELECT COUNT(artificial_id) FROM SPOTIFY_LINKING_INFO")
     suspend fun entryCount(): Int
+
+    @Query("UPDATE SPOTIFY_LINKING_INFO SET refreshToken = :newRefreshToken WHERE artificial_id=0")
+    suspend fun setRefreshToken(newRefreshToken: String)
+
+    @Query("SELECT refreshToken FROM SPOTIFY_LINKING_INFO WHERE artificial_id=0")
+    suspend fun getRefreshToken(): String
 }

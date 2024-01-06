@@ -27,7 +27,8 @@ class AuthActivity : ComponentActivity() {
         val code = intent.data?.getQueryParameter("code")
         if(code != null){
             GlobalScope.launch {
-                NeptuneApp.spotifyConnectionDataModule.spotifyConnector.getAccessToken(code)
+                NeptuneApp.modelContainer.spotifyConnector.exchangeCodeToAccessToken(code)
+                NeptuneApp.modelContainer.user.setSpotifyLevel()
             }
         }
     }

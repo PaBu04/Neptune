@@ -1,27 +1,28 @@
 package com.example.Neptune_Prototype.ui.views.voteView
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.Neptune_Prototype.data.repositories.ServerConnectionRepo
-import kotlinx.coroutines.launch
+import com.example.Neptune_Prototype.data.model.ServerConnectionRepo
+import com.example.Neptune_Prototype.data.model.session.Session
+import com.example.Neptune_Prototype.data.model.track.TrackUiInstance
 
 class VoteViewModel(
-    private val serverConnectionRepo: ServerConnectionRepo
+    private val session: Session
 ) : ViewModel() {
 
-    var displayText by mutableStateOf("")
-        private set
+    var voteList = session.getVoteList()
 
-    init{
-        serverRequest()
-    }
 
-    fun serverRequest(){
-        viewModelScope.launch {
-            displayText = serverConnectionRepo.getServerText()
+    fun onToggleUpvote(trackUiInstance: TrackUiInstance){
+        if (trackUiInstance.track.value.isUpvoted) {
+            trackUiInstance.track.value.isUpvoted = false
+            trackUiInstance.track.value.upvoteCount--
+        } else {
+            trackUiInstance.track.value.isUpvoted = true
+            trackUiInstance.track.value.upvoteCount++
+        }
+
+        if(trackUiInstance.track.value.upvoteCount == 0){
+            voteList.remove(trackUiInstance)
         }
     }
 

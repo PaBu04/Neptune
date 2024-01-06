@@ -9,7 +9,8 @@ data class SpotifyConnectionData(
     @ColumnInfo(name = "artificial_id")
     @PrimaryKey
     val artificialId: Int,
-    val isLinked: Boolean
+    val isLinked: Boolean,
+    val refreshToken: String
 )
 
 

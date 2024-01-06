@@ -12,13 +12,12 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.example.Neptune_Prototype.NeptuneApp
+import com.example.Neptune_Prototype.data.model.session.Session
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
-import com.example.Neptune_Prototype.ui.commons.TopBarAndBody
 import com.example.Neptune_Prototype.ui.views.startView.onClickCreateSession
 
 
@@ -69,4 +68,5 @@ fun joinViewOnBack(navController: NavController) {
 
 fun onConfirmSessionCode(navController: NavController) {
     navController.navigate(ViewsCollection.VOTE_VIEW.name)
+    NeptuneApp.modelContainer.session = Session()
 }

@@ -2,19 +2,16 @@
 package com.example.Neptune_Prototype
 
 import android.app.Application
-import com.example.Neptune_Prototype.di.ServerConnectionModule
-import com.example.Neptune_Prototype.di.SpotifyConnectionDataModule
+import com.example.Neptune_Prototype.di.ModelContainer
 
 class NeptuneApp: Application() {
 
     companion object {
-        lateinit var spotifyConnectionDataModule: SpotifyConnectionDataModule
-        lateinit var serverConnectionModule: ServerConnectionModule
+        lateinit var modelContainer: ModelContainer
     }
 
     override fun onCreate() {
         super.onCreate()
-        spotifyConnectionDataModule = SpotifyConnectionDataModule(this)
-        serverConnectionModule = ServerConnectionModule(this)
+        modelContainer = ModelContainer(this)
     }
 }

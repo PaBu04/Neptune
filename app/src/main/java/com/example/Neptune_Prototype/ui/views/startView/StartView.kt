@@ -30,6 +30,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.MainActivity
 import com.example.Neptune_Prototype.NeptuneApp
+import com.example.Neptune_Prototype.data.model.user.SpotifyLevel
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
 import com.example.Neptune_Prototype.ui.theme.PrimaryFontColor
@@ -44,8 +45,7 @@ fun StartViewBody(navController: NavController) {
     val startViewModel = viewModel<StartViewModel>(
         factory = viewModelFactory {
             StartViewModel(
-                NeptuneApp.spotifyConnectionDataModule.spotifyConnector,
-                context
+                NeptuneApp.modelContainer.user
             )
         }
     )
@@ -62,7 +62,7 @@ fun StartViewBody(navController: NavController) {
                 StandardButton(
                     onClick = { onClickCreateSession(navController) },
                     text = "Session erstellen",
-                    enabled = startViewModel.isLinkedToSpotify
+                    enabled = startViewModel.canCreateSession()
                 )
             }
             Spacer(modifier = Modifier.weight(3f))
@@ -80,7 +80,7 @@ fun StartViewBody(navController: NavController) {
                         contentColor = PrimaryFontColor,
                     )
                 ) {
-                    Text(startViewModel.spotifyButtonText, fontSize = 18.sp)
+                    Text(startViewModel.getSpotifyButtonText(), fontSize = 18.sp)
                 }
                 Spacer(modifier = Modifier.height(30.dp))
             }
@@ -96,7 +96,7 @@ fun onClickJoinSession(navController: NavController) {
 
 
 fun onClickCreateSession(navController: NavController) {
-    //TODO
+    navController.navigate(ViewsCollection.MODE_SELECT_VIEW.name)
 }
 
 

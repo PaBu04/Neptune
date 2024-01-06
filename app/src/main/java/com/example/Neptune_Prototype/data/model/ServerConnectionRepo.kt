@@ -1,7 +1,6 @@
-package com.example.Neptune_Prototype.data.repositories
+package com.example.Neptune_Prototype.data.model
 
 import io.ktor.client.HttpClient
-import io.ktor.client.request.post
 
 class ServerConnectionRepo(
     private val httpClient: HttpClient
