@@ -88,6 +88,7 @@
 }
 
 \usepackage[automark, headsepline]{scrlayer-scrpage}
+\usepackage[inkscapeformat=png]{svg}
 
 %% Größe der Titelzeile
 \setkomafont{pageheadfoot}{\footnotesize\usekomafont{pagenumber}}
