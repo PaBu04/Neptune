@@ -23,8 +23,8 @@ fun SearchViewBody(navController: NavController) {
     val searchViewModel = viewModel<SearchViewModel>(
         factory = viewModelFactory {
             SearchViewModel(
-                NeptuneApp.modelContainer.spotifyConnector,
-                NeptuneApp.modelContainer.session as Session
+                NeptuneApp.modelContainer.user!!,
+                NeptuneApp.modelContainer.user!!.searchList
             )
         }
     )
@@ -36,7 +36,7 @@ fun SearchViewBody(navController: NavController) {
             onValueChange = { searchViewModel.onSearchInputChange(it) })
         Box {
             TrackListComp(
-                tracks = searchViewModel.trackList,
+                tracks = searchViewModel.getSearchList(),
                 onToggleUpvote = { searchViewModel.onToggleUpvote(it) },
                 onAddToQueue = {},
                 onRemoveFromQueue = {} )

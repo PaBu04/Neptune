@@ -1,27 +1,21 @@
 package com.example.Neptune_Prototype.ui.views.controlView
 
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
-import com.example.Neptune_Prototype.data.model.session.HostSession
-import com.example.Neptune_Prototype.data.model.spotify.SpotifyConnector
 import com.example.Neptune_Prototype.data.model.track.Track
-import com.example.Neptune_Prototype.data.model.track.TrackListType
 import com.example.Neptune_Prototype.data.model.track.TrackUiInstance
+import com.example.Neptune_Prototype.data.model.user.Host
 
 class ControlViewModel(
-    private val spotifyConnector: SpotifyConnector,
-    private val session: HostSession
+    private val host: Host,
+    private val voteList: SnapshotStateList<TrackUiInstance>,
+    private val queueList: SnapshotStateList<TrackUiInstance>,
+    private val isPlaybackPaused: MutableState<Boolean>
 ) : ViewModel() {
 
-    var voteList = session.getVoteList()
-
-    var queueList = session.getQueueList()
-
-    private var isPaused = session.isPaused
-
-
     fun onToggleUpvote(trackUiInstance: TrackUiInstance) {
-        if (trackUiInstance.track.value.isUpvoted) {
+        /*if (trackUiInstance.track.value.isUpvoted) {
             trackUiInstance.track.value.isUpvoted = false
             trackUiInstance.track.value.upvoteCount--
         } else {
@@ -31,36 +25,45 @@ class ControlViewModel(
 
         if (trackUiInstance.track.value.upvoteCount == 0) {
             session.removeFromVoteList(trackUiInstance)
-        }
+        }*/
+        //TODO
     }
 
     fun onAddToQueue(track: Track) {
-        session.addToQueueList(TrackUiInstance(mutableStateOf(track), TrackListType.HOST_QUEUE))
+        host.addTrackToQueueList(track)
     }
 
     fun onRemoveFromQueue(trackUiInstance: TrackUiInstance) {
-        session.removeFromQueueList(trackUiInstance)
+        host.removeFromQueueList(trackUiInstance)
     }
 
     fun onPause() {
-        isPaused = !isPaused
-        if (isPaused) {
-            session.pausePlayback()
+        isPlaybackPaused.value = !isPlaybackPaused.value
+        if (isPlaybackPaused.value) {
+            host.pausePlayback()
         } else {
-            session.resumePlayback()
+            host.resumePlayback()
         }
     }
 
     fun onSkip() {
-        session.skipTrack()
+        host.skipTrack()
     }
 
     fun getPausedDescription(): String {
-        if (isPaused) {
+        if (isPlaybackPaused.value) {
             return "Weiter"
         } else {
             return "Pause"
         }
+    }
+
+    fun getVoteList(): SnapshotStateList<TrackUiInstance> {
+        return voteList
+    }
+
+    fun getQueueList(): SnapshotStateList<TrackUiInstance> {
+        return queueList
     }
 
 }

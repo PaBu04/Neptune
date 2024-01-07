@@ -1,5 +1,5 @@
 package com.example.Neptune_Prototype.data.model.user
 
-enum class SpotifyLevel {
-    PREMIUM, FREE, UNLINKED
+enum class PlaybackState {
+    PLAYING, PAUSED, NONE
 }

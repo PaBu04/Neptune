@@ -1,9 +1,11 @@
 package com.example.Neptune_Prototype.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.ui.commons.TopBarAndBody
 import com.example.Neptune_Prototype.ui.views.startView.StartViewBody
+import com.example.Neptune_Prototype.ui.views.voteView.voteViewOnBack
 
 class View(
     val name: String, // is there because the navHost only works with strings
@@ -14,6 +16,9 @@ class View(
 
     @Composable
     fun show(navController: NavController) {
+        BackHandler {
+            onBack(navController)
+        }
         TopBarAndBody(
             composableBody = @Composable { composableViewBody(navController) },
             onBack = { onBack(navController) },

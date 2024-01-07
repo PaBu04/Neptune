@@ -12,8 +12,8 @@ import com.example.Neptune_Prototype.data.jsonData.spotifyLevel.SpotifyLevelResp
 import com.example.Neptune_Prototype.data.jsonData.trackSearch.Item
 import com.example.Neptune_Prototype.data.jsonData.trackSearch.TrackResponse
 import com.example.Neptune_Prototype.data.model.track.Track
-import com.example.Neptune_Prototype.data.room.SpotifyConnectionData
-import com.example.Neptune_Prototype.data.room.SpotifyConnectionDataDao
+import com.example.Neptune_Prototype.data.room.spotify.SpotifyConnectionData
+import com.example.Neptune_Prototype.data.room.spotify.SpotifyConnectionDataDao
 import io.ktor.client.HttpClient
 import io.ktor.client.request.forms.FormDataContent
 import io.ktor.client.request.get
@@ -127,7 +127,7 @@ open class SpotifyConnector(
         return spotifyLevelResponse.product
     }
 
-    suspend fun searchTracks(searchInput: String): MutableList<Track> {
+    suspend fun searchTracks(searchInput: String): List<Track> {
         val trackResponse = httpClient.get<TrackResponse>("https://api.spotify.com/v1/search") {
             header("Authorization", "Bearer " + accessToken)
             parameter("q", searchInput)

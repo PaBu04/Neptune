@@ -1,37 +1,35 @@
 package com.example.Neptune_Prototype.ui.views.startView
 
-import android.content.Context
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.Neptune_Prototype.data.model.spotify.SpotifyConnector
-import com.example.Neptune_Prototype.data.model.user.SpotifyLevel
+import com.example.Neptune_Prototype.data.model.app.AppState
+import com.example.Neptune_Prototype.data.model.app.SpotifyLevel
 import com.example.Neptune_Prototype.data.model.user.User
-import kotlinx.coroutines.launch
 
 class StartViewModel(
-    private val user: User
+    private val appState: AppState,
+    private val spotifyLevel: MutableState<SpotifyLevel>
 ) : ViewModel() {
 
     fun canCreateSession(): Boolean {
-        return user.spotifyLevel == SpotifyLevel.PREMIUM
+        return spotifyLevel.value == SpotifyLevel.PREMIUM
     }
 
     fun toggleLinkedToSpotify() {
-        if (user.spotifyLevel == SpotifyLevel.FREE || user.spotifyLevel == SpotifyLevel.PREMIUM) {
-            user.unlinkFromSpotify()
-        } else {
-            user.connectToSpotifyWithAuthorize()
+        if (spotifyLevel.value == SpotifyLevel.FREE || spotifyLevel.value == SpotifyLevel.PREMIUM) {
+            appState.unlinkFromSpotify()
+        } else if (spotifyLevel.value == SpotifyLevel.UNLINKED) {
+            appState.connectToSpotifyWithAuthorize()
         }
     }
 
     fun getSpotifyButtonText(): String {
-        if (user.spotifyLevel == SpotifyLevel.FREE || user.spotifyLevel == SpotifyLevel.PREMIUM) {
+        if (spotifyLevel.value == SpotifyLevel.FREE || spotifyLevel.value == SpotifyLevel.PREMIUM) {
             return "Von Spotify trennen"
-        } else {
+        } else if (spotifyLevel.value == SpotifyLevel.UNLINKED) {
             return "Mit Spotify verknüpfen"
+        } else {
+            return ""
         }
     }
 

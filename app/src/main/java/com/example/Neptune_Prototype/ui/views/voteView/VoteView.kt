@@ -1,5 +1,6 @@
 package com.example.Neptune_Prototype.ui.views.voteView
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -19,7 +20,8 @@ fun VoteViewBody(navController: NavController) {
     val voteViewModel = viewModel<VoteViewModel>(
         factory = viewModelFactory {
             VoteViewModel(
-                NeptuneApp.modelContainer.session as Session
+                NeptuneApp.modelContainer.session as Session,
+                NeptuneApp.modelContainer.user!!.voteList
             )
         }
     )
@@ -27,7 +29,7 @@ fun VoteViewBody(navController: NavController) {
     Column {
         Box(modifier = Modifier.weight(7f)) {
             TrackListComp(
-                tracks = voteViewModel.voteList,
+                tracks = voteViewModel.getVoteList(),
                 onToggleUpvote = { voteViewModel.onToggleUpvote(it) },
                 onAddToQueue = {},
                 onRemoveFromQueue = {} )

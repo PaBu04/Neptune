@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.NeptuneApp
-import com.example.Neptune_Prototype.data.model.session.HostSession
+import com.example.Neptune_Prototype.data.model.user.Host
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
 import com.example.Neptune_Prototype.ui.commons.TrackListComp
@@ -20,8 +20,10 @@ import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
 fun ControlViewBody(navController: NavController) {
     val controlViewModel = viewModel<ControlViewModel>(
         factory = viewModelFactory {
-            ControlViewModel(NeptuneApp.modelContainer.spotifyConnector,
-                NeptuneApp.modelContainer.session as HostSession
+            ControlViewModel(NeptuneApp.modelContainer.user as Host,
+                (NeptuneApp.modelContainer.user as Host).voteList,
+                (NeptuneApp.modelContainer.user as Host).queueList,
+                (NeptuneApp.modelContainer.user as Host).isPlaybackPaused
             )
         }
     )
@@ -31,7 +33,7 @@ fun ControlViewBody(navController: NavController) {
         Text(text = "Queue", color = Color.White)
         Box(modifier = Modifier.weight(7f)) {
             TrackListComp(
-                tracks = controlViewModel.queueList,
+                tracks = controlViewModel.getQueueList(),
                 onToggleUpvote = { controlViewModel.onToggleUpvote(it) },
                 onAddToQueue = {},
                 onRemoveFromQueue = {controlViewModel.onRemoveFromQueue(it) } )
@@ -40,7 +42,7 @@ fun ControlViewBody(navController: NavController) {
         Text(text = "Upvote Liste", color = Color.White)
         Box(modifier = Modifier.weight(7f)) {
             TrackListComp(
-                tracks = controlViewModel.voteList,
+                tracks = controlViewModel.getVoteList(),
                 onToggleUpvote = { controlViewModel.onToggleUpvote(it) },
                 onAddToQueue = { controlViewModel.onAddToQueue(it) },
                 onRemoveFromQueue = {} )

@@ -26,12 +26,12 @@ class TrackUiInstance(var track: MutableState<Track>, val trackListType: TrackLi
         val dropdownOptions = Pair(mutableListOf<String>(), mutableListOf<() -> Unit>())
         dropdownOptions.first.add("In die Queue")
         dropdownOptions.second.add { addToQueue(track.value) }
-        if (track.value.isLocked) {
+        if (track.value.isBlocked) {
             dropdownOptions.first.add("Track entsperren")
-            dropdownOptions.second.add { track.value.isLocked = false }
+            dropdownOptions.second.add { track.value.isBlocked = false }
         } else {
             dropdownOptions.first.add("Track sperren")
-            dropdownOptions.second.add { track.value.isLocked = true }
+            dropdownOptions.second.add { track.value.isBlocked = true }
         }
         if (track.value.hasCooldown) {
             dropdownOptions.first.add("Cooldown aufheben")
@@ -44,12 +44,12 @@ class TrackUiInstance(var track: MutableState<Track>, val trackListType: TrackLi
         val dropdownOptions = Pair(mutableListOf<String>(), mutableListOf<() -> Unit>())
         dropdownOptions.first.add("In die Queue")
         dropdownOptions.second.add { addToQueue(track.value) }
-        if (track.value.isLocked) {
+        if (track.value.isBlocked) {
             dropdownOptions.first.add("Track entsperren")
-            dropdownOptions.second.add { track.value.isLocked = false }
+            dropdownOptions.second.add { track.value.isBlocked = false }
         } else {
             dropdownOptions.first.add("Track sperren")
-            dropdownOptions.second.add { track.value.isLocked = true }
+            dropdownOptions.second.add { track.value.isBlocked = true }
         }
         return dropdownOptions
     }
@@ -58,12 +58,12 @@ class TrackUiInstance(var track: MutableState<Track>, val trackListType: TrackLi
         val dropdownOptions = Pair(mutableListOf<String>(), mutableListOf<() -> Unit>())
         dropdownOptions.first.add("Entfernen")
         dropdownOptions.second.add { removeFromQueue(this) }
-        if (track.value.isLocked) {
+        if (track.value.isBlocked) {
             dropdownOptions.first.add("Track entsperren")
-            dropdownOptions.second.add { track.value.isLocked = false }
+            dropdownOptions.second.add { track.value.isBlocked = false }
         } else {
             dropdownOptions.first.add("Track sperren")
-            dropdownOptions.second.add { track.value.isLocked = true }
+            dropdownOptions.second.add { track.value.isBlocked = true }
         }
         return dropdownOptions
     }

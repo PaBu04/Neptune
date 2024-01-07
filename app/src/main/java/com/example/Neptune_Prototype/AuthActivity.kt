@@ -28,7 +28,7 @@ class AuthActivity : ComponentActivity() {
         if(code != null){
             GlobalScope.launch {
                 NeptuneApp.modelContainer.spotifyConnector.exchangeCodeToAccessToken(code)
-                NeptuneApp.modelContainer.user.setSpotifyLevel()
+                NeptuneApp.modelContainer.appState.setSpotifyLevel()
             }
         }
     }

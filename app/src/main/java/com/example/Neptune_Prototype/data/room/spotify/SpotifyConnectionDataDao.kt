@@ -1,9 +1,10 @@
-package com.example.Neptune_Prototype.data.room
+package com.example.Neptune_Prototype.data.room.spotify
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
+import com.example.Neptune_Prototype.data.room.spotify.SpotifyConnectionData
 
 
 @Dao
@@ -14,15 +15,15 @@ interface SpotifyConnectionDataDao{
     @Delete
     suspend fun delete(spotifyConnectionData: SpotifyConnectionData)
 
-    @Query("SELECT isLinked FROM SPOTIFY_LINKING_INFO WHERE artificial_id=0")
+    @Query("SELECT is_linked FROM SPOTIFY_CONNECTION_DATA WHERE artificial_id=0")
     suspend fun isLinked(): Boolean
 
-    @Query("SELECT COUNT(artificial_id) FROM SPOTIFY_LINKING_INFO")
+    @Query("SELECT COUNT(artificial_id) FROM SPOTIFY_CONNECTION_DATA")
     suspend fun entryCount(): Int
 
-    @Query("UPDATE SPOTIFY_LINKING_INFO SET refreshToken = :newRefreshToken WHERE artificial_id=0")
+    @Query("UPDATE SPOTIFY_CONNECTION_DATA SET refresh_token = :newRefreshToken WHERE artificial_id=0")
     suspend fun setRefreshToken(newRefreshToken: String)
 
-    @Query("SELECT refreshToken FROM SPOTIFY_LINKING_INFO WHERE artificial_id=0")
+    @Query("SELECT refresh_token FROM SPOTIFY_CONNECTION_DATA WHERE artificial_id=0")
     suspend fun getRefreshToken(): String
 }

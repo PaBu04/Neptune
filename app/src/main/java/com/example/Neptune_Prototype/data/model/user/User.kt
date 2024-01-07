@@ -2,61 +2,100 @@ package com.example.Neptune_Prototype.data.model.user
 
 import android.content.Context
 import android.util.Log
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.example.Neptune_Prototype.data.model.app.SpotifyLevel
+import com.example.Neptune_Prototype.data.model.backend.BackendConnector
+import com.example.Neptune_Prototype.data.model.session.Session
 import com.example.Neptune_Prototype.data.model.spotify.SpotifyConnector
+import com.example.Neptune_Prototype.data.model.track.Track
+import com.example.Neptune_Prototype.data.model.track.TrackListType
+import com.example.Neptune_Prototype.data.model.track.TrackUiInstance
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.HashMap
 
-class User(
-    val spotifyConnector: SpotifyConnector,
-    private val context: Context
+abstract class User(
+    private val session: Session,
+    private val backendConnector: BackendConnector
 ) {
 
-    var userId = ""
+    private val relevantTracks = HashMap<String, MutableState<Track>>()
 
-    var spotifyLevel by mutableStateOf(SpotifyLevel.UNLINKED)
-        private set
+    val voteList by mutableStateOf(mutableStateListOf<TrackUiInstance>())
 
-    var userType by mutableStateOf(UserType.UNDEFINED)
-        private set
+    val blockedList by mutableStateOf(mutableStateListOf<TrackUiInstance>())
+
+    val searchList by mutableStateOf(mutableStateListOf<TrackUiInstance>())
 
 
-    init {
-        GlobalScope.launch {
-            val isLinkedToSpotify = spotifyConnector.isLinkedToSpotify()
-            if (isLinkedToSpotify) {
-                val refreshTokenUsed = spotifyConnector.connectToSpotify(context)
-                if(refreshTokenUsed){
-                    setSpotifyLevel()
-                }
+    fun addRelevantTrack(track: Track) {
+        relevantTracks[track.spotifyId] = mutableStateOf(track)
+    }
+
+    fun isTrackRelevant(spotifyTrackId: String): Boolean {
+        return relevantTracks.containsKey(spotifyTrackId)
+    }
+
+    fun getRelevantTrack(spotifyTrackId: String): MutableState<Track>? {
+        return relevantTracks[spotifyTrackId]
+    }
+
+    fun removeFromRelevantTracks(spotifyTrackId: String) {
+        relevantTracks.remove(spotifyTrackId)
+    }
+
+
+    protected fun internalAddTrackToVoteList(track: Track, trackListType: TrackListType) {
+        // just an error catcher, should not happen
+        if (isTrackInVoteList(track)) {
+            Log.w("VOTELIST", "Track already inside")
+            return
+        }
+        if (!isTrackRelevant(track.spotifyId)) {
+            addRelevantTrack(track)
+        }
+        val trackUiInstance = TrackUiInstance(getRelevantTrack(track.spotifyId)!!, trackListType)
+        voteList.add(trackUiInstance)
+    }
+
+    fun addUpvoteToTrack(spotifyTrackId: String){
+        if(isTrackRelevant(spotifyTrackId)){
+            getRelevantTrack(spotifyTrackId)!!.value.isUpvoted = true
+        }
+    }
+
+    fun removeUpvoteFromTrack(spotifyTrackId: String){
+        if(isTrackRelevant(spotifyTrackId)){
+            getRelevantTrack(spotifyTrackId)!!.value.isUpvoted = false
+        }
+    }
+
+    fun isTrackInVoteList(track: Track): Boolean {
+        var isTrackInVoteList = false
+        voteList.forEach {
+            if (it.track.value.spotifyId == track.spotifyId) {
+                isTrackInVoteList = true
             }
         }
+        return isTrackInVoteList
     }
 
-    fun connectToSpotifyWithAuthorize() {
-        GlobalScope.launch {
-            spotifyConnector.connectToSpotifyWithAuthorize(context)
+    fun isTrackInBlockedList(track: Track): Boolean {
+        var isTrackInBlockedList = false
+        blockedList.forEach {
+            if (it.track.value.spotifyId == track.spotifyId) {
+                isTrackInBlockedList = true
+            }
         }
+        return isTrackInBlockedList
     }
 
-    fun unlinkFromSpotify(){
-        GlobalScope.launch {
-            spotifyConnector.unlinkFromSpotify()
-        }
-        spotifyLevel = SpotifyLevel.UNLINKED
-    }
+    abstract suspend fun searchTracks(searchInput: String)
 
-    suspend fun setSpotifyLevel(){
-        val spotifyLevelString = spotifyConnector.getSpotifyLevel()
-        if (spotifyLevelString == "premium") {
-            spotifyLevel = SpotifyLevel.PREMIUM
-        } else if (spotifyLevelString == "free" || spotifyLevelString == "open") {
-            spotifyLevel = SpotifyLevel.FREE
-        }
-        Log.i("LEVEL", spotifyLevel.toString())
-    }
-
+    abstract fun addTrackToVoteList(track: Track)
 
 }

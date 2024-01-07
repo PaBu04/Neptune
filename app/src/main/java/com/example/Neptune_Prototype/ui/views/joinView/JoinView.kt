@@ -15,18 +15,28 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.NeptuneApp
+import com.example.Neptune_Prototype.data.model.backend.BackendConnector
+import com.example.Neptune_Prototype.data.model.backend.ParticipantBackendConnector
 import com.example.Neptune_Prototype.data.model.session.Session
+import com.example.Neptune_Prototype.data.model.user.FullParticipant
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
 import com.example.Neptune_Prototype.ui.views.startView.onClickCreateSession
-
+import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
+import com.example.Neptune_Prototype.ui.views.voteView.VoteViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun JoinViewBody(navController: NavController) {
 
-    val joinViewModel = viewModel<JoinViewModel>()
+    val joinViewModel = viewModel<JoinViewModel>(
+        factory = viewModelFactory {
+            JoinViewModel(
+                NeptuneApp.modelContainer.appState
+            )
+        }
+    )
 
     Row {
         Spacer(modifier = Modifier.weight(1f))
@@ -46,7 +56,7 @@ fun JoinViewBody(navController: NavController) {
                     }
                     Box(modifier = Modifier.weight(1f)){
                         StandardButton(
-                            onClick = { onConfirmSessionCode(navController) },
+                            onClick = { joinViewModel.onConfirmSessionCode(navController) },
                             text = "->",
                             enabled = joinViewModel.codeIsValid
                         )
@@ -64,9 +74,4 @@ fun JoinViewBody(navController: NavController) {
 
 fun joinViewOnBack(navController: NavController) {
     navController.popBackStack()
-}
-
-fun onConfirmSessionCode(navController: NavController) {
-    navController.navigate(ViewsCollection.VOTE_VIEW.name)
-    NeptuneApp.modelContainer.session = Session()
 }

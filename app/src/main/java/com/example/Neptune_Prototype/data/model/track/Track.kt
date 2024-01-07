@@ -16,7 +16,7 @@ class Track(
     var isUpvoted by mutableStateOf(false)
     var upvoteCount by mutableIntStateOf(0)
     var hasCooldown by mutableStateOf(false)
-    var isLocked by mutableStateOf(false)
+    var isBlocked by mutableStateOf(false)
 
 
     fun getArtistNames(): String {
