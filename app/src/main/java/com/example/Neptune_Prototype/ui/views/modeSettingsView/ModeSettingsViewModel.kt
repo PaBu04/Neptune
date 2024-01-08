@@ -5,12 +5,14 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.NeptuneApp
 import com.example.Neptune_Prototype.data.model.backend.HostBackendConnector
 import com.example.Neptune_Prototype.data.model.session.Session
 import com.example.Neptune_Prototype.data.model.user.Host
 import com.example.Neptune_Prototype.ui.ViewsCollection
+import kotlinx.coroutines.launch
 
 class ModeSettingsViewModel : ViewModel() {
 
@@ -33,12 +35,16 @@ class ModeSettingsViewModel : ViewModel() {
         navController.navigate(ViewsCollection.CONTROL_VIEW.name)
         NeptuneApp.modelContainer.session = Session()
         NeptuneApp.modelContainer.backendConnector =
-            HostBackendConnector(NeptuneApp.modelContainer.backendHttpClient)
+            HostBackendConnector(NeptuneApp.modelContainer.backendVolleyQueue,
+                NeptuneApp.modelContainer.appState.deviceId)
         NeptuneApp.modelContainer.user = Host(
             NeptuneApp.modelContainer.session!!,
             NeptuneApp.modelContainer.backendConnector!! as HostBackendConnector,
             NeptuneApp.modelContainer.spotifyConnector
         )
+
+        (NeptuneApp.modelContainer.user as Host).createNewSession()
+
     }
 
 }

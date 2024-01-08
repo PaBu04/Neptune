@@ -15,6 +15,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -31,19 +33,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.Neptune_Prototype.data.model.track.Track
-import com.example.Neptune_Prototype.data.model.track.TrackListType
-import com.example.Neptune_Prototype.data.model.track.TrackUiInstance
 import com.example.Neptune_Prototype.ui.theme.ElementsColor
 import com.example.Neptune_Prototype.ui.theme.PrimaryFontColor
 import com.example.Neptune_Prototype.ui.theme.SecondaryFontColor
 import com.example.Neptune_Prototype.ui.theme.UpvoteColor
 
 @Composable
-fun TrackComp(
-    trackUiInstance: TrackUiInstance,
-    onToggleUpvote: (TrackUiInstance) -> Unit,
+fun TrackComposable(
+    track: Track,
+    trackIndexInList: Int,
+    trackListType: TrackListType,
+    onToggleUpvote: (Track) -> Unit,
+    onToggleDropdown: (index: Int) -> Unit,
+    isDropdownExpanded: (index: Int) -> Boolean,
     onAddToQueue: (Track) -> Unit,
-    onRemoveFromQueue: (TrackUiInstance) -> Unit
+    onRemoveFromQueue: (index: Int) -> Unit,
+    onToggleBlock: (Track) -> Unit,
+    onMoveUp: (index: Int) -> Unit,
+    onMoveDown: (index: Int) -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -58,7 +65,10 @@ fun TrackComp(
                 .aspectRatio(1f)
                 .padding(5.dp)
         ) {
-            AsyncImage(model = trackUiInstance.track.value.imageUrl, contentDescription = "track image")
+            AsyncImage(
+                model = track.imageUrl,
+                contentDescription = "track image"
+            )
         }
         Box(
             modifier = Modifier
@@ -68,30 +78,46 @@ fun TrackComp(
         ) {
             Column(verticalArrangement = Arrangement.Center) {
                 Text(
-                    trackUiInstance.track.value.trackName,
+                    track.trackName,
                     color = PrimaryFontColor,
                     fontSize = 18.sp,
                     maxLines = 1
                 )
                 Text(
-                    trackUiInstance.track.value.getArtistNames(),
+                    track.getArtistNames(),
                     color = SecondaryFontColor,
                     fontSize = 10.sp,
                     maxLines = 1
                 )
             }
         }
+
+        if (trackListType == TrackListType.HOST_QUEUE) {
+            Row(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .aspectRatio(1.5f)
+            ) {
+                IconButton(onClick = { onMoveUp(trackIndexInList) }) {
+                    Icon(Icons.Default.KeyboardArrowUp, "", tint = Color.White)
+                }
+                IconButton(onClick = { onMoveDown(trackIndexInList) }) {
+                    Icon(Icons.Default.KeyboardArrowDown, "", tint = Color.White)
+                }
+            }
+        }
+
         Box(
             modifier = Modifier
                 .fillMaxHeight()
-                .aspectRatio(1.5f)
+                .aspectRatio(1.7f)
                 .padding(5.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxSize()) {
-                Text(trackUiInstance.track.value.upvoteCount.toString(), color = UpvoteColor)
-                IconButton(onClick = { onToggleUpvote(trackUiInstance) }) {
+                Text(track.upvoteCount.toString(), color = UpvoteColor)
+                IconButton(onClick = { onToggleUpvote(track) }) {
                     var icon: ImageVector
-                    if (trackUiInstance.track.value.isUpvoted) {
+                    if (track.isUpvoted) {
                         icon = Icons.Default.CheckCircle
                     } else {
                         icon = Icons.Default.AddCircle
@@ -99,23 +125,36 @@ fun TrackComp(
                     Icon(icon, "", tint = Color.White)
                 }
 
-                if (trackUiInstance.trackListType == TrackListType.HOST_QUEUE
-                    || trackUiInstance.trackListType == TrackListType.HOST_VOTE
-                    || trackUiInstance.trackListType == TrackListType.HOST_SEARCH
+                if (trackListType == TrackListType.HOST_QUEUE
+                    || trackListType == TrackListType.HOST_VOTE
+                    || trackListType == TrackListType.HOST_SEARCH
                 ) {
 
-                    IconButton(onClick = { trackUiInstance.isDropDownExpanded = true }) {
+                    IconButton(onClick = { onToggleDropdown(trackIndexInList) }) {
                         Icon(Icons.Default.MoreVert, "", tint = Color.White)
                     }
                     DropdownMenu(
-                        expanded = trackUiInstance.isDropDownExpanded,
-                        onDismissRequest = { trackUiInstance.isDropDownExpanded = false }) {
-                        val dropdownOptions = trackUiInstance.getDropdownOptions(onAddToQueue, onRemoveFromQueue)
-                        for(optionIndex in 0 until dropdownOptions.first.size) {
+                        expanded = isDropdownExpanded(trackIndexInList),
+                        onDismissRequest = { onToggleDropdown(trackIndexInList) }) {
+
+                        if (trackListType == TrackListType.HOST_SEARCH || trackListType == TrackListType.HOST_VOTE) {
                             DropdownMenuItem(
-                                text = { Text(dropdownOptions.first[optionIndex]) },
-                                onClick = { dropdownOptions.second[optionIndex]() })
+                                text = { Text(if (track.isBlocked) "Track entsperren" else "Track sperren") },
+                                onClick = { onToggleBlock(track) })
+                            DropdownMenuItem(
+                                text = { Text("In die Queue") },
+                                onClick = { onAddToQueue(track) })
                         }
+
+                        if (trackListType == TrackListType.HOST_QUEUE) {
+                            DropdownMenuItem(
+                                text = { Text(if (track.isBlocked) "Track entsperren" else "Track sperren") },
+                                onClick = { onToggleBlock(track) })
+                            DropdownMenuItem(
+                                text = { Text("Entfernen") },
+                                onClick = { onRemoveFromQueue(trackIndexInList) })
+                        }
+
                     }
                 }
             }

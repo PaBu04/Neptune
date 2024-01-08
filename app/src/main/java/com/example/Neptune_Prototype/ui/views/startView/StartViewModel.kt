@@ -4,33 +4,36 @@ import androidx.compose.runtime.MutableState
 import androidx.lifecycle.ViewModel
 import com.example.Neptune_Prototype.data.model.app.AppState
 import com.example.Neptune_Prototype.data.model.app.SpotifyLevel
-import com.example.Neptune_Prototype.data.model.user.User
 
 class StartViewModel(
-    private val appState: AppState,
-    private val spotifyLevel: MutableState<SpotifyLevel>
+    private val appState: AppState
 ) : ViewModel() {
 
-    fun canCreateSession(): Boolean {
-        return spotifyLevel.value == SpotifyLevel.PREMIUM
+    fun createSessionPossible(): Boolean {
+        return getSpotifyLevel().value == SpotifyLevel.PREMIUM
     }
 
     fun toggleLinkedToSpotify() {
-        if (spotifyLevel.value == SpotifyLevel.FREE || spotifyLevel.value == SpotifyLevel.PREMIUM) {
+        if (getSpotifyLevel().value == SpotifyLevel.FREE || getSpotifyLevel().value == SpotifyLevel.PREMIUM) {
             appState.unlinkFromSpotify()
-        } else if (spotifyLevel.value == SpotifyLevel.UNLINKED) {
+        } else if (getSpotifyLevel().value == SpotifyLevel.UNLINKED) {
             appState.connectToSpotifyWithAuthorize()
         }
     }
 
     fun getSpotifyButtonText(): String {
-        if (spotifyLevel.value == SpotifyLevel.FREE || spotifyLevel.value == SpotifyLevel.PREMIUM) {
+        if (getSpotifyLevel().value == SpotifyLevel.FREE || getSpotifyLevel().value == SpotifyLevel.PREMIUM) {
             return "Von Spotify trennen"
-        } else if (spotifyLevel.value == SpotifyLevel.UNLINKED) {
+        } else if (getSpotifyLevel().value == SpotifyLevel.UNLINKED) {
             return "Mit Spotify verknüpfen"
         } else {
             return ""
         }
+    }
+
+
+    fun getSpotifyLevel(): MutableState<SpotifyLevel> {
+        return appState.spotifyLevel
     }
 
 

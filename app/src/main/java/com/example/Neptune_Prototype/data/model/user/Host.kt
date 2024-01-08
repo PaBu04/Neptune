@@ -1,16 +1,15 @@
 package com.example.Neptune_Prototype.data.model.user
 
 import android.util.Log
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import com.example.Neptune_Prototype.data.model.backend.BackendConnector
 import com.example.Neptune_Prototype.data.model.backend.HostBackendConnector
 import com.example.Neptune_Prototype.data.model.session.Session
 import com.example.Neptune_Prototype.data.model.spotify.SpotifyConnector
 import com.example.Neptune_Prototype.data.model.track.Track
-import com.example.Neptune_Prototype.data.model.track.TrackListType
-import com.example.Neptune_Prototype.data.model.track.TrackUiInstance
+import com.example.Neptune_Prototype.ui.commons.TrackListType
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -20,9 +19,28 @@ class Host(
     private val spotifyConnector: SpotifyConnector
 ) : FullParticipant(session, hostBackendConnector, spotifyConnector) {
 
-    val queueList by mutableStateOf(mutableStateListOf<TrackUiInstance>())
+    val queueList by mutableStateOf(mutableStateListOf<MutableState<Track>>())
 
     var playbackState = mutableStateOf(PlaybackState.NONE)
+
+
+    fun createNewSession() {
+        //hostBackendConnector.getUserSessionState { Log.i("RES", it) }
+        hostBackendConnector.createNewSession { sessionId, timestamp ->
+            createNewSessionCallback(sessionId, timestamp)
+        }
+    }
+
+    private fun createNewSessionCallback(sessionId: Int, timestamp: Int) {
+        session.setSessionIdentifiers(sessionId, timestamp)
+        Log.i("SESSION ID", sessionId.toString())
+        Log.i("TIMESTAMP", timestamp.toString())
+    }
+
+    fun deleteSession() {
+        hostBackendConnector.deleteSession()
+    }
+
 
     override suspend fun searchTracks(searchInput: String) {
         if (searchInput == "") {
@@ -34,25 +52,17 @@ class Host(
             val mutableStateTrackToAdd =
                 if (isTrackRelevant(it.spotifyId)) getRelevantTrack(it.spotifyId)!!
                 else mutableStateOf(it)
-            val trackUiInstanceToAdd =
-                TrackUiInstance(mutableStateTrackToAdd, TrackListType.HOST_SEARCH)
-            searchList.add(trackUiInstanceToAdd)
+            searchList.add(mutableStateTrackToAdd)
         }
     }
 
-
-    override fun addTrackToVoteList(track: Track) {
-        internalAddTrackToVoteList(track, TrackListType.HOST_VOTE)
-    }
 
 
     fun addTrackToQueueList(track: Track) {
         if (!isTrackRelevant(track.spotifyId)) {
             addRelevantTrack(track)
         }
-        val trackUiInstance =
-            TrackUiInstance(getRelevantTrack(track.spotifyId)!!, TrackListType.HOST_QUEUE)
-        queueList.add(trackUiInstance)
+        queueList.add(getRelevantTrack(track.spotifyId)!!)
         if (queueList.size == 1) {
             GlobalScope.launch {
                 spotifyConnector.playTrack(track.spotifyId)
@@ -60,13 +70,13 @@ class Host(
         }
     }
 
-    fun removeFromQueueList(trackUiInstance: TrackUiInstance) {
-        queueList.remove(trackUiInstance)
+    fun removeFromQueueList(index: Int) {
+        val removedTrack = queueList.removeAt(index)
         if (queueList.size == 0) {
             pausePlayback()
         }
-        if (!isTrackInVoteList(trackUiInstance.track.value) && !isTrackInBlockedList(trackUiInstance.track.value)) {
-            removeFromRelevantTracks(trackUiInstance.track.value.spotifyId)
+        if (!isTrackInVoteList(removedTrack.value) && !isTrackInBlockedList(removedTrack.value)) {
+            removeFromRelevantTracks(removedTrack.value.spotifyId)
         }
     }
 
@@ -99,7 +109,7 @@ class Host(
         }
         if (queueList.size > 0) {
             GlobalScope.launch {
-                spotifyConnector.playTrack(queueList[0].track.value.spotifyId)
+                spotifyConnector.playTrack(queueList[0].value.spotifyId)
             }
         } else {
             endPlayback()

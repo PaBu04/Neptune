@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.NeptuneApp
-import com.example.Neptune_Prototype.data.model.session.Session
-import com.example.Neptune_Prototype.ui.commons.TrackListComp
+import com.example.Neptune_Prototype.ui.commons.TrackListComposable
+import com.example.Neptune_Prototype.ui.commons.TrackListType
 import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
 
 
@@ -23,8 +23,7 @@ fun SearchViewBody(navController: NavController) {
     val searchViewModel = viewModel<SearchViewModel>(
         factory = viewModelFactory {
             SearchViewModel(
-                NeptuneApp.modelContainer.user!!,
-                NeptuneApp.modelContainer.user!!.searchList
+                NeptuneApp.modelContainer.user!!
             )
         }
     )
@@ -35,11 +34,12 @@ fun SearchViewBody(navController: NavController) {
             value = searchViewModel.trackSearchInput,
             onValueChange = { searchViewModel.onSearchInputChange(it) })
         Box {
-            TrackListComp(
+            TrackListComposable(
                 tracks = searchViewModel.getSearchList(),
+                trackListType = searchViewModel.getSearchTrackListType(),
                 onToggleUpvote = { searchViewModel.onToggleUpvote(it) },
-                onAddToQueue = {},
-                onRemoveFromQueue = {} )
+                onToggleDropdown = { searchViewModel.onToggleDropdown(it) },
+                isDropdownExpanded = {searchViewModel.isDropdownExpanded(it) })
         }
     }
 }

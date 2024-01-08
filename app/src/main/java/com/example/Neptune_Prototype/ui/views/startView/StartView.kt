@@ -31,8 +31,7 @@ fun StartViewBody(navController: NavController) {
     val startViewModel = viewModel<StartViewModel>(
         factory = viewModelFactory {
             StartViewModel(
-                NeptuneApp.modelContainer.appState,
-                NeptuneApp.modelContainer.appState.spotifyLevel
+                NeptuneApp.modelContainer.appState
             )
         }
     )
@@ -49,7 +48,7 @@ fun StartViewBody(navController: NavController) {
                 StandardButton(
                     onClick = { onClickCreateSession(navController) },
                     text = "Session erstellen",
-                    enabled = startViewModel.canCreateSession()
+                    enabled = startViewModel.createSessionPossible()
                 )
             }
             Spacer(modifier = Modifier.weight(3f))

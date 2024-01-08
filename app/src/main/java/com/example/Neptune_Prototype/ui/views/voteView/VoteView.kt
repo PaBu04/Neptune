@@ -1,18 +1,19 @@
 package com.example.Neptune_Prototype.ui.views.voteView
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Neptune_Prototype.NeptuneApp
-import com.example.Neptune_Prototype.data.model.session.Session
 import com.example.Neptune_Prototype.ui.ViewsCollection
 import com.example.Neptune_Prototype.ui.commons.StandardButton
-import com.example.Neptune_Prototype.ui.commons.TrackListComp
+import com.example.Neptune_Prototype.ui.commons.TrackListComposable
+import com.example.Neptune_Prototype.ui.commons.TrackListType
 import com.example.Neptune_Prototype.ui.views.util.viewModelFactory
+import kotlinx.coroutines.delay
 
 
 @Composable
@@ -20,22 +21,27 @@ fun VoteViewBody(navController: NavController) {
     val voteViewModel = viewModel<VoteViewModel>(
         factory = viewModelFactory {
             VoteViewModel(
-                NeptuneApp.modelContainer.session as Session,
-                NeptuneApp.modelContainer.user!!.voteList
+                NeptuneApp.modelContainer.user!!
             )
         }
     )
 
     Column {
         Box(modifier = Modifier.weight(7f)) {
-            TrackListComp(
+            TrackListComposable(
                 tracks = voteViewModel.getVoteList(),
-                onToggleUpvote = { voteViewModel.onToggleUpvote(it) },
-                onAddToQueue = {},
-                onRemoveFromQueue = {} )
+                trackListType = TrackListType.PARTICIPANT_VOTE,
+                onToggleUpvote = { voteViewModel.onToggleUpvote(it) })
         }
         StandardButton(onClick = { onSearchTrack(navController) }, text = "Track suchen")
     }
+
+    LaunchedEffect(key1 = Unit, block = {
+        while (true) {
+            voteViewModel.updateVoteList()
+            delay(5000)
+        }
+    })
 }
 
 fun onSearchTrack(navController: NavController) {
@@ -48,4 +54,5 @@ fun voteViewOnBack(navController: NavController) {
         inclusive = false,
         saveState = false
     )
+    NeptuneApp.modelContainer.user!!.leaveSession()
 }

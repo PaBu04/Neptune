@@ -2,6 +2,7 @@ package com.example.Neptune_Prototype.di
 
 import android.content.Context
 import androidx.room.Room
+import com.android.volley.toolbox.Volley
 import com.example.Neptune_Prototype.data.model.app.AppState
 import com.example.Neptune_Prototype.data.model.backend.BackendConnector
 import com.example.Neptune_Prototype.data.model.session.Session
@@ -49,12 +50,8 @@ class ModelContainer (
     }
 
 
-    val backendHttpClient by lazy {
-        HttpClient(Android) {
-            install(JsonFeature) {
-                serializer = KotlinxSerializer(Json { explicitNulls = false })
-            }
-        }
+    val backendVolleyQueue by lazy {
+        Volley.newRequestQueue(context)
     }
 
 
@@ -65,5 +62,5 @@ class ModelContainer (
     var session: Session? = null
 
     var backendConnector: BackendConnector? = null
-
+    //TODO session und backendconnector in den user rein
 }

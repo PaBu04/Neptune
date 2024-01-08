@@ -4,6 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.example.Neptune_Prototype.ui.commons.TrackListType
 
 class TrackUiInstance(var track: MutableState<Track>, val trackListType: TrackListType) {
 

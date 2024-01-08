@@ -16,7 +16,7 @@ import java.security.MessageDigest
 class AppState(
     private val spotifyConnector: SpotifyConnector,
     private val appDataDao: AppDataDao,
-    private val context: Context
+    val context: Context
 ) {
 
     var deviceId = ""
@@ -33,6 +33,8 @@ class AppState(
                 if (refreshTokenUsed) {
                     setSpotifyLevel()
                 }
+            } else {
+                spotifyLevel.value = SpotifyLevel.UNLINKED
             }
         }
         GlobalScope.launch {
@@ -66,7 +68,7 @@ class AppState(
 
     private suspend fun setDeviceId() {
         if (appDataDao.entryCount() == 1) {
-             deviceId = appDataDao.getDeviceId()
+            deviceId = appDataDao.getDeviceId()
         } else {
             deviceId = generateDeviceId()
             appDataDao.upsert(AppData(0, deviceId))

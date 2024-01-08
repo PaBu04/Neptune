@@ -14,6 +14,8 @@ import com.example.Neptune_Prototype.data.model.user.FullParticipant
 import com.example.Neptune_Prototype.data.model.user.RestrictedParticipant
 import com.example.Neptune_Prototype.data.model.user.User
 import com.example.Neptune_Prototype.ui.ViewsCollection
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class JoinViewModel(
     private val appState: AppState,
@@ -35,7 +37,10 @@ class JoinViewModel(
         navController.navigate(ViewsCollection.VOTE_VIEW.name)
         NeptuneApp.modelContainer.session = Session()
         NeptuneApp.modelContainer.backendConnector =
-            ParticipantBackendConnector(NeptuneApp.modelContainer.backendHttpClient)
+            ParticipantBackendConnector(
+                NeptuneApp.modelContainer.backendVolleyQueue,
+                NeptuneApp.modelContainer.appState.deviceId
+            )
         if (appState.spotifyLevel.value == SpotifyLevel.PREMIUM || appState.spotifyLevel.value == SpotifyLevel.FREE) {
             NeptuneApp.modelContainer.user = FullParticipant(
                 NeptuneApp.modelContainer.session!!,
@@ -48,6 +53,8 @@ class JoinViewModel(
                 NeptuneApp.modelContainer.backendConnector as ParticipantBackendConnector
             )
         }
+
+        NeptuneApp.modelContainer.user!!.joinSession(sessionCodeInput.toInt())
     }
 
 }
